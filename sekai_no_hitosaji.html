@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>世界のひとさじ — 調味料投稿サイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ora:#C2703D;--ora-light:#F6EDE4;--ora-mid:#D9A06C;--ora-dark:#8C4A24;
+  --bg:#faf6f1;--bg1:#fff;--bg2:#f6f1ea;
+  --txt:#1a1a1a;--txt2:#666;--bdr:#e8e1d8;
+  --r-lg:12px;--r-md:8px;
+  --sh-sm:0 1px 2px rgba(60,30,0,.05),0 1px 1px rgba(60,30,0,.04);
+  --sh-md:0 6px 16px rgba(60,30,0,.09),0 1px 3px rgba(60,30,0,.06);
+  --sh-lg:0 16px 40px rgba(40,20,0,.16);
+  font-family:'M PLUS Rounded 1c',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+body{background:var(--bg);color:var(--txt)}
+.hidden{display:none!important}
+button,input,select,textarea{font-family:inherit}
+button{transition:transform .12s ease,box-shadow .12s ease,background-color .15s ease}
+button:active{transform:scale(.96)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--ora-mid);outline-offset:2px;
+}
+
+/* Nav */
+.nav{background:var(--ora);padding:0 1rem;display:flex;align-items:center;gap:12px;height:56px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.nav-logo{color:#fff;font-size:17px;font-weight:700;line-height:1.2;white-space:nowrap}
+.nav-logo small{font-size:11px;display:block;opacity:.85;font-weight:400}
+.nav-actions{display:flex;gap:8px;margin-left:auto}
+.nav-btn{background:rgba(255,255,255,.2);border:none;border-radius:20px;padding:6px 14px;color:#fff;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:5px}
+.nav-btn:hover{background:rgba(255,255,255,.3)}
+.lang-sel{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);border-radius:16px;padding:4px 8px;color:#fff;font-size:12px;cursor:pointer;outline:none}
+.lang-sel option{color:#333;background:#fff}
+
+/* Pages */
+.page{display:none;min-height:calc(100vh - 56px)}
+.page.active{display:block}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--ora) 0%,var(--ora-mid) 100%);padding:2rem 1rem;text-align:center;color:#fff}
+.hero h1{font-size:22px;font-weight:700;margin-bottom:.5rem}
+.hero p{font-size:14px;opacity:.9;margin-bottom:1.5rem}
+.hero-search{display:flex;gap:8px;max-width:480px;margin:0 auto}
+.hero-search input{flex:1;padding:10px 16px;border-radius:24px;border:none;font-size:14px;outline:none}
+.hero-search button{background:var(--ora-dark);border:none;border-radius:24px;padding:10px 20px;color:#fff;font-size:14px;cursor:pointer;white-space:nowrap}
+
+/* Carousel */
+.carousel{position:relative;max-width:680px;margin:0 auto;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md)}
+.carousel-track{display:flex;transition:transform .5s ease}
+.car-slide{min-width:100%;display:flex;align-items:center;gap:16px;padding:1.75rem 2.75rem;cursor:pointer;background:linear-gradient(135deg,var(--ora) 0%,var(--ora-mid) 100%);color:#fff}
+.car-emoji{font-size:56px;line-height:1;flex-shrink:0}
+.car-emoji img{width:64px;height:64px;border-radius:50%;object-fit:cover;display:block;border:2px solid rgba(255,255,255,.6)}
+.car-info{flex:1;min-width:0}
+.car-eyebrow{font-size:11px;opacity:.85;margin-bottom:2px}
+.car-name{font-size:17px;font-weight:700;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.car-meta{font-size:12px;opacity:.9}
+.car-heart{font-size:13px;flex-shrink:0}
+.car-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.3);color:#fff;border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:16px;line-height:1;display:flex;align-items:center;justify-content:center}
+.car-nav:hover{background:rgba(0,0,0,.5)}
+.car-nav.prev{left:10px}
+.car-nav.next{right:10px}
+.carousel-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
+.car-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:background .15s}
+.car-dot.active{background:#fff}
+@media(max-width:480px){
+  .car-slide{padding:1.25rem 2.25rem}
+  .car-emoji{font-size:42px}
+  .car-name{font-size:15px}
+}
+
+/* Section */
+.section{padding:1.5rem 1rem;max-width:1100px;margin:0 auto}
+.section-title{font-size:16px;font-weight:800;color:var(--txt);margin-bottom:1rem;display:flex;align-items:center;gap:8px;letter-spacing:.02em}
+
+/* AI Chat */
+.ai-box{background:var(--bg1);border:1px solid var(--bdr);border-radius:var(--r-lg);overflow:hidden;max-width:600px;box-shadow:var(--sh-md)}
+.ai-head{background:var(--ora-light);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--bdr)}
+.ai-head span{font-size:14px;font-weight:600;color:var(--ora-dark)}
+.ai-key-bar{display:flex;gap:8px;padding:8px 10px;background:var(--bg2);border-bottom:1px solid var(--bdr);align-items:center}
+.ai-key-bar input{flex:1;padding:5px 10px;border:1px solid var(--bdr);border-radius:8px;font-size:12px;outline:none;font-family:inherit}
+.ai-key-bar input:focus{border-color:var(--ora)}
+.ai-key-bar button{background:var(--ora);border:none;border-radius:8px;padding:5px 12px;color:#fff;font-size:12px;cursor:pointer;white-space:nowrap;font-family:inherit}
+.ai-msgs{padding:12px;min-height:140px;max-height:280px;overflow-y:auto}
+.ai-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 10px}
+.ai-chip{background:var(--ora-light);color:var(--ora-dark);border:none;border-radius:14px;padding:5px 12px;font-size:12px;cursor:pointer;white-space:nowrap}
+.ai-chip:hover{background:var(--ora-mid);color:#fff}
+.ai-msg{font-size:13px;color:var(--txt2);background:var(--bg2);border-radius:10px;padding:8px 12px;margin-bottom:8px;max-width:85%;white-space:pre-wrap;word-break:break-word}
+.ai-msg.user{margin-left:auto;background:var(--ora-light);color:var(--ora-dark)}
+.ai-typing{display:flex;gap:5px;padding:8px 12px;margin-bottom:8px}
+.ai-typing span{width:7px;height:7px;background:var(--bdr);border-radius:50%;animation:dot 1.2s infinite}
+.ai-typing span:nth-child(2){animation-delay:.2s}
+.ai-typing span:nth-child(3){animation-delay:.4s}
+@keyframes dot{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.ai-inp{display:flex;gap:8px;padding:10px;border-top:1px solid var(--bdr)}
+.ai-inp input{flex:1;padding:7px 12px;border-radius:16px;border:1px solid var(--bdr);font-size:13px;outline:none;background:var(--bg1);color:var(--txt)}
+.ai-inp button{background:var(--ora);border:none;border-radius:16px;padding:7px 14px;color:#fff;font-size:13px;cursor:pointer}
+
+/* Category */
+.cat-scroll{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 8px;scrollbar-width:thin}
+.cat-scroll::-webkit-scrollbar{height:5px}
+.cat-scroll::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:3px}
+.cat-card{flex:0 0 82px;background:var(--bg1);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:14px 8px;text-align:center;cursor:pointer;box-shadow:var(--sh-sm);transition:border-color .15s,transform .15s,box-shadow .15s}
+.cat-card:hover{border-color:var(--ora);transform:translateY(-3px);box-shadow:var(--sh-md)}
+.cat-card .ci{font-size:24px;display:block;margin-bottom:6px}
+.cat-card span{font-size:12px;color:var(--txt2)}
+
+/* Rankings */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.home-grid{display:grid;grid-template-columns:3fr 2fr;gap:1.5rem;align-items:start}
+.rank-list{background:var(--bg1);border:1px solid var(--bdr);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm)}
+.rank-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--bdr)}
+.rank-item:last-child{border-bottom:none}
+.rank-num{font-size:15px;font-weight:700;color:var(--ora);min-width:26px;height:26px;border-radius:50%;background:var(--ora-light);display:flex;align-items:center;justify-content:center}
+.rank-info{flex:1}
+.rank-name{font-size:13px;font-weight:600;color:var(--txt)}
+.rank-meta{font-size:11px;color:var(--txt2)}
+.rank-heart{font-size:12px;color:#e24b4a}
+
+/* Post Cards */
+.post-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.post-card{background:var(--bg1);border:1px solid var(--bdr);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;box-shadow:var(--sh-sm);transition:border-color .15s,transform .15s,box-shadow .15s}
+.post-card:hover{border-color:var(--ora);transform:translateY(-3px);box-shadow:var(--sh-md)}
+.post-img{height:110px;display:flex;align-items:center;justify-content:center;font-size:48px;background:radial-gradient(circle at 30% 25%,var(--ora-light) 0%,var(--bg2) 75%);overflow:hidden}
+.post-img img{width:100%;height:100%;object-fit:cover}
+.post-body{padding:10px}
+.post-title{font-size:13px;font-weight:600;color:var(--txt);margin-bottom:4px}
+.post-tag{font-size:11px;background:var(--ora-light);color:var(--ora-dark);border-radius:10px;padding:2px 8px;display:inline-block}
+.post-footer{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.post-user{font-size:11px;color:var(--txt2)}
+.post-likes{font-size:12px;color:#e24b4a}
+
+/* Detail */
+.detail-wrap{padding:1rem;max-width:680px;margin:0 auto}
+.detail-back{background:none;border:none;color:var(--ora);font-size:14px;cursor:pointer;display:flex;align-items:center;gap:4px;margin-bottom:1rem;padding:0}
+.detail-top{background:var(--bg1);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:1rem;box-shadow:var(--sh-md)}
+.detail-emoji{font-size:72px;text-align:center;padding:1rem 0}
+.detail-emoji img{width:140px;height:140px;border-radius:50%;object-fit:cover;box-shadow:var(--sh-md)}
+.detail-title{font-size:20px;font-weight:700;text-align:center;margin-bottom:.25rem}
+.detail-sub{text-align:center;color:var(--txt2);font-size:13px;margin-bottom:1rem}
+.detail-tags{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+.detail-tag{font-size:12px;background:var(--ora-light);color:var(--ora-dark);border-radius:12px;padding:3px 10px}
+.detail-desc{font-size:14px;color:var(--txt2);line-height:1.7;border-top:1px solid var(--bdr);padding-top:1rem}
+.chart-sec{background:var(--bg1);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:1rem;box-shadow:var(--sh-sm)}
+.chart-ttl{font-size:14px;font-weight:600;margin-bottom:1rem}
+.radar-wrap{display:flex;justify-content:center}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.bar-lbl{font-size:12px;color:var(--txt2);width:50px;text-align:right}
+.bar-track{flex:1;background:var(--bg2);border-radius:6px;height:14px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;background:var(--ora);transition:width .3s}
+.bar-val{font-size:12px;font-weight:600;color:var(--ora-dark);min-width:28px}
+
+/* Forms */
+.form-group{margin-bottom:1rem}
+.form-label{font-size:13px;font-weight:600;color:var(--txt);margin-bottom:6px;display:block}
+.form-input,.form-sel,.form-ta{width:100%;padding:9px 12px;border:1px solid var(--bdr);border-radius:var(--r-md);font-size:14px;background:var(--bg1);color:var(--txt);outline:none;font-family:inherit}
+.form-ta{min-height:80px;resize:vertical}
+.form-input:focus,.form-sel:focus,.form-ta:focus{border-color:var(--ora)}
+.slider-row{display:flex;align-items:center;gap:10px}
+.slider-row input[type=range]{flex:1;accent-color:var(--ora)}
+.sv{font-size:13px;font-weight:600;color:var(--ora-dark);min-width:24px}
+.form-btn{background:var(--ora);border:none;border-radius:var(--r-md);padding:10px 24px;color:#fff;font-size:14px;cursor:pointer;width:100%;margin-top:.5rem;font-family:inherit;box-shadow:var(--sh-sm);font-weight:700}
+.form-btn:hover{background:var(--ora-dark);box-shadow:var(--sh-md)}
+
+/* Badges */
+.badge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-top:6px}
+.badge-opt{border:1px solid var(--bdr);border-radius:var(--r-md);padding:8px 10px;font-size:12px;cursor:pointer;text-align:center;transition:all .15s;color:var(--txt2)}
+.badge-opt.sel{border-color:var(--ora);background:var(--ora-light);color:var(--ora-dark)}
+.badge-opt .bi{font-size:18px;display:block;margin-bottom:4px}
+.terms-box{background:var(--bg2);border-radius:var(--r-md);padding:1rem;font-size:12px;color:var(--txt2);line-height:1.7;max-height:120px;overflow-y:auto;margin-bottom:.75rem;white-space:pre-wrap}
+
+/* My Page */
+.mp-wrap{padding:1rem;max-width:560px;margin:0 auto}
+.profile-card{background:var(--bg1);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:1.5rem;text-align:center;margin-bottom:1rem;box-shadow:var(--sh-md)}
+.avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--ora) 0%,var(--ora-mid) 100%);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 12px;box-shadow:var(--sh-sm)}
+.profile-name{font-size:18px;font-weight:700;margin-bottom:4px}
+.profile-loc{font-size:13px;color:var(--txt2);margin-bottom:12px}
+.badge-row{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.badge-pill{background:var(--ora-light);color:var(--ora-dark);font-size:12px;border-radius:12px;padding:4px 12px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:1rem}
+.stat-box{background:var(--bg2);border-radius:var(--r-md);padding:12px;text-align:center;box-shadow:var(--sh-sm)}
+.stat-num{font-size:22px;font-weight:700;color:var(--ora)}
+.stat-lbl{font-size:11px;color:var(--txt2)}
+.tab-row{display:flex;border:1px solid var(--bdr);border-radius:var(--r-md);overflow:hidden;margin-bottom:1rem}
+.tab-btn{flex:1;padding:8px;font-size:13px;background:var(--bg1);border:none;cursor:pointer;color:var(--txt2);font-family:inherit}
+.tab-btn.active{background:var(--ora);color:#fff}
+
+/* Modal */
+.modal-bg{position:fixed;inset:0;background:rgba(30,15,0,.5);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;animation:fadeIn .15s ease}
+.modal-box{background:var(--bg1);border-radius:var(--r-lg);padding:1.5rem;width:100%;max-width:460px;max-height:85vh;overflow-y:auto;box-shadow:var(--sh-lg);animation:popIn .18s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes popIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+.modal-ttl{font-size:18px;font-weight:700;margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between}
+.modal-close{background:none;border:none;cursor:pointer;color:var(--txt2);font-size:22px;line-height:1}
+.success-msg{background:#eaf3de;color:#27500a;border-radius:var(--r-md);padding:12px 16px;font-size:13px;text-align:center;margin-top:1rem}
+
+@media(max-width:760px){
+  .home-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .two-col{grid-template-columns:1fr}
+  .nav-logo small{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo" id="navLogo">世界のひとさじ<small>condiment world</small></div>
+  <div class="nav-actions">
+    <select class="lang-sel" id="langSel">
+      <option value="ja">🇯🇵 日本語</option>
+      <option value="en">🇬🇧 English</option>
+      <option value="th">🇹🇭 ไทย</option>
+      <option value="zh">🇨🇳 中文</option>
+      <option value="ko">🇰🇷 한국어</option>
+      <option value="fr">🇫🇷 Français</option>
+    </select>
+    <button class="nav-btn" onclick="showPage('mypage')">👤 <span id="navMy">マイページ</span></button>
+    <button class="nav-btn" onclick="showModal('regModal')">➕ <span id="navReg">登録</span></button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <h1 id="heroTitle">🌶 世界中の調味料を探す</h1>
+    <p id="heroSub">投稿・発見・シェア — あなたの一さじから世界へ</p>
+    <div class="hero-search">
+      <input type="text" id="heroSearch" placeholder="調味料を検索…">
+      <button onclick="doSearch()" id="heroSearchBtn">検索</button>
+    </div>
+  </div>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="section-title">🍽 <span id="recoTitle">おすすめの調味料</span></div>
+    <div class="carousel" id="carousel">
+      <div class="carousel-track" id="carouselTrack"></div>
+      <button class="car-nav prev" onclick="carouselNav(-1)">‹</button>
+      <button class="car-nav next" onclick="carouselNav(1)">›</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="home-grid">
+      <div>
+        <div class="section-title">🤖 <span id="aiTitle">AIに聞く</span></div>
+        <div class="ai-box">
+          <div class="ai-head">
+            <span>✨</span><span id="aiSub">調味料AIアシスタント</span>
+            <button onclick="toggleKeyBar()" title="APIキー設定" style="margin-left:auto;background:none;border:none;cursor:pointer;font-size:17px;line-height:1;padding:0">🔑</button>
+          </div>
+          <div class="ai-key-bar hidden" id="aiKeyBar">
+            <input type="password" id="apiKeyInput" placeholder="Gemini APIキーを入力 (AIzaSy…)">
+            <button onclick="saveApiKey()">保存</button>
+          </div>
+          <div class="ai-msgs" id="chatMsgs">
+            <div class="ai-msg" id="aiWelcome">こんにちは！調味料について何でも聞いてください🌶️</div>
+          </div>
+          <div class="ai-chips" id="aiChips"></div>
+          <div class="ai-inp">
+            <input type="text" id="aiInput" placeholder="例：辛い調味料を教えて" onkeydown="if(event.key==='Enter')sendChat()">
+            <button onclick="sendChat()" id="aiSend">送信</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-title">🔥 <span id="trendTitle">トレンド</span></div>
+        <p style="font-size:12px;color:var(--txt2);margin-bottom:8px" id="trendSub">今週の話題</p>
+        <div class="rank-list">
+          <div class="rank-item"><span class="rank-num">🥇</span><div class="rank-info"><p class="rank-name" id="t1n">ラー油</p><p class="rank-meta" id="t1m">中国・四川</p></div></div>
+          <div class="rank-item"><span class="rank-num">✨</span><div class="rank-info"><p class="rank-name" id="t2n">ハリッサ</p><p class="rank-meta" id="t2m">チュニジア</p></div></div>
+          <div class="rank-item"><span class="rank-num">🌿</span><div class="rank-info"><p class="rank-name" id="t3n">ドゥカ</p><p class="rank-meta" id="t3m">エジプト</p></div></div>
+        </div>
+        <p style="font-size:12px;color:var(--txt2);margin:14px 0 8px" id="rankSub">❤️ いいねランキング</p>
+        <div class="rank-list">
+          <div class="rank-item"><span class="rank-num">1</span><div class="rank-info"><p class="rank-name" id="r1n">醤油（たまり）</p><p class="rank-meta" id="r1m">日本</p></div><span class="rank-heart">❤️ 482</span></div>
+          <div class="rank-item"><span class="rank-num">2</span><div class="rank-info"><p class="rank-name" id="r2n">スリラチャ</p><p class="rank-meta" id="r2m">タイ</p></div><span class="rank-heart">❤️ 391</span></div>
+          <div class="rank-item"><span class="rank-num">3</span><div class="rank-info"><p class="rank-name" id="r3n">ナンプラー</p><p class="rank-meta" id="r3m">タイ</p></div><span class="rank-heart">❤️ 344</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📂 <span id="catTitle">カテゴリ</span></div>
+    <div class="cat-scroll">
+      <div class="cat-card" onclick="filterCat(0)"><span class="ci">🔥</span><span id="cat0">辛い</span></div>
+      <div class="cat-card" onclick="filterCat(1)"><span class="ci">🍬</span><span id="cat1">甘い</span></div>
+      <div class="cat-card" onclick="filterCat(2)"><span class="ci">🍋</span><span id="cat2">酸っぱい</span></div>
+      <div class="cat-card" onclick="filterCat(3)"><span class="ci">🐟</span><span id="cat3">塩辛い</span></div>
+      <div class="cat-card" onclick="filterCat(4)"><span class="ci">🍄</span><span id="cat4">うまみ</span></div>
+      <div class="cat-card" onclick="filterCat(5)"><span class="ci">⚗️</span><span id="cat5">発酵</span></div>
+      <div class="cat-card" onclick="filterCat(6)"><span class="ci">💨</span><span id="cat6">スモーク</span></div>
+      <div class="cat-card" onclick="filterCat(7)"><span class="ci">🌿</span><span id="cat7">ハーブ</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🍶 <span id="newTitle">新着投稿</span></div>
+    <div class="post-grid" id="postGrid"></div>
+    <div style="text-align:center;margin-top:1.25rem">
+      <button onclick="showModal('postModal')" style="background:var(--ora);border:none;border-radius:24px;padding:11px 28px;color:#fff;font-size:14px;cursor:pointer;font-family:inherit">
+        ➕ <span id="postBtnTxt">調味料を投稿する</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- DETAIL -->
+<div class="page" id="page-detail">
+  <div class="detail-wrap">
+    <button class="detail-back" onclick="showPage('home')">← <span id="backBtn">戻る</span></button>
+    <div class="detail-top">
+      <div class="detail-emoji" id="dEmoji">🧄</div>
+      <div class="detail-title" id="dTitle">醤油（たまり）</div>
+      <div class="detail-sub" id="dSub">日本 • うまみ</div>
+      <div class="detail-tags" id="dTags"></div>
+      <div class="detail-desc" id="dDesc"></div>
+    </div>
+    <div class="chart-sec">
+      <div class="chart-ttl">📊 <span id="flavorTitle">五味チャート</span></div>
+      <div class="radar-wrap"><canvas id="radarChart" width="260" height="260"></canvas></div>
+    </div>
+    <div class="chart-sec">
+      <div class="chart-ttl">📈 <span id="intensityTitle">濃厚さ・香り指標</span></div>
+      <div id="barArea"></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:1rem">
+      <button class="form-btn" style="background:#e24b4a" onclick="likeItem()">❤️ <span id="likeBtnTxt">いいね！</span></button>
+      <button class="form-btn" onclick="showModal('postModal')">✏️ <span id="editBtnTxt">投稿する</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- MY PAGE -->
+<div class="page" id="page-mypage">
+  <div class="mp-wrap">
+    <button class="detail-back" onclick="showPage('home')">← <span id="mpBack">ホームへ戻る</span></button>
+    <div class="profile-card">
+      <div class="avatar">🤤</div>
+      <div class="profile-name" id="mpName">ゲストユーザー</div>
+      <div class="profile-loc" id="mpLoc">📍 未設定</div>
+      <div class="badge-row" id="mpBadges">
+        <span class="badge-pill">辛党</span><span class="badge-pill">グルメ</span>
+      </div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-box"><div class="stat-num">12</div><div class="stat-lbl" id="statPosts">投稿</div></div>
+      <div class="stat-box"><div class="stat-num">87</div><div class="stat-lbl" id="statLikes">いいね</div></div>
+      <div class="stat-box"><div class="stat-num">5</div><div class="stat-lbl" id="statFollowers">フォロワー</div></div>
+    </div>
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="mpTab(this,'posts')" id="tabPost">投稿</button>
+      <button class="tab-btn" onclick="mpTab(this,'liked')" id="tabLiked">いいね済</button>
+      <button class="tab-btn" onclick="mpTab(this,'settings')" id="tabSettings">設定</button>
+    </div>
+    <div id="mpContent"><div class="post-grid" id="myPostGrid"></div></div>
+    <button class="form-btn" style="margin-top:1rem" onclick="showModal('regModal')">✏️ <span id="editProfileBtn">プロフィールを編集</span></button>
+  </div>
+</div>
+
+<!-- REGISTER MODAL -->
+<div class="modal-bg hidden" id="regModal" onclick="closeBg(event,'regModal')">
+  <div class="modal-box">
+    <div class="modal-ttl"><span id="regTitle">ユーザー登録</span><button class="modal-close" onclick="closeModal('regModal')">✕</button></div>
+    <div class="form-group"><label class="form-label" id="lbNick">ニックネーム</label><input class="form-input" type="text" id="regNick" placeholder="例：スパイス太郎"></div>
+    <div class="form-group"><label class="form-label" id="lbEmail">メールアドレス</label><input class="form-input" type="email" id="regEmail" placeholder="example@mail.com"></div>
+    <div class="form-group">
+      <label class="form-label" id="lbGender">性別</label>
+      <select class="form-sel" id="regGender">
+        <option value="">選択してください</option>
+        <option id="gMale">男性</option><option id="gFemale">女性</option><option id="gOther">その他・答えない</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label" id="lbPref">都道府県</label>
+      <select class="form-sel" id="regPref">
+        <option value="">選択</option>
+        <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option>
+        <option>東京都</option><option>神奈川県</option><option>埼玉県</option><option>千葉県</option>
+        <option>大阪府</option><option>京都府</option><option>兵庫県</option><option>愛知県</option>
+        <option>福岡県</option><option>沖縄県</option><option>その他・海外</option>
+      </select>
+    </div>
+    <div class="form-group"><label class="form-label" id="lbCity">市区町村</label><input class="form-input" type="text" id="regCity" placeholder="例：渋谷区"></div>
+    <div class="form-group">
+      <label class="form-label" id="lbBadge">味覚バッジ（複数選択可）</label>
+      <div class="badge-grid" id="badgeGrid">
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🔥</span><span id="b0">辛党</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🍬</span><span id="b1">甘党</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🍃</span><span id="b2">オーガニック</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🌱</span><span id="b3">ベジタリアン</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🌿</span><span id="b4">ヴィーガン</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">⚗️</span><span id="b5">発酵好き</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🐟</span><span id="b6">塩マニア</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">⭐</span><span id="b7">グルメ</span></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" id="lbTerms">利用規約</label>
+      <div class="terms-box" id="termsBox"></div>
+      <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--txt2);cursor:pointer;margin-top:.5rem">
+        <input type="checkbox" id="agreeCheck"> <span id="agreeLabel">利用規約に同意する</span>
+      </label>
+    </div>
+    <button class="form-btn" onclick="doRegister()" id="regBtn">登録する</button>
+    <div id="regOk" class="success-msg hidden"></div>
+  </div>
+</div>
+
+<!-- POST MODAL -->
+<div class="modal-bg hidden" id="postModal" onclick="closeBg(event,'postModal')">
+  <div class="modal-box">
+    <div class="modal-ttl"><span id="postModalTitle">調味料を投稿</span><button class="modal-close" onclick="closeModal('postModal')">✕</button></div>
+    <div class="form-group"><label class="form-label" id="lbPName">調味料名</label><input class="form-input" type="text" id="pName" placeholder="例：ハリッサ"></div>
+    <div class="form-group"><label class="form-label" id="lbPCountry">産地国・地域</label><input class="form-input" type="text" id="pCountry" placeholder="例：チュニジア"></div>
+    <div class="form-group"><label class="form-label" id="lbPCat">カテゴリ</label><select class="form-sel" id="pCat"></select></div>
+    <div class="form-group"><label class="form-label" id="lbPDesc">説明</label><textarea class="form-ta" id="pDesc" placeholder="特徴・使い方・おすすめ料理など…"></textarea></div>
+    <p style="font-size:13px;font-weight:600;margin-bottom:10px" id="lbFlavor">味の強さ（1〜10）</p>
+    <div>
+      <div class="bar-row"><span class="bar-lbl" id="fl0">甘味</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="3" oninput="sv(this,'v0')"><span class="sv" id="v0">3</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl1">酸味</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="2" oninput="sv(this,'v1')"><span class="sv" id="v1">2</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl2">塩味</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="5" oninput="sv(this,'v2')"><span class="sv" id="v2">5</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl3">苦味</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="1" oninput="sv(this,'v3')"><span class="sv" id="v3">1</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl4">うまみ</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="7" oninput="sv(this,'v4')"><span class="sv" id="v4">7</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl5">辛味</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="4" oninput="sv(this,'v5')"><span class="sv" id="v5">4</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl6">濃厚さ</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="6" oninput="sv(this,'v6')"><span class="sv" id="v6">6</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl7">香り</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="8" oninput="sv(this,'v7')"><span class="sv" id="v7">8</span></div></div>
+    </div>
+    <div class="form-group" style="margin-top:1rem">
+      <label class="form-label" id="lbPPhoto">写真（絵文字で代用）</label>
+      <select class="form-sel" id="pEmoji">
+        <option>🌶️</option><option>🧄</option><option>🍯</option><option>🫙</option>
+        <option>🍅</option><option>🧅</option><option>🫒</option><option>🥫</option>
+        <option>🌿</option><option>🫧</option>
+      </select>
+      <input class="form-input" type="url" id="pImgUrl" placeholder="または画像URLを貼り付け（任意）" style="margin-top:8px">
+    </div>
+    <button class="form-btn" onclick="submitPost()" id="submitPostBtn">投稿する</button>
+    <div id="postOk" class="success-msg hidden"></div>
+  </div>
+</div>
+
+<script>
+const T={
+  ja:{
+    navLogo:'世界のひとさじ',heroTitle:'🌶 世界中の調味料を探す',heroSub:'投稿・発見・シェア — あなたの一さじから世界へ',
+    aiTitle:'AIに聞く',aiSub:'調味料AIアシスタント',aiWelcome:'こんにちは！調味料について何でも聞いてください🌶️',
+    aiSend:'送信',trendTitle:'トレンド',trendSub:'今週の話題',rankSub:'❤️ いいねランキング',
+    recoTitle:'おすすめの調味料',catTitle:'カテゴリ',newTitle:'新着投稿',postBtnTxt:'調味料を投稿する',
+    navMy:'マイページ',navReg:'登録',heroSearchBtn:'検索',backBtn:'戻る',
+    flavorTitle:'五味チャート',intensityTitle:'濃厚さ・香り指標',likeBtnTxt:'いいね！',editBtnTxt:'投稿する',
+    regTitle:'ユーザー登録',lbNick:'ニックネーム',lbEmail:'メールアドレス',lbGender:'性別',
+    lbPref:'都道府県',lbCity:'市区町村',lbBadge:'味覚バッジ（複数選択可）',lbTerms:'利用規約',agreeLabel:'利用規約に同意する',regBtn:'登録する',
+    gMale:'男性',gFemale:'女性',gOther:'その他・答えない',
+    postModalTitle:'調味料を投稿',lbPName:'調味料名',lbPCountry:'産地国・地域',lbPCat:'カテゴリ',lbPDesc:'説明',
+    lbFlavor:'味の強さ（1〜10）',lbPPhoto:'写真（絵文字で代用）',submitPostBtn:'投稿する',
+    fl0:'甘味',fl1:'酸味',fl2:'塩味',fl3:'苦味',fl4:'うまみ',fl5:'辛味',fl6:'濃厚さ',fl7:'香り',
+    cat0:'辛い',cat1:'甘い',cat2:'酸っぱい',cat3:'塩辛い',cat4:'うまみ',cat5:'発酵',cat6:'スモーク',cat7:'ハーブ',
+    catKeys:['辛い','甘い','酸っぱい','塩辛い','うまみ','発酵','スモーク','ハーブ'],
+    statPosts:'投稿',statLikes:'いいね',statFollowers:'フォロワー',tabPost:'投稿',tabLiked:'いいね済',tabSettings:'設定',editProfileBtn:'プロフィールを編集',mpBack:'ホームへ戻る',
+    flavorLabels:['甘味','酸味','塩味','苦味','うまみ','辛味'],
+    searchPh:'調味料を検索…',imgUrlPh:'または画像URLを貼り付け（任意）',aiPh:'例：辛い調味料を教えて',
+    aiChips:['辛い調味料のおすすめは？','醤油の種類を教えて','発酵調味料は体にいいの？','万能調味料はある？'],
+    badges:['辛党','甘党','オーガニック','ベジタリアン','ヴィーガン','発酵好き','塩マニア','グルメ'],
+    t1n:'ラー油',t1m:'中国・四川',t2n:'ハリッサ',t2m:'チュニジア',t3n:'ドゥカ',t3m:'エジプト',
+    r1n:'醤油（たまり）',r1m:'日本',r2n:'スリラチャ',r2m:'タイ',r3n:'ナンプラー',r3m:'タイ',
+    regOk:'✅ 登録完了！ようこそ世界のひとさじへ！',postOk:'✅ 投稿しました！ありがとうございます！',
+    tabLikedTxt:'いいねした投稿: 醤油（たまり）、スリラチャ',tabSettingsTxt:'設定・通知・プライバシー（準備中）',
+    unknownCountry:'未記入',
+    terms:`【世界のひとさじ 利用規約】
+
+第1条（目的）
+本サービスは、世界中の調味料に関する情報を共有・発見するためのプラットフォームです。
+
+第2条（禁止事項）
+・他者を誹謗中傷するコンテンツの投稿
+・虚偽の情報の投稿
+・著作権を侵害するコンテンツの投稿
+・スパム・広告目的の投稿
+
+第3条（投稿コンテンツ）
+ユーザーが投稿したコンテンツの著作権はユーザーに帰属します。
+
+第4条（個人情報）
+収集した個人情報はサービス改善・統計目的にのみ使用します。
+
+以上`,
+  },
+  en:{
+    navLogo:'A Pinch of the World',heroTitle:'🌶 Discover Condiments Worldwide',heroSub:'Post · Discover · Share — your pinch to the world',
+    aiTitle:'Ask AI',aiSub:'Condiment AI Assistant',aiWelcome:'Hello! Ask me anything about condiments 🌶️',
+    aiSend:'Send',trendTitle:'Trends',trendSub:'This week',rankSub:'❤️ Like Rankings',
+    recoTitle:'Recommended Condiments',catTitle:'Categories',newTitle:'New Posts',postBtnTxt:'Post a Condiment',
+    navMy:'My Page',navReg:'Sign Up',heroSearchBtn:'Search',backBtn:'Back',
+    flavorTitle:'Flavor Radar',intensityTitle:'Richness & Aroma Index',likeBtnTxt:'Like!',editBtnTxt:'Post',
+    regTitle:'Sign Up',lbNick:'Nickname',lbEmail:'Email',lbGender:'Gender',
+    lbPref:'Region',lbCity:'City',lbBadge:'Taste Badges (multi-select)',lbTerms:'Terms of Service',agreeLabel:'I agree to the terms',regBtn:'Register',
+    gMale:'Male',gFemale:'Female',gOther:'Other / Prefer not to say',
+    postModalTitle:'Post a Condiment',lbPName:'Name',lbPCountry:'Origin',lbPCat:'Category',lbPDesc:'Description',
+    lbFlavor:'Flavor Intensity (1-10)',lbPPhoto:'Photo (emoji)',submitPostBtn:'Post',
+    fl0:'Sweet',fl1:'Sour',fl2:'Salty',fl3:'Bitter',fl4:'Umami',fl5:'Spicy',fl6:'Richness',fl7:'Aroma',
+    cat0:'Spicy',cat1:'Sweet',cat2:'Sour',cat3:'Salty',cat4:'Umami',cat5:'Fermented',cat6:'Smoky',cat7:'Herbal',
+    catKeys:['Spicy','Sweet','Sour','Salty','Umami','Fermented','Smoky','Herbal'],
+    statPosts:'Posts',statLikes:'Likes',statFollowers:'Followers',tabPost:'Posts',tabLiked:'Liked',tabSettings:'Settings',editProfileBtn:'Edit Profile',mpBack:'Back to Home',
+    flavorLabels:['Sweet','Sour','Salty','Bitter','Umami','Spicy'],
+    searchPh:'Search condiments…',imgUrlPh:'Or paste an image URL (optional)',aiPh:'e.g. Tell me spicy condiments',
+    aiChips:['Recommend spicy condiments','What types of soy sauce exist?','Are fermented condiments healthy?','Any all-purpose condiment?'],
+    badges:['Spice Lover','Sweet Tooth','Organic','Vegetarian','Vegan','Fermentation Fan','Salt Maniac','Foodie'],
+    t1n:'Chili Oil',t1m:'China · Sichuan',t2n:'Harissa',t2m:'Tunisia',t3n:'Dukkah',t3m:'Egypt',
+    r1n:'Tamari Soy Sauce',r1m:'Japan',r2n:'Sriracha',r2m:'Thailand',r3n:'Fish Sauce',r3m:'Thailand',
+    regOk:'✅ Registered! Welcome to A Pinch of the World!',postOk:'✅ Posted! Thank you!',
+    tabLikedTxt:'Liked posts: Tamari Soy Sauce, Sriracha',tabSettingsTxt:'Settings / Notifications / Privacy (coming soon)',
+    unknownCountry:'Unknown',
+    terms:`[Terms of Service]
+
+Article 1 (Purpose)
+A platform for sharing and discovering condiment information worldwide.
+
+Article 2 (Prohibited)
+Defamatory content, false information, copyright infringement, spam.
+
+Article 3 (User Content)
+Users retain copyright but grant display rights to the service.
+
+Article 4 (Privacy)
+Personal data used only for service improvement and statistics.`,
+  },
+  th:{
+    navLogo:'หยิบมือจากโลก',heroTitle:'🌶 ค้นพบเครื่องปรุงทั่วโลก',heroSub:'เผยแพร่ · ค้นพบ · แบ่งปัน',
+    aiTitle:'ถาม AI',aiSub:'AI ผู้ช่วยเครื่องปรุง',aiWelcome:'สวัสดี! ถามอะไรเกี่ยวกับเครื่องปรุงได้เลย 🌶️',
+    aiSend:'ส่ง',trendTitle:'เทรนด์',trendSub:'สัปดาห์นี้',rankSub:'❤️ อันดับที่ชอบ',
+    recoTitle:'เครื่องปรุงแนะนำ',catTitle:'หมวดหมู่',newTitle:'โพสต์ใหม่',postBtnTxt:'โพสต์เครื่องปรุง',
+    navMy:'หน้าของฉัน',navReg:'สมัคร',heroSearchBtn:'ค้นหา',backBtn:'กลับ',
+    flavorTitle:'กราฟรสชาติ',intensityTitle:'ความเข้มข้น & กลิ่น',likeBtnTxt:'ถูกใจ!',editBtnTxt:'โพสต์',
+    regTitle:'สมัครสมาชิก',lbNick:'ชื่อเล่น',lbEmail:'อีเมล',lbGender:'เพศ',
+    lbPref:'จังหวัด',lbCity:'เมือง',lbBadge:'ป้ายรสชาติ',lbTerms:'ข้อกำหนด',agreeLabel:'ยอมรับข้อกำหนด',regBtn:'สมัคร',
+    gMale:'ชาย',gFemale:'หญิง',gOther:'อื่นๆ',
+    postModalTitle:'โพสต์เครื่องปรุง',lbPName:'ชื่อ',lbPCountry:'แหล่งกำเนิด',lbPCat:'หมวด',lbPDesc:'รายละเอียด',
+    lbFlavor:'ความเข้มรสชาติ',lbPPhoto:'รูป (emoji)',submitPostBtn:'โพสต์',
+    fl0:'หวาน',fl1:'เปรี้ยว',fl2:'เค็ม',fl3:'ขม',fl4:'อูมามิ',fl5:'เผ็ด',fl6:'เข้มข้น',fl7:'กลิ่น',
+    cat0:'เผ็ด',cat1:'หวาน',cat2:'เปรี้ยว',cat3:'เค็ม',cat4:'อูมามิ',cat5:'หมักดอง',cat6:'รมควัน',cat7:'สมุนไพร',
+    catKeys:['เผ็ด','หวาน','เปรี้ยว','เค็ม','อูมามิ','หมักดอง','รมควัน','สมุนไพร'],
+    statPosts:'โพสต์',statLikes:'ถูกใจ',statFollowers:'ผู้ติดตาม',tabPost:'โพสต์',tabLiked:'ถูกใจแล้ว',tabSettings:'ตั้งค่า',editProfileBtn:'แก้ไขโปรไฟล์',mpBack:'กลับหน้าหลัก',
+    flavorLabels:['หวาน','เปรี้ยว','เค็ม','ขม','อูมามิ','เผ็ด'],
+    searchPh:'ค้นหาเครื่องปรุง…',imgUrlPh:'หรือวางลิงก์รูปภาพ (ไม่บังคับ)',aiPh:'เช่น: แนะนำเครื่องปรุงรสเผ็ด',
+    aiChips:['แนะนำเครื่องปรุงรสเผ็ด','ซีอิ๊วมีกี่ชนิด','เครื่องปรุงหมักดีต่อสุขภาพไหม','มีเครื่องปรุงอเนกประสงค์ไหม'],
+    badges:['ชอบเผ็ด','ชอบหวาน','ออร์แกนิค','มังสวิรัติ','วีแกน','ชอบหมักดอง','คลั่งเกลือ','นักชิม'],
+    t1n:'น้ำมันพริก',t1m:'จีน · เสฉวน',t2n:'ฮาริสสา',t2m:'ตูนิเซีย',t3n:'ดุกกะ',t3m:'อียิปต์',
+    r1n:'ซอสถั่วเหลืองทามาริ',r1m:'ญี่ปุ่น',r2n:'ซอสศรีราชา',r2m:'ไทย',r3n:'น้ำปลา',r3m:'ไทย',
+    regOk:'✅ สมัครสำเร็จ! ยินดีต้อนรับ!',postOk:'✅ โพสต์แล้ว! ขอบคุณ!',
+    tabLikedTxt:'โพสต์ที่ถูกใจ: ซอสถั่วเหลือง, ซอสศรีราชา',tabSettingsTxt:'การตั้งค่า (เร็วๆ นี้)',
+    unknownCountry:'ไม่ระบุ',
+    terms:`[ข้อกำหนดการใช้]
+
+ข้อ 1: บริการนี้เป็นแพลตฟอร์มสำหรับแบ่งปันข้อมูลเครื่องปรุงทั่วโลก
+
+ข้อ 2: ห้ามโพสต์เนื้อหาที่หมิ่นประมาท ข้อมูลเท็จ หรือสแปม
+
+ข้อ 3: ผู้ใช้ยังคงเป็นเจ้าของลิขสิทธิ์
+
+ข้อ 4: ข้อมูลส่วนตัวใช้เพื่อปรับปรุงบริการเท่านั้น`,
+  },
+  zh:{
+    navLogo:'世界一撮',heroTitle:'🌶 发现世界调味料',heroSub:'发布·发现·分享',
+    aiTitle:'问AI',aiSub:'调味料AI助手',aiWelcome:'你好！请随时问关于调味料的问题 🌶️',
+    aiSend:'发送',trendTitle:'趋势',trendSub:'本周话题',rankSub:'❤️ 点赞排行',
+    recoTitle:'推荐调味料',catTitle:'分类',newTitle:'最新发布',postBtnTxt:'发布调味料',
+    navMy:'我的主页',navReg:'注册',heroSearchBtn:'搜索',backBtn:'返回',
+    flavorTitle:'五味雷达图',intensityTitle:'浓度和香气指标',likeBtnTxt:'点赞！',editBtnTxt:'发布',
+    regTitle:'用户注册',lbNick:'昵称',lbEmail:'邮箱',lbGender:'性别',
+    lbPref:'省份',lbCity:'城市',lbBadge:'口味徽章',lbTerms:'使用条款',agreeLabel:'同意使用条款',regBtn:'注册',
+    gMale:'男',gFemale:'女',gOther:'其他',
+    postModalTitle:'发布调味料',lbPName:'名称',lbPCountry:'产地',lbPCat:'分类',lbPDesc:'描述',
+    lbFlavor:'风味强度（1-10）',lbPPhoto:'图片（emoji）',submitPostBtn:'发布',
+    fl0:'甜',fl1:'酸',fl2:'咸',fl3:'苦',fl4:'鲜',fl5:'辣',fl6:'浓度',fl7:'香气',
+    cat0:'辣',cat1:'甜',cat2:'酸',cat3:'咸',cat4:'鲜',cat5:'发酵',cat6:'烟熏',cat7:'草本',
+    catKeys:['辣','甜','酸','咸','鲜','发酵','烟熏','草本'],
+    statPosts:'发布',statLikes:'点赞',statFollowers:'关注者',tabPost:'发布',tabLiked:'已点赞',tabSettings:'设置',editProfileBtn:'编辑资料',mpBack:'返回首页',
+    flavorLabels:['甜','酸','咸','苦','鲜','辣'],
+    searchPh:'搜索调味料…',imgUrlPh:'或粘贴图片链接（可选）',aiPh:'例如：推荐辣味调味料',
+    aiChips:['推荐辣味调味料','酱油有哪些种类？','发酵调味料对身体好吗？','有万能调味料吗？'],
+    badges:['辣党','甜党','有机','素食者','纯素','发酵爱好者','盐迷','美食家'],
+    t1n:'辣椒油',t1m:'中国·四川',t2n:'哈里萨',t2m:'突尼斯',t3n:'杜卡',t3m:'埃及',
+    r1n:'淡口酱油',r1m:'日本',r2n:'是拉差',r2m:'泰国',r3n:'鱼露',r3m:'泰国',
+    regOk:'✅ 注册成功！欢迎！',postOk:'✅ 发布成功！谢谢！',
+    tabLikedTxt:'已点赞：淡口酱油、是拉差',tabSettingsTxt:'设置 / 通知（即将推出）',
+    unknownCountry:'未填写',
+    terms:`[使用条款]
+
+第1条 目的：分享和发现全球调味料信息的平台。
+
+第2条 禁止：诽谤、虚假信息、垃圾内容。
+
+第3条 内容：用户保留版权，但授权服务展示。
+
+第4条 隐私：个人信息仅用于改进服务。`,
+  },
+  ko:{
+    navLogo:'세계 한 꼬집',heroTitle:'🌶 세계 조미료를 찾아보세요',heroSub:'게시·발견·공유',
+    aiTitle:'AI에게 묻기',aiSub:'조미료 AI 어시스턴트',aiWelcome:'안녕하세요! 조미료에 대해 뭐든 물어보세요 🌶️',
+    aiSend:'보내기',trendTitle:'트렌드',trendSub:'이번 주',rankSub:'❤️ 좋아요 랭킹',
+    recoTitle:'추천 조미료',catTitle:'카테고리',newTitle:'최신 게시물',postBtnTxt:'조미료 게시',
+    navMy:'마이페이지',navReg:'등록',heroSearchBtn:'검색',backBtn:'돌아가기',
+    flavorTitle:'오미 차트',intensityTitle:'농후함·향 지표',likeBtnTxt:'좋아요!',editBtnTxt:'게시',
+    regTitle:'회원가입',lbNick:'닉네임',lbEmail:'이메일',lbGender:'성별',
+    lbPref:'지역',lbCity:'도시',lbBadge:'미각 배지',lbTerms:'이용약관',agreeLabel:'이용약관에 동의합니다',regBtn:'등록',
+    gMale:'남성',gFemale:'여성',gOther:'기타',
+    postModalTitle:'조미료 게시',lbPName:'이름',lbPCountry:'원산지',lbPCat:'카테고리',lbPDesc:'설명',
+    lbFlavor:'풍미 강도（1-10）',lbPPhoto:'사진（이모지）',submitPostBtn:'게시',
+    fl0:'단맛',fl1:'신맛',fl2:'짠맛',fl3:'쓴맛',fl4:'감칠맛',fl5:'매운맛',fl6:'농후함',fl7:'향기',
+    cat0:'매운',cat1:'달콤한',cat2:'신',cat3:'짠',cat4:'감칠맛',cat5:'발효',cat6:'훈제',cat7:'허브',
+    catKeys:['매운','달콤한','신','짠','감칠맛','발효','훈제','허브'],
+    statPosts:'게시물',statLikes:'좋아요',statFollowers:'팔로워',tabPost:'게시물',tabLiked:'좋아요',tabSettings:'설정',editProfileBtn:'프로필 편집',mpBack:'홈으로 돌아가기',
+    flavorLabels:['단맛','신맛','짠맛','쓴맛','감칠맛','매운맛'],
+    searchPh:'조미료 검색…',imgUrlPh:'또는 이미지 URL 붙여넣기 (선택)',aiPh:'예: 매운 조미료 추천해줘',
+    aiChips:['매운 조미료 추천해줘','간장 종류가 궁금해','발효 조미료가 몸에 좋아?','만능 조미료 있어?'],
+    badges:['매운맛파','단맛파','유기농','채식주의자','비건','발효 마니아','소금 마니아','미식가'],
+    t1n:'라유',t1m:'중국·사천',t2n:'하리사',t2m:'튀니지',t3n:'두카',t3m:'이집트',
+    r1n:'타마리 간장',r1m:'일본',r2n:'스리라차',r2m:'태국',r3n:'피쉬소스',r3m:'태국',
+    regOk:'✅ 등록 완료! 환영합니다!',postOk:'✅ 게시했습니다! 감사합니다!',
+    tabLikedTxt:'좋아요한 게시물: 타마리 간장, 스리라차',tabSettingsTxt:'설정 / 알림 (준비 중)',
+    unknownCountry:'미입력',
+    terms:`[이용약관]
+
+제1조 목적: 전 세계 조미료 정보를 공유·발견하는 플랫폼입니다.
+
+제2조 금지사항: 비방, 허위정보, 스팸 게시물 금지.
+
+제3조 게시물: 저작권은 사용자에게 있습니다.
+
+제4조 개인정보: 서비스 개선 목적으로만 사용합니다.`,
+  },
+  fr:{
+    navLogo:'Une Pincée du Monde',heroTitle:"🌶 Découvrez les condiments du monde",heroSub:'Publiez · Découvrez · Partagez',
+    aiTitle:"Demandez à l'IA",aiSub:'Assistant IA condiments',aiWelcome:'Bonjour! Posez-moi des questions sur les condiments 🌶️',
+    aiSend:'Envoyer',trendTitle:'Tendances',trendSub:'Cette semaine',rankSub:'❤️ Classement',
+    recoTitle:'Condiments recommandés',catTitle:'Catégories',newTitle:'Nouvelles publications',postBtnTxt:'Publier un condiment',
+    navMy:'Mon profil',navReg:"S'inscrire",heroSearchBtn:'Chercher',backBtn:'Retour',
+    flavorTitle:'Graphique des saveurs',intensityTitle:'Intensité & Arôme',likeBtnTxt:"J'aime!",editBtnTxt:'Publier',
+    regTitle:'Inscription',lbNick:'Pseudo',lbEmail:'Email',lbGender:'Genre',
+    lbPref:'Région',lbCity:'Ville',lbBadge:'Badges gustatifs',lbTerms:'Conditions',agreeLabel:"J'accepte les conditions",regBtn:"S'inscrire",
+    gMale:'Homme',gFemale:'Femme',gOther:'Autre',
+    postModalTitle:'Publier un condiment',lbPName:'Nom',lbPCountry:'Origine',lbPCat:'Catégorie',lbPDesc:'Description',
+    lbFlavor:'Intensité des saveurs（1-10）',lbPPhoto:'Photo（emoji）',submitPostBtn:'Publier',
+    fl0:'Sucré',fl1:'Acide',fl2:'Salé',fl3:'Amer',fl4:'Umami',fl5:'Piquant',fl6:'Richesse',fl7:'Arôme',
+    cat0:'Piquant',cat1:'Sucré',cat2:'Acide',cat3:'Salé',cat4:'Umami',cat5:'Fermenté',cat6:'Fumé',cat7:'Herbes',
+    catKeys:['Piquant','Sucré','Acide','Salé','Umami','Fermenté','Fumé','Herbes'],
+    statPosts:'Publications',statLikes:"J'aime",statFollowers:'Abonnés',tabPost:'Publications',tabLiked:'Aimés',tabSettings:'Paramètres',editProfileBtn:'Modifier le profil',mpBack:'Retour à l\'accueil',
+    flavorLabels:['Sucré','Acide','Salé','Amer','Umami','Piquant'],
+    searchPh:'Rechercher un condiment…',imgUrlPh:"Ou collez une URL d'image (facultatif)",aiPh:'ex: Recommandez des condiments épicés',
+    aiChips:['Recommandez des condiments épicés','Quels types de sauce soja existent?','Les condiments fermentés sont-ils sains?','Un condiment polyvalent?'],
+    badges:['Amateur de piquant','Bec sucré','Bio','Végétarien','Vegan','Fan de fermenté','Maniaque du sel','Gourmet'],
+    t1n:'Huile pimentée',t1m:'Chine · Sichuan',t2n:'Harissa',t2m:'Tunisie',t3n:'Dukkah',t3m:'Égypte',
+    r1n:'Sauce soja tamari',r1m:'Japon',r2n:'Sriracha',r2m:'Thaïlande',r3n:'Nuoc-mâm',r3m:'Thaïlande',
+    regOk:'✅ Inscrit(e)! Bienvenue!',postOk:'✅ Publié! Merci!',
+    tabLikedTxt:'Publications aimées: Sauce soja tamari, Sriracha',tabSettingsTxt:'Paramètres / Notifications (bientôt)',
+    unknownCountry:'Inconnu',
+    terms:`[Conditions d'utilisation]
+
+Article 1 Objet: Plateforme de partage de condiments du monde entier.
+
+Article 2 Interdictions: Contenus diffamatoires, faux ou spam.
+
+Article 3 Contenu: L'utilisateur conserve ses droits mais autorise l'affichage.
+
+Article 4 Vie privée: Données utilisées uniquement pour améliorer le service.`,
+  },
+};
+
+const sampleBase=[
+  {id:1,emoji:'🧄',img:'https://images.unsplash.com/photo-1631325026013-16eb55059579?auto=format&fit=crop&w=600&q=60',catIdx:4,ck:'japan',likes:482,flavor:[2,3,8,2,10,1],rich:9,aroma:8},
+  {id:2,emoji:'🌶️',img:'https://images.unsplash.com/photo-1757800499190-9927c5806d36?auto=format&fit=crop&w=600&q=60',catIdx:0,ck:'thailand',likes:391,flavor:[5,6,5,1,3,9],rich:6,aroma:7},
+  {id:3,emoji:'🫙',img:'https://images.unsplash.com/photo-1764312899300-e680811f58fb?auto=format&fit=crop&w=600&q=60',catIdx:0,ck:'tunisia',likes:287,flavor:[2,4,6,3,4,8],rich:8,aroma:9},
+  {id:4,emoji:'🫧',img:'https://images.unsplash.com/photo-1617908484839-c93c37c49ae3?auto=format&fit=crop&w=600&q=60',catIdx:3,ck:'thailand',likes:344,flavor:[1,4,9,2,8,1],rich:7,aroma:9},
+  {id:5,emoji:'🍯',img:'https://images.unsplash.com/photo-1480911620066-b6ccd99c48f3?auto=format&fit=crop&w=600&q=60',catIdx:1,ck:'japan',likes:201,flavor:[9,2,3,1,5,1],rich:6,aroma:7},
+  {id:6,emoji:'🍅',img:'https://images.unsplash.com/photo-1781460805187-51f03c7a2c61?auto=format&fit=crop&w=600&q=60',catIdx:2,ck:'italy',likes:178,flavor:[7,8,2,3,4,1],rich:9,aroma:8},
+];
+const pNames={
+  ja:['醤油（たまり）','スリラチャ','ハリッサ','ナンプラー','みりん','バルサミコ酢'],
+  en:['Tamari Soy Sauce','Sriracha','Harissa','Fish Sauce','Mirin','Balsamic Vinegar'],
+  th:['ซอสถั่วเหลืองทามาริ','ซอสศรีราชา','ฮาริสสา','น้ำปลา','มิริน','น้ำส้มสายชูบัลซามิก'],
+  zh:['淡口酱油','是拉差','哈里萨','鱼露','味醂','意大利香醋'],
+  ko:['타마리 간장','스리라차','하리사','피쉬소스','미린','발사믹 식초'],
+  fr:['Sauce soja tamari','Sriracha','Harissa','Nuoc-mâm','Mirin','Vinaigre balsamique'],
+};
+const pDescs={
+  ja:['濃厚なうまみと深いコクが特徴の日本の伝統調味料。刺身・照り焼き・煮物に最適。','赤唐辛子と酢から作られたホットソース。甘みと酸味が辛さを際立たせる。','乾燥唐辛子・クミン・コリアンダーなどを合わせた北アフリカのペースト。','魚を発酵させた液体調味料。独特の香りとうまみが料理に深みを加える。','もち米を発酵させた甘い調味料。料理に艶と甘みを与える。','長期熟成されたワインビネガー。甘酸っぱく複雑な風味。'],
+  en:['Traditional Japanese condiment with rich umami. Perfect for sashimi, teriyaki, and simmered dishes.','Hot sauce made from red chili and vinegar. Sweetness amplifies the heat.','North African paste with dried chilies, cumin, and coriander.','Fermented fish liquid condiment. Unique aroma adds depth.','Sweet condiment from fermented glutinous rice. Adds glaze and sweetness.','Long-aged wine vinegar. Sweet, sour, and complex.'],
+  th:['เครื่องปรุงที่มีรสอูมามิเข้มข้น เหมาะสำหรับซาชิมิ เทริยากิ','ซอสร้อนทำจากพริกแดงและน้ำส้มสายชู มีความหวานและเปรี้ยวเล็กน้อย','เพสต์แอฟริกาเหนือทำจากพริกแห้ง ยี่หร่า และผักชี','เครื่องปรุงหมักจากปลา รสอูมามิเพิ่มความลึกให้อาหาร','เครื่องปรุงหวานจากข้าวเหนียวหมัก เพิ่มความวาวและหวาน','น้ำส้มสายชูบัลซามิกบ่มนาน รสหวานเปรี้ยวซับซ้อน'],
+  zh:['日本传统调味料，具有浓郁的鲜味。适合生鱼片、照烧和炖菜。','用红辣椒和醋制成的辣酱。微甜微酸突显辣味。','北非风味酱料，由干辣椒、孜然和香菜制成。','鱼发酵制成的液体调味料，鲜味为菜肴增添深度。','用糯米发酵制成的甜调味料，增添光泽和甜味。','长期陈酿的葡萄酒醋，甜酸复杂的风味。'],
+  ko:['풍부한 우마미가 특징인 일본 전통 조미료. 사시미, 데리야키, 조림에 최적.','빨간 고추와 식초로 만든 핫소스. 단맛이 매운맛을 높인다.','건조 고추, 쿠민, 고수로 만든 북아프리카 페이스트.','생선을 발효한 액체 조미료. 독특한 향과 우마미.','찹쌀을 발효한 달콤한 조미료. 요리에 윤기와 단맛을 더한다.','장기 숙성된 와인 식초. 달콤하고 복잡한 풍미.'],
+  fr:['Condiment japonais traditionnel au umami riche. Parfait pour sashimi et teriyaki.','Sauce piquante à base de piment rouge et vinaigre.','Pâte nord-africaine à base de piments séchés, cumin et coriandre.','Condiment liquide de poisson fermenté. Arôme unique et umami.','Condiment sucré à base de riz gluant fermenté.','Vinaigre de vin vieilli. Saveur douce-acide et complexe.'],
+};
+const cnames={
+  japan:{ja:'日本',en:'Japan',th:'ญี่ปุ่น',zh:'日本',ko:'일본',fr:'Japon'},
+  thailand:{ja:'タイ',en:'Thailand',th:'ไทย',zh:'泰国',ko:'태국',fr:'Thaïlande'},
+  tunisia:{ja:'チュニジア',en:'Tunisia',th:'ตูนิเซีย',zh:'突尼斯',ko:'튀니지',fr:'Tunisie'},
+  italy:{ja:'イタリア',en:'Italy',th:'อิตาลี',zh:'意大利',ko:'이탈리아',fr:'Italie'},
+};
+
+let lang='ja', posts=[], curPost=null;
+let userPosts=JSON.parse(localStorage.getItem('condiment_user_posts')||'[]');
+let likeOverrides=JSON.parse(localStorage.getItem('condiment_likes')||'{}');
+
+function saveUserPosts(){ localStorage.setItem('condiment_user_posts',JSON.stringify(userPosts)); }
+function saveLikeOverrides(){ localStorage.setItem('condiment_likes',JSON.stringify(likeOverrides)); }
+
+function makePosts(l){
+  const t=T[l];
+  return sampleBase.map((p,i)=>({
+    ...p,
+    name:(pNames[l]||pNames.ja)[i],
+    cat:t.catKeys[p.catIdx],
+    country:(cnames[p.ck]||{})[l]||'?',
+    desc:(pDescs[l]||pDescs.ja)[i],
+    likes:likeOverrides[p.id]??p.likes,
+    isUser:false,
+  }));
+}
+
+// user-submitted posts keep language-independent data (catIdx) and get relocalized on each render
+function localizeUserPosts(l){
+  const t=T[l];
+  return userPosts.map(p=>({
+    ...p,
+    cat:t.catKeys[p.catIdx]??'',
+    country:p.country||t.unknownCountry,
+    isUser:true,
+  }));
+}
+
+function rebuildPosts(){
+  posts=[...localizeUserPosts(lang),...makePosts(lang)];
+  renderPosts(posts);
+  renderCarousel();
+}
+
+// Shows the real photo when a post has one, falling back to its emoji
+function photoHtml(p){
+  return p.img?`<img src="${p.img}" alt="${esc(p.name||'')}" loading="lazy">`:p.emoji;
+}
+
+// Carousel — top-liked condiments, auto-rotating
+let carIdx=0, carTimer=null;
+function renderCarousel(){
+  const items=[...posts].sort((a,b)=>b.likes-a.likes).slice(0,5);
+  const t=T[lang];
+  document.getElementById('carouselTrack').innerHTML=items.map(p=>`
+    <div class="car-slide" onclick="openDetail(${p.id})">
+      <span class="car-emoji">${photoHtml(p)}</span>
+      <div class="car-info">
+        <p class="car-eyebrow">${p.country} • ${p.cat}</p>
+        <p class="car-name">${p.name}</p>
+        <p class="car-meta">${p.desc||''}</p>
+      </div>
+      <span class="car-heart">❤️ ${p.likes}</span>
+    </div>`).join('');
+  document.getElementById('carouselDots').innerHTML=items.map((_,i)=>
+    `<span class="car-dot${i===0?' active':''}" onclick="event.stopPropagation();carouselGoTo(${i})"></span>`).join('');
+  carIdx=0;
+  updateCarouselPos();
+  restartCarouselTimer();
+}
+function updateCarouselPos(){
+  const track=document.getElementById('carouselTrack');
+  track.style.transform=`translateX(-${carIdx*100}%)`;
+  document.querySelectorAll('#carouselDots .car-dot').forEach((d,i)=>d.classList.toggle('active',i===carIdx));
+}
+function carouselNav(dir){
+  const n=document.querySelectorAll('#carouselTrack .car-slide').length;
+  if(!n) return;
+  carIdx=(carIdx+dir+n)%n;
+  updateCarouselPos();
+  restartCarouselTimer();
+}
+function carouselGoTo(i){ carIdx=i; updateCarouselPos(); restartCarouselTimer(); }
+function restartCarouselTimer(){
+  clearInterval(carTimer);
+  carTimer=setInterval(()=>carouselNav(1),4000);
+}
+document.getElementById('carousel').addEventListener('mouseenter',()=>clearInterval(carTimer));
+document.getElementById('carousel').addEventListener('mouseleave',restartCarouselTimer);
+
+// Render post grid
+function renderPosts(list){
+  const g=document.getElementById('postGrid');
+  g.innerHTML=list.map(p=>`
+    <div class="post-card" onclick="openDetail(${p.id})">
+      <div class="post-img">${photoHtml(p)}</div>
+      <div class="post-body">
+        <p class="post-title">${p.name}</p>
+        <span class="post-tag">${p.cat}</span>
+        <div class="post-footer">
+          <span class="post-user">${p.country}</span>
+          <span class="post-likes">❤️ ${p.likes}</span>
+        </div>
+      </div>
+    </div>`).join('');
+  const mg=document.getElementById('myPostGrid');
+  if(mg) mg.innerHTML=g.innerHTML;
+}
+
+// Open detail
+function openDetail(id){
+  const p=posts.find(x=>x.id===id);
+  if(!p) return;
+  curPost=p;
+  const t=T[lang];
+  document.getElementById('dEmoji').innerHTML=photoHtml(p);
+  document.getElementById('dTitle').textContent=p.name;
+  document.getElementById('dSub').textContent=p.country+' • '+p.cat;
+  document.getElementById('dTags').innerHTML=
+    `<span class="detail-tag">${p.cat}</span><span class="detail-tag">${p.country}</span>`;
+  document.getElementById('dDesc').textContent=p.desc;
+  showPage('detail');
+  drawRadar(p,t.flavorLabels);
+  drawBars(p,t);
+}
+
+// Radar chart (inline canvas)
+function drawRadar(p,labels){
+  const cv=document.getElementById('radarChart');
+  const ctx=cv.getContext('2d');
+  const W=260,H=260,cx=W/2,cy=H/2,r=90,n=labels.length,MAX=10;
+  cv.width=W; cv.height=H;
+  ctx.clearRect(0,0,W,H);
+
+  ctx.strokeStyle='rgba(0,0,0,.07)'; ctx.lineWidth=1;
+  for(let lvl=2;lvl<=10;lvl+=2){
+    ctx.beginPath();
+    for(let i=0;i<n;i++){
+      const a=(i/n)*Math.PI*2-Math.PI/2,pr=(lvl/MAX)*r;
+      const x=cx+Math.cos(a)*pr,y=cy+Math.sin(a)*pr;
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    }
+    ctx.closePath(); ctx.stroke();
+  }
+  ctx.strokeStyle='rgba(0,0,0,.1)';
+  for(let i=0;i<n;i++){
+    const a=(i/n)*Math.PI*2-Math.PI/2;
+    ctx.beginPath(); ctx.moveTo(cx,cy);
+    ctx.lineTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r); ctx.stroke();
+  }
+
+  const data=p.flavor.slice(0,n);
+  ctx.fillStyle='rgba(194,112,61,.22)'; ctx.strokeStyle='#C2703D'; ctx.lineWidth=2;
+  ctx.beginPath();
+  for(let i=0;i<n;i++){
+    const a=(i/n)*Math.PI*2-Math.PI/2,pr=(data[i]/MAX)*r;
+    const x=cx+Math.cos(a)*pr,y=cy+Math.sin(a)*pr;
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  }
+  ctx.closePath(); ctx.fill(); ctx.stroke();
+
+  for(let i=0;i<n;i++){
+    const a=(i/n)*Math.PI*2-Math.PI/2,pr=(data[i]/MAX)*r;
+    const x=cx+Math.cos(a)*pr,y=cy+Math.sin(a)*pr;
+    ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2);
+    ctx.fillStyle='#C2703D'; ctx.fill();
+    ctx.strokeStyle='#fff'; ctx.lineWidth=1.5; ctx.stroke();
+  }
+
+  ctx.fillStyle='#333'; ctx.font='11px sans-serif';
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  for(let i=0;i<n;i++){
+    const a=(i/n)*Math.PI*2-Math.PI/2,lr=r+22;
+    ctx.fillText(labels[i],cx+Math.cos(a)*lr,cy+Math.sin(a)*lr);
+  }
+}
+
+function drawBars(p,t){
+  document.getElementById('barArea').innerHTML=
+    [{lbl:t.fl6,val:p.rich},{lbl:t.fl7,val:p.aroma}].map(i=>`
+      <div class="bar-row">
+        <span class="bar-lbl">${i.lbl}</span>
+        <div class="bar-track"><div class="bar-fill" style="width:${i.val*10}%"></div></div>
+        <span class="bar-val">${i.val}/10</span>
+      </div>`).join('');
+}
+
+// Navigation
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  window.scrollTo(0,0);
+}
+function showModal(id){ document.getElementById(id).classList.remove('hidden'); }
+function closeModal(id){ document.getElementById(id).classList.add('hidden'); }
+function closeBg(e,id){ if(e.target.classList.contains('modal-bg')) closeModal(id); }
+
+// Register
+function doRegister(){
+  const nick=document.getElementById('regNick').value.trim();
+  const email=document.getElementById('regEmail').value.trim();
+  const agree=document.getElementById('agreeCheck').checked;
+  const t=T[lang];
+  if(!nick||!email){ alert(lang==='ja'?'ニックネームとメールアドレスは必須です':'Nickname and email are required'); return; }
+  if(!agree){ alert(lang==='ja'?'利用規約に同意してください':'Please agree to the terms'); return; }
+  document.getElementById('mpName').textContent=nick;
+  const pref=document.getElementById('regPref').value;
+  const city=document.getElementById('regCity').value;
+  if(pref) document.getElementById('mpLoc').textContent='📍 '+pref+(city?' '+city:'');
+  const badges=[...document.querySelectorAll('#badgeGrid .badge-opt.sel')].map(b=>b.querySelector('span:last-child').textContent);
+  if(badges.length) document.getElementById('mpBadges').innerHTML=badges.map(b=>`<span class="badge-pill">${b}</span>`).join('');
+  const ok=document.getElementById('regOk');
+  ok.textContent=t.regOk; ok.classList.remove('hidden');
+  setTimeout(()=>closeModal('regModal'),1800);
+}
+
+// Slider
+function sv(el,id){ document.getElementById(id).textContent=el.value; }
+
+// Post
+function submitPost(){
+  const name=document.getElementById('pName').value.trim();
+  const t=T[lang];
+  if(!name){ alert(lang==='ja'?'調味料名を入力してください':'Please enter a name'); return; }
+  const sliders=[...document.querySelectorAll('#postModal input[type=range]')].map(r=>parseInt(r.value));
+  userPosts.unshift({
+    id:Date.now(),
+    name,
+    emoji:document.getElementById('pEmoji').value,
+    img:document.getElementById('pImgUrl').value.trim()||null,
+    catIdx:document.getElementById('pCat').selectedIndex,
+    country:document.getElementById('pCountry').value.trim(),
+    likes:0,
+    desc:document.getElementById('pDesc').value,
+    flavor:sliders.slice(0,6),
+    rich:sliders[6],
+    aroma:sliders[7],
+  });
+  saveUserPosts();
+  rebuildPosts();
+  const ok=document.getElementById('postOk');
+  ok.textContent=t.postOk; ok.classList.remove('hidden');
+  setTimeout(()=>closeModal('postModal'),1800);
+}
+
+// Search
+function doSearch(){
+  const q=document.getElementById('heroSearch').value.trim().toLowerCase();
+  renderPosts(q?posts.filter(p=>p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)||p.country.toLowerCase().includes(q)):posts);
+  showPage('home');
+}
+document.getElementById('heroSearch').addEventListener('keydown',e=>{ if(e.key==='Enter') doSearch(); });
+
+// Category filter
+function filterCat(idx){
+  const key=T[lang].catKeys[idx];
+  renderPosts(posts.filter(p=>p.cat===key));
+  showPage('home');
+  setTimeout(()=>document.getElementById('page-home').querySelector('.section:last-child').scrollIntoView({behavior:'smooth'}),50);
+}
+
+// Like
+function likeItem(){
+  if(!curPost) return;
+  curPost.likes++;
+  if(curPost.isUser){
+    const up=userPosts.find(p=>p.id===curPost.id);
+    if(up){ up.likes=curPost.likes; saveUserPosts(); }
+  } else {
+    likeOverrides[curPost.id]=curPost.likes;
+    saveLikeOverrides();
+  }
+  renderPosts(posts);
+  renderCarousel();
+}
+
+// My Page tabs
+function mpTab(btn,tab){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const t=T[lang],c=document.getElementById('mpContent');
+  if(tab==='posts'){ c.innerHTML='<div class="post-grid" id="myPostGrid"></div>'; renderPosts(posts.slice(0,4)); }
+  else if(tab==='liked') c.innerHTML=`<p style="font-size:13px;color:var(--txt2);padding:1rem">${t.tabLikedTxt}</p>`;
+  else c.innerHTML=`<p style="font-size:13px;color:var(--txt2);padding:1rem">${t.tabSettingsTxt}</p>`;
+}
+
+// AI chat — Gemini API
+let chatHistory=[];
+
+function toggleKeyBar(){
+  const bar=document.getElementById('aiKeyBar');
+  bar.classList.toggle('hidden');
+  if(!bar.classList.contains('hidden')){
+    const saved=localStorage.getItem('gemini_key');
+    if(saved) document.getElementById('apiKeyInput').value=saved;
+    document.getElementById('apiKeyInput').focus();
+  }
+}
+
+function saveApiKey(){
+  const k=document.getElementById('apiKeyInput').value.trim();
+  if(k){
+    localStorage.setItem('gemini_key',k);
+    appendMsg('ai','✅ APIキーを保存しました。会話をどうぞ！');
+  }
+  document.getElementById('aiKeyBar').classList.add('hidden');
+}
+
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function appendMsg(role,text){
+  const msgs=document.getElementById('chatMsgs');
+  const cls=role==='user'?'ai-msg user':'ai-msg';
+  msgs.innerHTML+=`<div class="${cls}">${esc(text)}</div>`;
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+const sysPrompts={
+  ja:'あなたは世界中の調味料の専門家AIです。「世界のひとさじ」という調味料共有サービスのアシスタントとして、日本語で簡潔に（2〜4文）回答してください。',
+  en:'You are an expert AI on condiments worldwide. Answer concisely in English (2-4 sentences) as an assistant for "A Pinch of the World" condiment sharing service.',
+  th:'คุณเป็น AI ผู้เชี่ยวชาญด้านเครื่องปรุงทั่วโลก ตอบเป็นภาษาไทย (2-4 ประโยค)',
+  zh:'你是一位世界调味料专家AI，用中文简洁回答（2-4句）。',
+  ko:'당신은 세계 조미료 전문가 AI입니다. 한국어로 간결하게(2-4문장) 답해주세요.',
+  fr:"Vous êtes un expert IA en condiments du monde entier. Répondez en français (2-4 phrases).",
+};
+
+// 利用可能なモデルを自動検出してキャッシュ（安定した flash 系を優先、混雑時は自動フォールバック）
+let modelCandidates=null;
+let modelIdx=0;
+
+function modelScore(name){
+  let s=0;
+  if(/flash/i.test(name)) s+=3;
+  if(/latest/i.test(name)) s+=2;
+  if(/pro/i.test(name)) s+=1;
+  if(/exp|preview|thinking/i.test(name)) s-=5;
+  return s;
+}
+
+async function loadModelCandidates(key){
+  const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${key}`);
+  const data=await res.json();
+  if(!res.ok) throw new Error(data?.error?.message||'モデル一覧の取得に失敗しました');
+  const list=(data.models||[])
+    .filter(m=>m.supportedGenerationMethods?.includes('generateContent')&&/gemini/i.test(m.name))
+    .map(m=>m.name.replace('models/',''));
+  if(!list.length) throw new Error('generateContent 対応モデルが見つかりませんでした');
+  list.sort((a,b)=>modelScore(b)-modelScore(a));
+  return list;
+}
+
+function isOverloaded(status,data){
+  return status===503||data?.error?.status==='UNAVAILABLE';
+}
+
+// Suggested-question chips
+function renderAiChips(){
+  const t=T[lang];
+  document.getElementById('aiChips').innerHTML=(t.aiChips||[]).map(q=>
+    `<button class="ai-chip" onclick="askChip(this)">${esc(q)}</button>`).join('');
+}
+function askChip(btn){
+  document.getElementById('aiInput').value=btn.textContent;
+  sendChat();
+}
+
+async function sendChat(){
+  const inp=document.getElementById('aiInput'),q=inp.value.trim();
+  if(!q) return;
+  appendMsg('user',q);
+  inp.value='';
+  inp.disabled=true;
+  document.getElementById('aiSend').disabled=true;
+
+  const key=localStorage.getItem('gemini_key');
+  if(!key){
+    appendMsg('ai','🔑 APIキーが未設定です。右上の🔑ボタンから Gemini APIキーを入力してください。');
+    inp.disabled=false; document.getElementById('aiSend').disabled=false;
+    return;
+  }
+
+  const msgs=document.getElementById('chatMsgs');
+  const tid='t'+Date.now();
+  msgs.innerHTML+=`<div class="ai-typing" id="${tid}"><span></span><span></span><span></span></div>`;
+  msgs.scrollTop=msgs.scrollHeight;
+
+  chatHistory.push({role:'user',parts:[{text:q}]});
+
+  const sys=sysPrompts[lang]||sysPrompts.en;
+  const contents=[
+    {role:'user',  parts:[{text:sys}]},
+    {role:'model', parts:[{text:'はい、承知しました。調味料の専門家として回答します。'}]},
+    ...chatHistory,
+  ];
+
+  try{
+    if(!modelCandidates){ modelCandidates=await loadModelCandidates(key); modelIdx=0; }
+
+    let data,ok,lastErr;
+    for(let attempt=0;attempt<4;attempt++){
+      const model=modelCandidates[modelIdx];
+      const res=await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
+        {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({contents})
+        }
+      );
+      data=await res.json();
+      ok=res.ok;
+      if(ok) break;
+      lastErr=data?.error?.message||'APIエラー';
+      if(!isOverloaded(res.status,data)) break;
+      if(modelIdx<modelCandidates.length-1){
+        modelIdx++;
+        appendMsg('ai',`⏳ ${model} が混雑しているため ${modelCandidates[modelIdx]} に切り替えて再試行します…`);
+      } else {
+        await new Promise(r=>setTimeout(r,1000*2**attempt));
+      }
+    }
+
+    document.getElementById(tid)?.remove();
+    if(!ok){
+      appendMsg('ai','⚠️ '+lastErr);
+      chatHistory.pop();
+    } else {
+      const reply=data.candidates?.[0]?.content?.parts?.[0]?.text||'（回答なし）';
+      chatHistory.push({role:'model',parts:[{text:reply}]});
+      appendMsg('ai',reply);
+    }
+  } catch(e){
+    document.getElementById(tid)?.remove();
+    appendMsg('ai','⚠️ '+e.message);
+    chatHistory.pop();
+    modelCandidates=null;
+  }
+
+  inp.disabled=false; document.getElementById('aiSend').disabled=false;
+  inp.focus();
+}
+
+// Apply language
+function applyLang(l){
+  lang=l;
+  const t=T[l]; if(!t) return;
+  const ids=['heroTitle','heroSub','aiTitle','aiSub','aiWelcome','aiSend','trendTitle','trendSub','rankSub',
+    'recoTitle','catTitle','newTitle','postBtnTxt','navMy','navReg','heroSearchBtn','backBtn',
+    'flavorTitle','intensityTitle','likeBtnTxt','editBtnTxt',
+    'regTitle','lbNick','lbEmail','lbGender','lbPref','lbCity','lbBadge','lbTerms','agreeLabel','regBtn',
+    'gMale','gFemale','gOther',
+    'postModalTitle','lbPName','lbPCountry','lbPCat','lbPDesc','lbFlavor','lbPPhoto','submitPostBtn',
+    'fl0','fl1','fl2','fl3','fl4','fl5','fl6','fl7',
+    'cat0','cat1','cat2','cat3','cat4','cat5','cat6','cat7',
+    'statPosts','statLikes','statFollowers','tabPost','tabLiked','tabSettings','editProfileBtn','mpBack',
+    't1n','t1m','t2n','t2m','t3n','t3m','r1n','r1m','r2n','r2m','r3n','r3m',
+  ];
+  ids.forEach(id=>{ const el=document.getElementById(id); if(el&&t[id]!==undefined) el.textContent=t[id]; });
+  document.getElementById('navLogo').innerHTML=t.navLogo+'<small>condiment world</small>';
+  document.getElementById('heroSearch').placeholder=t.searchPh;
+  document.getElementById('pImgUrl').placeholder=t.imgUrlPh;
+  document.getElementById('aiInput').placeholder=t.aiPh;
+  renderAiChips();
+  t.badges.forEach((b,i)=>{ const el=document.getElementById('b'+i); if(el) el.textContent=b; });
+  document.getElementById('termsBox').textContent=t.terms;
+  document.getElementById('pCat').innerHTML=t.catKeys.map(c=>`<option>${c}</option>`).join('');
+  document.documentElement.lang=l;
+  rebuildPosts();
+}
+
+document.getElementById('langSel').addEventListener('change',e=>applyLang(e.target.value));
+applyLang('ja');
+</script>
+</body>
+</html>
