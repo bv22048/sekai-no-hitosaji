@@ -281,7 +281,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
       <option value="fr">🇫🇷 Français</option>
     </select>
     <button class="nav-btn" onclick="showPage('mypage')">👤 <span id="navMy">マイページ</span></button>
-    <button class="nav-btn" onclick="showModal('regModal')">➕ <span id="navReg">登録</span></button>
+    <button class="nav-btn" onclick="handleRegBtnClick()">➕ <span id="navReg">登録</span></button>
   </div>
 </nav>
 
@@ -416,7 +416,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
       <button class="tab-btn" onclick="mpTab(this,'settings')" id="tabSettings">設定</button>
     </div>
     <div id="mpContent"><div class="post-grid" id="myPostGrid"></div></div>
-    <button class="form-btn" style="margin-top:1rem" onclick="showModal('regModal')">✏️ <span id="editProfileBtn">プロフィールを編集</span></button>
+    <button class="form-btn" style="margin-top:1rem" onclick="openAuthModal('edit')">✏️ <span id="editProfileBtn">プロフィールを編集</span></button>
   </div>
 </div>
 
@@ -424,47 +424,52 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <div class="modal-bg hidden" id="regModal" onclick="closeBg(event,'regModal')">
   <div class="modal-box">
     <div class="modal-ttl"><span id="regTitle">ユーザー登録</span><button class="modal-close" onclick="closeModal('regModal')">✕</button></div>
-    <div class="form-group"><label class="form-label" id="lbNick">ニックネーム</label><input class="form-input" type="text" id="regNick" placeholder="例：スパイス太郎"></div>
-    <div class="form-group"><label class="form-label" id="lbEmail">メールアドレス</label><input class="form-input" type="email" id="regEmail" placeholder="example@mail.com"></div>
-    <div class="form-group">
-      <label class="form-label" id="lbGender">性別</label>
-      <select class="form-sel" id="regGender">
-        <option value="">選択してください</option>
-        <option id="gMale">男性</option><option id="gFemale">女性</option><option id="gOther">その他・答えない</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label class="form-label" id="lbPref">都道府県</label>
-      <select class="form-sel" id="regPref">
-        <option value="">選択</option>
-        <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option>
-        <option>東京都</option><option>神奈川県</option><option>埼玉県</option><option>千葉県</option>
-        <option>大阪府</option><option>京都府</option><option>兵庫県</option><option>愛知県</option>
-        <option>福岡県</option><option>沖縄県</option><option>その他・海外</option>
-      </select>
-    </div>
-    <div class="form-group"><label class="form-label" id="lbCity">市区町村</label><input class="form-input" type="text" id="regCity" placeholder="例：渋谷区"></div>
-    <div class="form-group">
-      <label class="form-label" id="lbBadge">味覚バッジ（複数選択可）</label>
-      <div class="badge-grid" id="badgeGrid">
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-flame"/></svg></span><span id="b0">辛党</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-candy"/></svg></span><span id="b1">甘党</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-sprout"/></svg></span><span id="b2">オーガニック</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-sprout"/></svg></span><span id="b3">ベジタリアン</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-leaf"/></svg></span><span id="b4">ヴィーガン</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-jar"/></svg></span><span id="b5">発酵好き</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-wave"/></svg></span><span id="b6">塩マニア</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-star"/></svg></span><span id="b7">グルメ</span></div>
+    <div class="form-group" id="authEmailGroup"><label class="form-label" id="lbEmail">メールアドレス</label><input class="form-input" type="email" id="regEmail" placeholder="example@mail.com"></div>
+    <div class="form-group" id="authPasswordGroup"><label class="form-label" id="lbPassword">パスワード</label><input class="form-input" type="password" id="regPassword" placeholder="8文字以上"></div>
+    <div id="authProfileGroup">
+      <div class="form-group"><label class="form-label" id="lbNick">ニックネーム</label><input class="form-input" type="text" id="regNick" placeholder="例：スパイス太郎"></div>
+      <div class="form-group">
+        <label class="form-label" id="lbGender">性別</label>
+        <select class="form-sel" id="regGender">
+          <option value="">選択してください</option>
+          <option id="gMale">男性</option><option id="gFemale">女性</option><option id="gOther">その他・答えない</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" id="lbPref">都道府県</label>
+        <select class="form-sel" id="regPref">
+          <option value="">選択</option>
+          <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option>
+          <option>東京都</option><option>神奈川県</option><option>埼玉県</option><option>千葉県</option>
+          <option>大阪府</option><option>京都府</option><option>兵庫県</option><option>愛知県</option>
+          <option>福岡県</option><option>沖縄県</option><option>その他・海外</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label" id="lbCity">市区町村</label><input class="form-input" type="text" id="regCity" placeholder="例：渋谷区"></div>
+      <div class="form-group">
+        <label class="form-label" id="lbBadge">味覚バッジ（複数選択可）</label>
+        <div class="badge-grid" id="badgeGrid">
+          <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-flame"/></svg></span><span id="b0">辛党</span></div>
+          <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-candy"/></svg></span><span id="b1">甘党</span></div>
+          <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-sprout"/></svg></span><span id="b2">オーガニック</span></div>
+          <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-sprout"/></svg></span><span id="b3">ベジタリアン</span></div>
+          <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-leaf"/></svg></span><span id="b4">ヴィーガン</span></div>
+          <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-jar"/></svg></span><span id="b5">発酵好き</span></div>
+          <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-wave"/></svg></span><span id="b6">塩マニア</span></div>
+          <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-star"/></svg></span><span id="b7">グルメ</span></div>
+        </div>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="authTermsGroup">
       <label class="form-label" id="lbTerms">利用規約</label>
       <div class="terms-box" id="termsBox"></div>
       <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--txt2);cursor:pointer;margin-top:.5rem">
         <input type="checkbox" id="agreeCheck"> <span id="agreeLabel">利用規約に同意する</span>
       </label>
     </div>
-    <button class="form-btn" onclick="doRegister()" id="regBtn">登録する</button>
+    <button class="form-btn" onclick="submitAuthForm()" id="regBtn">登録する</button>
+    <p id="authToggle" onclick="toggleAuthMode()" style="text-align:center;font-size:13px;color:var(--ora-dark);cursor:pointer;margin-top:.75rem;text-decoration:underline">すでに登録済みの方はこちら</p>
+    <div id="authErr" class="hidden" style="color:#B4444B;font-size:13px;text-align:center;margin-top:.5rem"></div>
     <div id="regOk" class="success-msg hidden"></div>
   </div>
 </div>
@@ -502,7 +507,12 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+const SUPABASE_URL='https://bnoxsrxhkycresdhxxtx.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_aQE06aHQj5DUTBALGGh0tQ_uVs61wST';
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+
 const T={
   ja:{
     navLogo:'世界のひとさじ',heroTitle:'世界中の調味料を探す',heroSub:'投稿・発見・シェア — あなたの一さじから世界へ',
@@ -511,9 +521,12 @@ const T={
     recoTitle:'おすすめの調味料',catTitle:'カテゴリ',newTitle:'新着投稿',postBtnTxt:'調味料を投稿する',
     navMy:'マイページ',navReg:'登録',heroSearchBtn:'検索',backBtn:'戻る',
     flavorTitle:'五味チャート',intensityTitle:'濃厚さ・香り指標',likeBtnTxt:'いいね！',editBtnTxt:'投稿する',
-    regTitle:'ユーザー登録',lbNick:'ニックネーム',lbEmail:'メールアドレス',lbGender:'性別',
+    regTitle:'ユーザー登録',lbNick:'ニックネーム',lbEmail:'メールアドレス',lbPassword:'パスワード',lbGender:'性別',
     lbPref:'都道府県',lbCity:'市区町村',lbBadge:'味覚バッジ（複数選択可）',lbTerms:'利用規約',agreeLabel:'利用規約に同意する',regBtn:'登録する',
     gMale:'男性',gFemale:'女性',gOther:'その他・答えない',
+    loginTitle:'ログイン',loginBtn:'ログイン',toLogin:'すでに登録済みの方はこちら',toRegister:'新規登録はこちら',saveBtn:'保存する',
+    navLogout:'ログアウト',guestUser:'ゲストユーザー',authRequired:'必須項目を入力してください',agreeRequired:'利用規約に同意してください',
+    confirmEmailNotice:'確認メールをご確認ください',
     postModalTitle:'調味料を投稿',lbPName:'調味料名',lbPCountry:'産地国・地域',lbPCat:'カテゴリ',lbPDesc:'説明',
     lbFlavor:'味の強さ（1〜10）',lbPPhoto:'写真（絵文字で代用）',submitPostBtn:'投稿する',
     fl0:'甘味',fl1:'酸味',fl2:'塩味',fl3:'苦味',fl4:'うまみ',fl5:'辛味',fl6:'濃厚さ',fl7:'香り',
@@ -555,9 +568,12 @@ const T={
     recoTitle:'Recommended Condiments',catTitle:'Categories',newTitle:'New Posts',postBtnTxt:'Post a Condiment',
     navMy:'My Page',navReg:'Sign Up',heroSearchBtn:'Search',backBtn:'Back',
     flavorTitle:'Flavor Radar',intensityTitle:'Richness & Aroma Index',likeBtnTxt:'Like!',editBtnTxt:'Post',
-    regTitle:'Sign Up',lbNick:'Nickname',lbEmail:'Email',lbGender:'Gender',
+    regTitle:'Sign Up',lbNick:'Nickname',lbEmail:'Email',lbPassword:'Password',lbGender:'Gender',
     lbPref:'Region',lbCity:'City',lbBadge:'Taste Badges (multi-select)',lbTerms:'Terms of Service',agreeLabel:'I agree to the terms',regBtn:'Register',
     gMale:'Male',gFemale:'Female',gOther:'Other / Prefer not to say',
+    loginTitle:'Log In',loginBtn:'Log In',toLogin:'Already have an account? Log in',toRegister:'New here? Sign up',saveBtn:'Save',
+    navLogout:'Log Out',guestUser:'Guest User',authRequired:'Please fill in required fields',agreeRequired:'Please agree to the terms',
+    confirmEmailNotice:'Please check your confirmation email',
     postModalTitle:'Post a Condiment',lbPName:'Name',lbPCountry:'Origin',lbPCat:'Category',lbPDesc:'Description',
     lbFlavor:'Flavor Intensity (1-10)',lbPPhoto:'Photo (emoji)',submitPostBtn:'Post',
     fl0:'Sweet',fl1:'Sour',fl2:'Salty',fl3:'Bitter',fl4:'Umami',fl5:'Spicy',fl6:'Richness',fl7:'Aroma',
@@ -594,9 +610,12 @@ Personal data used only for service improvement and statistics.`,
     recoTitle:'เครื่องปรุงแนะนำ',catTitle:'หมวดหมู่',newTitle:'โพสต์ใหม่',postBtnTxt:'โพสต์เครื่องปรุง',
     navMy:'หน้าของฉัน',navReg:'สมัคร',heroSearchBtn:'ค้นหา',backBtn:'กลับ',
     flavorTitle:'กราฟรสชาติ',intensityTitle:'ความเข้มข้น & กลิ่น',likeBtnTxt:'ถูกใจ!',editBtnTxt:'โพสต์',
-    regTitle:'สมัครสมาชิก',lbNick:'ชื่อเล่น',lbEmail:'อีเมล',lbGender:'เพศ',
+    regTitle:'สมัครสมาชิก',lbNick:'ชื่อเล่น',lbEmail:'อีเมล',lbPassword:'รหัสผ่าน',lbGender:'เพศ',
     lbPref:'จังหวัด',lbCity:'เมือง',lbBadge:'ป้ายรสชาติ',lbTerms:'ข้อกำหนด',agreeLabel:'ยอมรับข้อกำหนด',regBtn:'สมัคร',
     gMale:'ชาย',gFemale:'หญิง',gOther:'อื่นๆ',
+    loginTitle:'เข้าสู่ระบบ',loginBtn:'เข้าสู่ระบบ',toLogin:'มีบัญชีแล้ว? เข้าสู่ระบบ',toRegister:'ยังไม่มีบัญชี? สมัครสมาชิก',saveBtn:'บันทึก',
+    navLogout:'ออกจากระบบ',guestUser:'ผู้เยี่ยมชม',authRequired:'กรุณากรอกข้อมูลที่จำเป็น',agreeRequired:'กรุณายอมรับข้อกำหนด',
+    confirmEmailNotice:'กรุณาตรวจสอบอีเมลยืนยัน',
     postModalTitle:'โพสต์เครื่องปรุง',lbPName:'ชื่อ',lbPCountry:'แหล่งกำเนิด',lbPCat:'หมวด',lbPDesc:'รายละเอียด',
     lbFlavor:'ความเข้มรสชาติ',lbPPhoto:'รูป (emoji)',submitPostBtn:'โพสต์',
     fl0:'หวาน',fl1:'เปรี้ยว',fl2:'เค็ม',fl3:'ขม',fl4:'อูมามิ',fl5:'เผ็ด',fl6:'เข้มข้น',fl7:'กลิ่น',
@@ -629,9 +648,12 @@ Personal data used only for service improvement and statistics.`,
     recoTitle:'推荐调味料',catTitle:'分类',newTitle:'最新发布',postBtnTxt:'发布调味料',
     navMy:'我的主页',navReg:'注册',heroSearchBtn:'搜索',backBtn:'返回',
     flavorTitle:'五味雷达图',intensityTitle:'浓度和香气指标',likeBtnTxt:'点赞！',editBtnTxt:'发布',
-    regTitle:'用户注册',lbNick:'昵称',lbEmail:'邮箱',lbGender:'性别',
+    regTitle:'用户注册',lbNick:'昵称',lbEmail:'邮箱',lbPassword:'密码',lbGender:'性别',
     lbPref:'省份',lbCity:'城市',lbBadge:'口味徽章',lbTerms:'使用条款',agreeLabel:'同意使用条款',regBtn:'注册',
     gMale:'男',gFemale:'女',gOther:'其他',
+    loginTitle:'登录',loginBtn:'登录',toLogin:'已有账号？登录',toRegister:'还没有账号？注册',saveBtn:'保存',
+    navLogout:'登出',guestUser:'访客',authRequired:'请填写必填项',agreeRequired:'请同意使用条款',
+    confirmEmailNotice:'请查收确认邮件',
     postModalTitle:'发布调味料',lbPName:'名称',lbPCountry:'产地',lbPCat:'分类',lbPDesc:'描述',
     lbFlavor:'风味强度（1-10）',lbPPhoto:'图片（emoji）',submitPostBtn:'发布',
     fl0:'甜',fl1:'酸',fl2:'咸',fl3:'苦',fl4:'鲜',fl5:'辣',fl6:'浓度',fl7:'香气',
@@ -664,9 +686,12 @@ Personal data used only for service improvement and statistics.`,
     recoTitle:'추천 조미료',catTitle:'카테고리',newTitle:'최신 게시물',postBtnTxt:'조미료 게시',
     navMy:'마이페이지',navReg:'등록',heroSearchBtn:'검색',backBtn:'돌아가기',
     flavorTitle:'오미 차트',intensityTitle:'농후함·향 지표',likeBtnTxt:'좋아요!',editBtnTxt:'게시',
-    regTitle:'회원가입',lbNick:'닉네임',lbEmail:'이메일',lbGender:'성별',
+    regTitle:'회원가입',lbNick:'닉네임',lbEmail:'이메일',lbPassword:'비밀번호',lbGender:'성별',
     lbPref:'지역',lbCity:'도시',lbBadge:'미각 배지',lbTerms:'이용약관',agreeLabel:'이용약관에 동의합니다',regBtn:'등록',
     gMale:'남성',gFemale:'여성',gOther:'기타',
+    loginTitle:'로그인',loginBtn:'로그인',toLogin:'이미 계정이 있으신가요? 로그인',toRegister:'계정이 없으신가요? 회원가입',saveBtn:'저장',
+    navLogout:'로그아웃',guestUser:'게스트',authRequired:'필수 항목을 입력해주세요',agreeRequired:'이용약관에 동의해주세요',
+    confirmEmailNotice:'확인 이메일을 확인해주세요',
     postModalTitle:'조미료 게시',lbPName:'이름',lbPCountry:'원산지',lbPCat:'카테고리',lbPDesc:'설명',
     lbFlavor:'풍미 강도（1-10）',lbPPhoto:'사진（이모지）',submitPostBtn:'게시',
     fl0:'단맛',fl1:'신맛',fl2:'짠맛',fl3:'쓴맛',fl4:'감칠맛',fl5:'매운맛',fl6:'농후함',fl7:'향기',
@@ -699,9 +724,12 @@ Personal data used only for service improvement and statistics.`,
     recoTitle:'Condiments recommandés',catTitle:'Catégories',newTitle:'Nouvelles publications',postBtnTxt:'Publier un condiment',
     navMy:'Mon profil',navReg:"S'inscrire",heroSearchBtn:'Chercher',backBtn:'Retour',
     flavorTitle:'Graphique des saveurs',intensityTitle:'Intensité & Arôme',likeBtnTxt:"J'aime!",editBtnTxt:'Publier',
-    regTitle:'Inscription',lbNick:'Pseudo',lbEmail:'Email',lbGender:'Genre',
+    regTitle:'Inscription',lbNick:'Pseudo',lbEmail:'Email',lbPassword:'Mot de passe',lbGender:'Genre',
     lbPref:'Région',lbCity:'Ville',lbBadge:'Badges gustatifs',lbTerms:'Conditions',agreeLabel:"J'accepte les conditions",regBtn:"S'inscrire",
     gMale:'Homme',gFemale:'Femme',gOther:'Autre',
+    loginTitle:'Connexion',loginBtn:'Connexion',toLogin:'Déjà inscrit? Connectez-vous',toRegister:'Nouveau? Inscrivez-vous',saveBtn:'Enregistrer',
+    navLogout:'Déconnexion',guestUser:'Invité',authRequired:'Veuillez remplir les champs requis',agreeRequired:'Veuillez accepter les conditions',
+    confirmEmailNotice:'Veuillez vérifier votre e-mail de confirmation',
     postModalTitle:'Publier un condiment',lbPName:'Nom',lbPCountry:'Origine',lbPCat:'Catégorie',lbPDesc:'Description',
     lbFlavor:'Intensité des saveurs（1-10）',lbPPhoto:'Photo（emoji）',submitPostBtn:'Publier',
     fl0:'Sucré',fl1:'Acide',fl2:'Salé',fl3:'Amer',fl4:'Umami',fl5:'Piquant',fl6:'Richesse',fl7:'Arôme',
@@ -761,11 +789,22 @@ const cnames={
 };
 
 let lang='ja', posts=[], curPost=null;
-let userPosts=JSON.parse(localStorage.getItem('condiment_user_posts')||'[]');
+let userPosts=[]; // loaded from Supabase — shared across everyone, not just this browser
 let likeOverrides=JSON.parse(localStorage.getItem('condiment_likes')||'{}');
+let currentUser=null, currentProfile=null;
 
-function saveUserPosts(){ localStorage.setItem('condiment_user_posts',JSON.stringify(userPosts)); }
 function saveLikeOverrides(){ localStorage.setItem('condiment_likes',JSON.stringify(likeOverrides)); }
+
+async function loadUserPosts(){
+  const { data, error } = await sb.from('posts').select('*').order('created_at',{ascending:false});
+  if(error){ console.error(error); return; }
+  userPosts=(data||[]).map(r=>({
+    id:r.id, name:r.name, emoji:r.emoji, img:r.img,
+    catIdx:r.cat_idx, country:r.country, likes:r.likes,
+    desc:r.description, flavor:r.flavor, rich:r.rich, aroma:r.aroma,
+    userId:r.user_id,
+  }));
+}
 
 function makePosts(l){
   const t=T[l];
@@ -950,20 +989,165 @@ function showModal(id){ document.getElementById(id).classList.remove('hidden'); 
 function closeModal(id){ document.getElementById(id).classList.add('hidden'); }
 function closeBg(e,id){ if(e.target.classList.contains('modal-bg')) closeModal(id); }
 
-// Register
-function doRegister(){
-  const nick=document.getElementById('regNick').value.trim();
-  const email=document.getElementById('regEmail').value.trim();
-  const agree=document.getElementById('agreeCheck').checked;
+// Auth — Supabase handles account creation/login/session; posts & profile are shared, not per-browser
+let authMode='register'; // 'register' | 'login' | 'edit'
+
+async function initAuth(){
+  const { data:{ session } } = await sb.auth.getSession();
+  if(session) await handleLogin(session.user);
+  sb.auth.onAuthStateChange((_event,session)=>{
+    if(session) handleLogin(session.user); else handleLogout();
+  });
+}
+
+async function handleLogin(user){
+  currentUser=user;
+  const { data } = await sb.from('profiles').select('*').eq('id',user.id).maybeSingle();
+  currentProfile=data;
+  updateAuthUI();
+}
+function handleLogout(){
+  currentUser=null; currentProfile=null;
+  updateAuthUI();
+}
+function doLogout(){ sb.auth.signOut(); }
+function handleRegBtnClick(){ currentUser?doLogout():openAuthModal('register'); }
+
+function updateAuthUI(){
   const t=T[lang];
-  if(!nick||!email){ alert(lang==='ja'?'ニックネームとメールアドレスは必須です':'Nickname and email are required'); return; }
-  if(!agree){ alert(lang==='ja'?'利用規約に同意してください':'Please agree to the terms'); return; }
-  document.getElementById('mpName').textContent=nick;
+  document.getElementById('navReg').textContent=currentUser?t.navLogout:t.navReg;
+  if(currentUser){
+    document.getElementById('mpName').textContent=currentProfile?.nickname||currentUser.email;
+    const loc=[currentProfile?.pref,currentProfile?.city].filter(Boolean).join(' ');
+    document.getElementById('mpLoc').textContent='📍 '+(loc||t.unknownCountry);
+    document.getElementById('mpBadges').innerHTML=(currentProfile?.badges||[]).map(b=>`<span class="badge-pill">${b}</span>`).join('');
+  } else {
+    document.getElementById('mpName').textContent=t.guestUser;
+    document.getElementById('mpLoc').textContent='📍 —';
+    document.getElementById('mpBadges').innerHTML='';
+  }
+}
+
+function openAuthModal(mode){
+  authMode=mode;
+  document.getElementById('authErr').classList.add('hidden');
+  document.getElementById('regOk').classList.add('hidden');
+  applyAuthModalMode();
+  showModal('regModal');
+}
+function toggleAuthMode(){ openAuthModal(authMode==='login'?'register':'login'); }
+
+function applyAuthModalMode(){
+  const t=T[lang];
+  document.getElementById('authEmailGroup').classList.toggle('hidden',authMode==='edit');
+  document.getElementById('authPasswordGroup').classList.toggle('hidden',authMode==='edit');
+  document.getElementById('authTermsGroup').classList.toggle('hidden',authMode!=='register');
+  document.getElementById('authProfileGroup').classList.toggle('hidden',authMode==='login');
+  document.getElementById('authToggle').classList.toggle('hidden',authMode==='edit');
+
+  if(authMode==='login'){
+    document.getElementById('regTitle').textContent=t.loginTitle;
+    document.getElementById('regBtn').textContent=t.loginBtn;
+    document.getElementById('authToggle').textContent=t.toRegister;
+    document.getElementById('regEmail').value='';
+    document.getElementById('regPassword').value='';
+  } else if(authMode==='edit'){
+    document.getElementById('regTitle').textContent=t.editProfileBtn;
+    document.getElementById('regBtn').textContent=t.saveBtn;
+    document.getElementById('regNick').value=currentProfile?.nickname||'';
+    document.getElementById('regGender').value=currentProfile?.gender||'';
+    document.getElementById('regPref').value=currentProfile?.pref||'';
+    document.getElementById('regCity').value=currentProfile?.city||'';
+    document.querySelectorAll('#badgeGrid .badge-opt').forEach(el=>{
+      const label=el.querySelector('span:last-child').textContent;
+      el.classList.toggle('sel',(currentProfile?.badges||[]).includes(label));
+    });
+  } else {
+    document.getElementById('regTitle').textContent=t.regTitle;
+    document.getElementById('regBtn').textContent=t.regBtn;
+    document.getElementById('authToggle').textContent=t.toLogin;
+    document.getElementById('regEmail').value='';
+    document.getElementById('regPassword').value='';
+    document.getElementById('regNick').value='';
+    document.getElementById('regGender').value='';
+    document.getElementById('regPref').value='';
+    document.getElementById('regCity').value='';
+    document.querySelectorAll('#badgeGrid .badge-opt.sel').forEach(el=>el.classList.remove('sel'));
+  }
+}
+
+function showAuthError(msg){
+  const el=document.getElementById('authErr');
+  el.textContent='⚠️ '+msg;
+  el.classList.remove('hidden');
+}
+
+async function submitAuthForm(){
+  const t=T[lang];
+  document.getElementById('authErr').classList.add('hidden');
+
+  if(authMode==='login'){
+    const email=document.getElementById('regEmail').value.trim();
+    const password=document.getElementById('regPassword').value;
+    if(!email||!password){ showAuthError(t.authRequired); return; }
+    const { error }=await sb.auth.signInWithPassword({email,password});
+    if(error){ showAuthError(error.message); return; }
+    closeModal('regModal');
+    return;
+  }
+
+  if(authMode==='edit'){
+    const nickname=document.getElementById('regNick').value.trim();
+    if(!nickname){ showAuthError(t.authRequired); return; }
+    const gender=document.getElementById('regGender').value;
+    const pref=document.getElementById('regPref').value;
+    const city=document.getElementById('regCity').value.trim();
+    const badges=[...document.querySelectorAll('#badgeGrid .badge-opt.sel')].map(b=>b.querySelector('span:last-child').textContent);
+    const { data, error }=await sb.from('profiles').update({nickname,gender,pref,city,badges}).eq('id',currentUser.id).select().maybeSingle();
+    if(error){ showAuthError(error.message); return; }
+    currentProfile=data;
+    updateAuthUI();
+    const ok=document.getElementById('regOk');
+    ok.textContent=t.regOk; ok.classList.remove('hidden');
+    setTimeout(()=>closeModal('regModal'),1500);
+    return;
+  }
+
+  // register
+  const email=document.getElementById('regEmail').value.trim();
+  const password=document.getElementById('regPassword').value;
+  const nickname=document.getElementById('regNick').value.trim();
+  const agree=document.getElementById('agreeCheck').checked;
+  if(!email||!password||!nickname){ showAuthError(t.authRequired); return; }
+  if(!agree){ showAuthError(t.agreeRequired); return; }
+
+  const gender=document.getElementById('regGender').value;
   const pref=document.getElementById('regPref').value;
-  const city=document.getElementById('regCity').value;
-  if(pref) document.getElementById('mpLoc').textContent='📍 '+pref+(city?' '+city:'');
+  const city=document.getElementById('regCity').value.trim();
   const badges=[...document.querySelectorAll('#badgeGrid .badge-opt.sel')].map(b=>b.querySelector('span:last-child').textContent);
-  if(badges.length) document.getElementById('mpBadges').innerHTML=badges.map(b=>`<span class="badge-pill">${b}</span>`).join('');
+
+  // profile row is created server-side by a DB trigger (handle_new_user), using this metadata —
+  // avoids writing to the profiles table before the session/RLS is actually established
+  const { data:signUpData, error:signUpErr }=await sb.auth.signUp({
+    email,password,
+    options:{data:{nickname,gender,pref,city,badges}}
+  });
+  if(signUpErr){ showAuthError(signUpErr.message); return; }
+
+  if(!signUpData.session){
+    // email confirmation required — not logged in yet
+    const ok=document.getElementById('regOk');
+    ok.textContent=t.confirmEmailNotice; ok.classList.remove('hidden');
+    setTimeout(()=>closeModal('regModal'),2500);
+    return;
+  }
+
+  currentUser=signUpData.user;
+  currentProfile={id:signUpData.user.id,nickname,gender,pref,city,badges};
+  updateAuthUI();
+  await loadUserPosts();
+  rebuildPosts();
+
   const ok=document.getElementById('regOk');
   ok.textContent=t.regOk; ok.classList.remove('hidden');
   setTimeout(()=>closeModal('regModal'),1800);
@@ -973,25 +1157,37 @@ function doRegister(){
 function sv(el,id){ document.getElementById(id).textContent=el.value; }
 
 // Post
-function submitPost(){
-  const name=document.getElementById('pName').value.trim();
+async function submitPost(){
   const t=T[lang];
+  if(!currentUser){
+    alert(lang==='ja'?'投稿するにはログイン（会員登録）が必要です':'Please log in to post');
+    closeModal('postModal');
+    openAuthModal('register');
+    return;
+  }
+  const name=document.getElementById('pName').value.trim();
   if(!name){ alert(lang==='ja'?'調味料名を入力してください':'Please enter a name'); return; }
   const sliders=[...document.querySelectorAll('#postModal input[type=range]')].map(r=>parseInt(r.value));
-  userPosts.unshift({
-    id:Date.now(),
+  const row={
+    user_id:currentUser.id,
     name,
     emoji:document.getElementById('pEmoji').value,
     img:document.getElementById('pImgUrl').value.trim()||null,
-    catIdx:document.getElementById('pCat').selectedIndex,
+    cat_idx:document.getElementById('pCat').selectedIndex,
     country:document.getElementById('pCountry').value.trim(),
-    likes:0,
-    desc:document.getElementById('pDesc').value,
+    description:document.getElementById('pDesc').value,
     flavor:sliders.slice(0,6),
     rich:sliders[6],
     aroma:sliders[7],
+  };
+  const { data, error }=await sb.from('posts').insert(row).select().single();
+  if(error){ alert('⚠️ '+error.message); return; }
+  userPosts.unshift({
+    id:data.id, name:data.name, emoji:data.emoji, img:data.img,
+    catIdx:data.cat_idx, country:data.country, likes:data.likes,
+    desc:data.description, flavor:data.flavor, rich:data.rich, aroma:data.aroma,
+    userId:data.user_id,
   });
-  saveUserPosts();
   rebuildPosts();
   const ok=document.getElementById('postOk');
   ok.textContent=t.postOk; ok.classList.remove('hidden');
@@ -1015,12 +1211,14 @@ function filterCat(idx){
 }
 
 // Like
-function likeItem(){
+async function likeItem(){
   if(!curPost) return;
   curPost.likes++;
   if(curPost.isUser){
     const up=userPosts.find(p=>p.id===curPost.id);
-    if(up){ up.likes=curPost.likes; saveUserPosts(); }
+    if(up) up.likes=curPost.likes;
+    const { error }=await sb.rpc('increment_likes',{post_id:curPost.id});
+    if(error) console.error(error);
   } else {
     likeOverrides[curPost.id]=curPost.likes;
     saveLikeOverrides();
@@ -1125,9 +1323,9 @@ function applyLang(l){
   lang=l;
   const t=T[l]; if(!t) return;
   const ids=['heroTitle','heroSub','aiTitle','aiSub','aiWelcome','aiSend','trendTitle','trendSub','rankSub',
-    'recoTitle','catTitle','newTitle','postBtnTxt','navMy','navReg','heroSearchBtn','backBtn',
+    'recoTitle','catTitle','newTitle','postBtnTxt','navMy','heroSearchBtn','backBtn',
     'flavorTitle','intensityTitle','likeBtnTxt','editBtnTxt',
-    'regTitle','lbNick','lbEmail','lbGender','lbPref','lbCity','lbBadge','lbTerms','agreeLabel','regBtn',
+    'lbNick','lbEmail','lbPassword','lbGender','lbPref','lbCity','lbBadge','lbTerms','agreeLabel',
     'gMale','gFemale','gOther',
     'postModalTitle','lbPName','lbPCountry','lbPCat','lbPDesc','lbFlavor','lbPPhoto','submitPostBtn',
     'fl0','fl1','fl2','fl3','fl4','fl5','fl6','fl7',
@@ -1146,10 +1344,16 @@ function applyLang(l){
   document.getElementById('pCat').innerHTML=t.catKeys.map(c=>`<option>${c}</option>`).join('');
   document.documentElement.lang=l;
   rebuildPosts();
+  updateAuthUI();
+  if(!document.getElementById('regModal').classList.contains('hidden')) applyAuthModalMode();
 }
 
 document.getElementById('langSel').addEventListener('change',e=>applyLang(e.target.value));
-applyLang('ja');
+(async()=>{
+  await loadUserPosts();
+  applyLang('ja');
+  await initAuth();
+})();
 </script>
 </body>
 </html>
