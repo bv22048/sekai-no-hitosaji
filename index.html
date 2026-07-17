@@ -6,21 +6,25 @@
 <title>世界のひとさじ — 調味料投稿サイト</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ora:#C2703D;--ora-light:#F6EDE4;--ora-mid:#D9A06C;--ora-dark:#8C4A24;
-  --bg:#faf6f1;--bg1:#fff;--bg2:#f6f1ea;
-  --txt:#1a1a1a;--txt2:#666;--bdr:#e8e1d8;
-  --r-lg:12px;--r-md:8px;
-  --sh-sm:0 1px 2px rgba(60,30,0,.05),0 1px 1px rgba(60,30,0,.04);
-  --sh-md:0 6px 16px rgba(60,30,0,.09),0 1px 3px rgba(60,30,0,.06);
-  --sh-lg:0 16px 40px rgba(40,20,0,.16);
-  font-family:'M PLUS Rounded 1c',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --ora:#7D2E3B;--ora-light:#F3E9E3;--ora-mid:#9C4A56;--ora-dark:#5A1F28;
+  --gold:#C9A24E;--gold-dark:#9C7A34;
+  --bg:#F5EFE4;--bg1:#FFFDF8;--bg2:#EDE4D3;
+  --txt:#2B2420;--txt2:#6B5F52;--bdr:#DDD0BC;
+  --r-lg:6px;--r-md:4px;
+  --sh-sm:0 1px 2px rgba(40,20,10,.08),0 1px 1px rgba(40,20,10,.05);
+  --sh-md:0 6px 16px rgba(40,20,10,.12),0 1px 3px rgba(40,20,10,.08);
+  --sh-lg:0 16px 40px rgba(30,15,5,.2);
+  font-family:'Shippori Mincho','Noto Serif JP',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,serif;
 }
 body{background:var(--bg);color:var(--txt)}
 .hidden{display:none!important}
+.ic{width:18px;height:18px;flex-shrink:0;vertical-align:-4px}
+.ic-lg{width:26px;height:26px;vertical-align:-6px}
+.ic-sm{width:15px;height:15px;vertical-align:-3px}
 button,input,select,textarea{font-family:inherit}
 button{transition:transform .12s ease,box-shadow .12s ease,background-color .15s ease}
 button:active{transform:scale(.96)}
@@ -29,7 +33,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 }
 
 /* Nav */
-.nav{background:var(--ora);padding:0 1rem;display:flex;align-items:center;gap:12px;height:56px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.nav{background:var(--ora);padding:0 1rem;display:flex;align-items:center;gap:12px;height:56px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.12);border-bottom:2px solid var(--gold)}
 .nav-logo{color:#fff;font-size:17px;font-weight:700;line-height:1.2;white-space:nowrap}
 .nav-logo small{font-size:11px;display:block;opacity:.85;font-weight:400}
 .nav-actions{display:flex;gap:8px;margin-left:auto}
@@ -44,7 +48,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 /* Hero */
 .hero{background:linear-gradient(135deg,var(--ora) 0%,var(--ora-mid) 100%);padding:2rem 1rem;text-align:center;color:#fff}
-.hero h1{font-size:22px;font-weight:700;margin-bottom:.5rem}
+.hero h1{font-size:22px;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;justify-content:center;gap:8px}
 .hero p{font-size:14px;opacity:.9;margin-bottom:1.5rem}
 .hero-search{display:flex;gap:8px;max-width:480px;margin:0 auto}
 .hero-search input{flex:1;padding:10px 16px;border-radius:24px;border:none;font-size:14px;outline:none}
@@ -76,7 +80,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 /* Section */
 .section{padding:1.5rem 1rem;max-width:1100px;margin:0 auto}
-.section-title{font-size:16px;font-weight:800;color:var(--txt);margin-bottom:1rem;display:flex;align-items:center;gap:8px;letter-spacing:.02em}
+.section-title{font-size:17px;font-weight:700;color:var(--txt);margin-bottom:1.1rem;display:flex;align-items:center;gap:8px;letter-spacing:.03em;padding-bottom:8px;border-bottom:1px solid var(--gold)}
 
 /* AI Chat */
 .ai-box{background:var(--bg1);border:1px solid var(--bdr);border-radius:var(--r-lg);overflow:hidden;max-width:600px;box-shadow:var(--sh-md)}
@@ -103,7 +107,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .cat-scroll::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:3px}
 .cat-card{flex:0 0 82px;background:var(--bg1);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:14px 8px;text-align:center;cursor:pointer;box-shadow:var(--sh-sm);transition:border-color .15s,transform .15s,box-shadow .15s}
 .cat-card:hover{border-color:var(--ora);transform:translateY(-3px);box-shadow:var(--sh-md)}
-.cat-card .ci{font-size:24px;display:block;margin-bottom:6px}
+.cat-card .ci{display:flex;justify-content:center;margin-bottom:6px;color:var(--ora)}
 .cat-card span{font-size:12px;color:var(--txt2)}
 
 /* Rankings */
@@ -116,7 +120,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .rank-info{flex:1}
 .rank-name{font-size:13px;font-weight:600;color:var(--txt)}
 .rank-meta{font-size:11px;color:var(--txt2)}
-.rank-heart{font-size:12px;color:#e24b4a}
+.rank-heart{font-size:12px;color:#B4444B}
 
 /* Post Cards */
 .post-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
@@ -129,7 +133,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .post-tag{font-size:11px;background:var(--ora-light);color:var(--ora-dark);border-radius:10px;padding:2px 8px;display:inline-block}
 .post-footer{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
 .post-user{font-size:11px;color:var(--txt2)}
-.post-likes{font-size:12px;color:#e24b4a}
+.post-likes{font-size:12px;color:#B4444B}
 
 /* Detail */
 .detail-wrap{padding:1rem;max-width:680px;margin:0 auto}
@@ -167,7 +171,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .badge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-top:6px}
 .badge-opt{border:1px solid var(--bdr);border-radius:var(--r-md);padding:8px 10px;font-size:12px;cursor:pointer;text-align:center;transition:all .15s;color:var(--txt2)}
 .badge-opt.sel{border-color:var(--ora);background:var(--ora-light);color:var(--ora-dark)}
-.badge-opt .bi{font-size:18px;display:block;margin-bottom:4px}
+.badge-opt .bi{display:flex;justify-content:center;margin-bottom:4px}
 .terms-box{background:var(--bg2);border-radius:var(--r-md);padding:1rem;font-size:12px;color:var(--txt2);line-height:1.7;max-height:120px;overflow-y:auto;margin-bottom:.75rem;white-space:pre-wrap}
 
 /* My Page */
@@ -206,6 +210,64 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 </head>
 <body>
 
+<!-- 装飾用アイコン一式（ミニマルな線画、絵文字の代わりに使用） -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="ic-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3c1 3-2 4-2 7a4 4 0 0 0 8 0c0-2-1-3-1-5 2 1 3 4 3 7a6 6 0 0 1-12 0c0-4 2-6 4-9Z"/>
+  </symbol>
+  <symbol id="ic-candy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="9" r="5"/><path d="M12 14v6"/>
+  </symbol>
+  <symbol id="ic-citrus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="7"/><path d="M12 5v14M5 12h14M7.5 7.5l9 9M16.5 7.5l-9 9"/>
+  </symbol>
+  <symbol id="ic-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 10c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+  </symbol>
+  <symbol id="ic-umami" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="ic-jar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 3h6M9 3v2.5L7 8v11a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V8l-2-2.5V3"/><path d="M7 12h10"/>
+  </symbol>
+  <symbol id="ic-smoke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 21c1.5-2-1.5-3 0-5s1.5-3 0-5"/><path d="M12 21c1.5-2-1.5-3 0-5s1.5-3 0-5"/><path d="M16 21c1.5-2-1.5-3 0-5s1.5-3 0-5"/>
+  </symbol>
+  <symbol id="ic-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21c-5-1-8-5-8-10C4 6 8 3 12 3s8 3 8 8c0 5-3 9-8 10Z"/><path d="M12 21V7"/>
+  </symbol>
+  <symbol id="ic-sprout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21V11"/><path d="M12 11c0-4-3-6-7-6 0 4 3 7 7 7Z"/><path d="M12 14c0-4 3-6 7-6 0 4-3 7-7 7Z"/>
+  </symbol>
+  <symbol id="ic-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.8L5.7 21l1.7-7L2 9.2l7.1-.6Z"/>
+  </symbol>
+  <symbol id="ic-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2c.6 4 2 6.4 6 8-4 1.6-5.4 4-6 8-.6-4-2-6.4-6-8 4-1.6 5.4-4 6-8Z"/>
+  </symbol>
+  <symbol id="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 5h16v10H8l-4 4V5Z"/>
+  </symbol>
+  <symbol id="ic-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+  </symbol>
+  <symbol id="ic-bowl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 12h18a9 5 0 0 1-18 0Z"/><path d="M7 12c0-3 2-6 5-6s5 3 5 6"/>
+  </symbol>
+  <symbol id="ic-spoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3a4 5 0 0 0-4 5c0 2.5 1.8 4.5 4 5s4-2.5 4-5a4 5 0 0 0-4-5Z"/><path d="M12 13v8"/>
+  </symbol>
+  <symbol id="ic-radar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3l7 4v10l-7 4-7-4V7Z"/>
+  </symbol>
+  <symbol id="ic-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 20V14M12 20V9M18 20V5"/>
+  </symbol>
+  <symbol id="ic-person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+  </symbol>
+</svg>
+
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-logo" id="navLogo">世界のひとさじ<small>condiment world</small></div>
@@ -226,7 +288,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <!-- HOME -->
 <div class="page active" id="page-home">
   <div class="hero">
-    <h1 id="heroTitle">🌶 世界中の調味料を探す</h1>
+    <h1><svg class="ic-lg"><use href="#ic-spoon"/></svg> <span id="heroTitle">世界中の調味料を探す</span></h1>
     <p id="heroSub">投稿・発見・シェア — あなたの一さじから世界へ</p>
     <div class="hero-search">
       <input type="text" id="heroSearch" placeholder="調味料を検索…">
@@ -235,7 +297,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   </div>
 
   <div class="section" style="padding-bottom:0">
-    <div class="section-title">🍽 <span id="recoTitle">おすすめの調味料</span></div>
+    <div class="section-title"><svg class="ic"><use href="#ic-sparkle"/></svg> <span id="recoTitle">おすすめの調味料</span></div>
     <div class="carousel" id="carousel">
       <div class="carousel-track" id="carouselTrack"></div>
       <button class="car-nav prev" onclick="carouselNav(-1)">‹</button>
@@ -247,7 +309,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <div class="section">
     <div class="home-grid">
       <div>
-        <div class="section-title">🤖 <span id="aiTitle">AIに聞く</span></div>
+        <div class="section-title"><svg class="ic"><use href="#ic-chat"/></svg> <span id="aiTitle">AIに聞く</span></div>
         <div class="ai-box">
           <div class="ai-head">
             <span>✨</span><span id="aiSub">調味料AIアシスタント</span>
@@ -263,39 +325,39 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
         </div>
       </div>
       <div>
-        <div class="section-title">🔥 <span id="trendTitle">トレンド</span></div>
+        <div class="section-title"><svg class="ic"><use href="#ic-flame"/></svg> <span id="trendTitle">トレンド</span></div>
         <p style="font-size:12px;color:var(--txt2);margin-bottom:8px" id="trendSub">今週の話題</p>
         <div class="rank-list">
-          <div class="rank-item"><span class="rank-num">🥇</span><div class="rank-info"><p class="rank-name" id="t1n">ラー油</p><p class="rank-meta" id="t1m">中国・四川</p></div></div>
-          <div class="rank-item"><span class="rank-num">✨</span><div class="rank-info"><p class="rank-name" id="t2n">ハリッサ</p><p class="rank-meta" id="t2m">チュニジア</p></div></div>
-          <div class="rank-item"><span class="rank-num">🌿</span><div class="rank-info"><p class="rank-name" id="t3n">ドゥカ</p><p class="rank-meta" id="t3m">エジプト</p></div></div>
+          <div class="rank-item"><span class="rank-num">01</span><div class="rank-info"><p class="rank-name" id="t1n">ラー油</p><p class="rank-meta" id="t1m">中国・四川</p></div></div>
+          <div class="rank-item"><span class="rank-num">02</span><div class="rank-info"><p class="rank-name" id="t2n">ハリッサ</p><p class="rank-meta" id="t2m">チュニジア</p></div></div>
+          <div class="rank-item"><span class="rank-num">03</span><div class="rank-info"><p class="rank-name" id="t3n">ドゥカ</p><p class="rank-meta" id="t3m">エジプト</p></div></div>
         </div>
-        <p style="font-size:12px;color:var(--txt2);margin:14px 0 8px" id="rankSub">❤️ いいねランキング</p>
+        <p style="font-size:12px;color:var(--txt2);margin:14px 0 8px" id="rankSub">♥ いいねランキング</p>
         <div class="rank-list">
-          <div class="rank-item"><span class="rank-num">1</span><div class="rank-info"><p class="rank-name" id="r1n">醤油（たまり）</p><p class="rank-meta" id="r1m">日本</p></div><span class="rank-heart">❤️ 482</span></div>
-          <div class="rank-item"><span class="rank-num">2</span><div class="rank-info"><p class="rank-name" id="r2n">スリラチャ</p><p class="rank-meta" id="r2m">タイ</p></div><span class="rank-heart">❤️ 391</span></div>
-          <div class="rank-item"><span class="rank-num">3</span><div class="rank-info"><p class="rank-name" id="r3n">ナンプラー</p><p class="rank-meta" id="r3m">タイ</p></div><span class="rank-heart">❤️ 344</span></div>
+          <div class="rank-item"><span class="rank-num">01</span><div class="rank-info"><p class="rank-name" id="r1n">醤油（たまり）</p><p class="rank-meta" id="r1m">日本</p></div><span class="rank-heart">❤ 482</span></div>
+          <div class="rank-item"><span class="rank-num">02</span><div class="rank-info"><p class="rank-name" id="r2n">スリラチャ</p><p class="rank-meta" id="r2m">タイ</p></div><span class="rank-heart">❤ 391</span></div>
+          <div class="rank-item"><span class="rank-num">03</span><div class="rank-info"><p class="rank-name" id="r3n">ナンプラー</p><p class="rank-meta" id="r3m">タイ</p></div><span class="rank-heart">❤ 344</span></div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">📂 <span id="catTitle">カテゴリ</span></div>
+    <div class="section-title"><svg class="ic"><use href="#ic-grid"/></svg> <span id="catTitle">カテゴリ</span></div>
     <div class="cat-scroll">
-      <div class="cat-card" onclick="filterCat(0)"><span class="ci">🔥</span><span id="cat0">辛い</span></div>
-      <div class="cat-card" onclick="filterCat(1)"><span class="ci">🍬</span><span id="cat1">甘い</span></div>
-      <div class="cat-card" onclick="filterCat(2)"><span class="ci">🍋</span><span id="cat2">酸っぱい</span></div>
-      <div class="cat-card" onclick="filterCat(3)"><span class="ci">🐟</span><span id="cat3">塩辛い</span></div>
-      <div class="cat-card" onclick="filterCat(4)"><span class="ci">🍄</span><span id="cat4">うまみ</span></div>
-      <div class="cat-card" onclick="filterCat(5)"><span class="ci">⚗️</span><span id="cat5">発酵</span></div>
-      <div class="cat-card" onclick="filterCat(6)"><span class="ci">💨</span><span id="cat6">スモーク</span></div>
-      <div class="cat-card" onclick="filterCat(7)"><span class="ci">🌿</span><span id="cat7">ハーブ</span></div>
+      <div class="cat-card" onclick="filterCat(0)"><span class="ci"><svg class="ic-lg"><use href="#ic-flame"/></svg></span><span id="cat0">辛い</span></div>
+      <div class="cat-card" onclick="filterCat(1)"><span class="ci"><svg class="ic-lg"><use href="#ic-candy"/></svg></span><span id="cat1">甘い</span></div>
+      <div class="cat-card" onclick="filterCat(2)"><span class="ci"><svg class="ic-lg"><use href="#ic-citrus"/></svg></span><span id="cat2">酸っぱい</span></div>
+      <div class="cat-card" onclick="filterCat(3)"><span class="ci"><svg class="ic-lg"><use href="#ic-wave"/></svg></span><span id="cat3">塩辛い</span></div>
+      <div class="cat-card" onclick="filterCat(4)"><span class="ci"><svg class="ic-lg"><use href="#ic-umami"/></svg></span><span id="cat4">うまみ</span></div>
+      <div class="cat-card" onclick="filterCat(5)"><span class="ci"><svg class="ic-lg"><use href="#ic-jar"/></svg></span><span id="cat5">発酵</span></div>
+      <div class="cat-card" onclick="filterCat(6)"><span class="ci"><svg class="ic-lg"><use href="#ic-smoke"/></svg></span><span id="cat6">スモーク</span></div>
+      <div class="cat-card" onclick="filterCat(7)"><span class="ci"><svg class="ic-lg"><use href="#ic-leaf"/></svg></span><span id="cat7">ハーブ</span></div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">🍶 <span id="newTitle">新着投稿</span></div>
+    <div class="section-title"><svg class="ic"><use href="#ic-bowl"/></svg> <span id="newTitle">新着投稿</span></div>
     <div class="post-grid" id="postGrid"></div>
     <div style="text-align:center;margin-top:1.25rem">
       <button onclick="showModal('postModal')" style="background:var(--ora);border:none;border-radius:24px;padding:11px 28px;color:#fff;font-size:14px;cursor:pointer;font-family:inherit">
@@ -317,15 +379,15 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
       <div class="detail-desc" id="dDesc"></div>
     </div>
     <div class="chart-sec">
-      <div class="chart-ttl">📊 <span id="flavorTitle">五味チャート</span></div>
+      <div class="chart-ttl"><svg class="ic"><use href="#ic-radar"/></svg> <span id="flavorTitle">五味チャート</span></div>
       <div class="radar-wrap"><canvas id="radarChart" width="260" height="260"></canvas></div>
     </div>
     <div class="chart-sec">
-      <div class="chart-ttl">📈 <span id="intensityTitle">濃厚さ・香り指標</span></div>
+      <div class="chart-ttl"><svg class="ic"><use href="#ic-bars"/></svg> <span id="intensityTitle">濃厚さ・香り指標</span></div>
       <div id="barArea"></div>
     </div>
     <div style="display:flex;gap:10px;margin-top:1rem">
-      <button class="form-btn" style="background:#e24b4a" onclick="likeItem()">❤️ <span id="likeBtnTxt">いいね！</span></button>
+      <button class="form-btn" style="background:#B4444B" onclick="likeItem()">♥ <span id="likeBtnTxt">いいね！</span></button>
       <button class="form-btn" onclick="showModal('postModal')">✏️ <span id="editBtnTxt">投稿する</span></button>
     </div>
   </div>
@@ -336,7 +398,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <div class="mp-wrap">
     <button class="detail-back" onclick="showPage('home')">← <span id="mpBack">ホームへ戻る</span></button>
     <div class="profile-card">
-      <div class="avatar">🤤</div>
+      <div class="avatar"><svg class="ic-lg" style="color:#fff"><use href="#ic-person"/></svg></div>
       <div class="profile-name" id="mpName">ゲストユーザー</div>
       <div class="profile-loc" id="mpLoc">📍 未設定</div>
       <div class="badge-row" id="mpBadges">
@@ -385,14 +447,14 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
     <div class="form-group">
       <label class="form-label" id="lbBadge">味覚バッジ（複数選択可）</label>
       <div class="badge-grid" id="badgeGrid">
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🔥</span><span id="b0">辛党</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🍬</span><span id="b1">甘党</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🍃</span><span id="b2">オーガニック</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🌱</span><span id="b3">ベジタリアン</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🌿</span><span id="b4">ヴィーガン</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">⚗️</span><span id="b5">発酵好き</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🐟</span><span id="b6">塩マニア</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">⭐</span><span id="b7">グルメ</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-flame"/></svg></span><span id="b0">辛党</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-candy"/></svg></span><span id="b1">甘党</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-sprout"/></svg></span><span id="b2">オーガニック</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-sprout"/></svg></span><span id="b3">ベジタリアン</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-leaf"/></svg></span><span id="b4">ヴィーガン</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-jar"/></svg></span><span id="b5">発酵好き</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-wave"/></svg></span><span id="b6">塩マニア</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi"><svg class="ic"><use href="#ic-star"/></svg></span><span id="b7">グルメ</span></div>
       </div>
     </div>
     <div class="form-group">
@@ -443,9 +505,9 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <script>
 const T={
   ja:{
-    navLogo:'世界のひとさじ',heroTitle:'🌶 世界中の調味料を探す',heroSub:'投稿・発見・シェア — あなたの一さじから世界へ',
+    navLogo:'世界のひとさじ',heroTitle:'世界中の調味料を探す',heroSub:'投稿・発見・シェア — あなたの一さじから世界へ',
     aiTitle:'AIに聞く',aiSub:'調味料AIアシスタント',aiWelcome:'こんにちは！調味料について何でも聞いてください🌶️',
-    aiSend:'送信',trendTitle:'トレンド',trendSub:'今週の話題',rankSub:'❤️ いいねランキング',
+    aiSend:'送信',trendTitle:'トレンド',trendSub:'今週の話題',rankSub:'♥ いいねランキング',
     recoTitle:'おすすめの調味料',catTitle:'カテゴリ',newTitle:'新着投稿',postBtnTxt:'調味料を投稿する',
     navMy:'マイページ',navReg:'登録',heroSearchBtn:'検索',backBtn:'戻る',
     flavorTitle:'五味チャート',intensityTitle:'濃厚さ・香り指標',likeBtnTxt:'いいね！',editBtnTxt:'投稿する',
@@ -487,9 +549,9 @@ const T={
 以上`,
   },
   en:{
-    navLogo:'A Pinch of the World',heroTitle:'🌶 Discover Condiments Worldwide',heroSub:'Post · Discover · Share — your pinch to the world',
+    navLogo:'A Pinch of the World',heroTitle:'Discover Condiments Worldwide',heroSub:'Post · Discover · Share — your pinch to the world',
     aiTitle:'Ask AI',aiSub:'Condiment AI Assistant',aiWelcome:'Hello! Ask me anything about condiments 🌶️',
-    aiSend:'Send',trendTitle:'Trends',trendSub:'This week',rankSub:'❤️ Like Rankings',
+    aiSend:'Send',trendTitle:'Trends',trendSub:'This week',rankSub:'♥ Like Rankings',
     recoTitle:'Recommended Condiments',catTitle:'Categories',newTitle:'New Posts',postBtnTxt:'Post a Condiment',
     navMy:'My Page',navReg:'Sign Up',heroSearchBtn:'Search',backBtn:'Back',
     flavorTitle:'Flavor Radar',intensityTitle:'Richness & Aroma Index',likeBtnTxt:'Like!',editBtnTxt:'Post',
@@ -526,9 +588,9 @@ Article 4 (Privacy)
 Personal data used only for service improvement and statistics.`,
   },
   th:{
-    navLogo:'หยิบมือจากโลก',heroTitle:'🌶 ค้นพบเครื่องปรุงทั่วโลก',heroSub:'เผยแพร่ · ค้นพบ · แบ่งปัน',
+    navLogo:'หยิบมือจากโลก',heroTitle:'ค้นพบเครื่องปรุงทั่วโลก',heroSub:'เผยแพร่ · ค้นพบ · แบ่งปัน',
     aiTitle:'ถาม AI',aiSub:'AI ผู้ช่วยเครื่องปรุง',aiWelcome:'สวัสดี! ถามอะไรเกี่ยวกับเครื่องปรุงได้เลย 🌶️',
-    aiSend:'ส่ง',trendTitle:'เทรนด์',trendSub:'สัปดาห์นี้',rankSub:'❤️ อันดับที่ชอบ',
+    aiSend:'ส่ง',trendTitle:'เทรนด์',trendSub:'สัปดาห์นี้',rankSub:'♥ อันดับที่ชอบ',
     recoTitle:'เครื่องปรุงแนะนำ',catTitle:'หมวดหมู่',newTitle:'โพสต์ใหม่',postBtnTxt:'โพสต์เครื่องปรุง',
     navMy:'หน้าของฉัน',navReg:'สมัคร',heroSearchBtn:'ค้นหา',backBtn:'กลับ',
     flavorTitle:'กราฟรสชาติ',intensityTitle:'ความเข้มข้น & กลิ่น',likeBtnTxt:'ถูกใจ!',editBtnTxt:'โพสต์',
@@ -561,9 +623,9 @@ Personal data used only for service improvement and statistics.`,
 ข้อ 4: ข้อมูลส่วนตัวใช้เพื่อปรับปรุงบริการเท่านั้น`,
   },
   zh:{
-    navLogo:'世界一撮',heroTitle:'🌶 发现世界调味料',heroSub:'发布·发现·分享',
+    navLogo:'世界一撮',heroTitle:'发现世界调味料',heroSub:'发布·发现·分享',
     aiTitle:'问AI',aiSub:'调味料AI助手',aiWelcome:'你好！请随时问关于调味料的问题 🌶️',
-    aiSend:'发送',trendTitle:'趋势',trendSub:'本周话题',rankSub:'❤️ 点赞排行',
+    aiSend:'发送',trendTitle:'趋势',trendSub:'本周话题',rankSub:'♥ 点赞排行',
     recoTitle:'推荐调味料',catTitle:'分类',newTitle:'最新发布',postBtnTxt:'发布调味料',
     navMy:'我的主页',navReg:'注册',heroSearchBtn:'搜索',backBtn:'返回',
     flavorTitle:'五味雷达图',intensityTitle:'浓度和香气指标',likeBtnTxt:'点赞！',editBtnTxt:'发布',
@@ -596,9 +658,9 @@ Personal data used only for service improvement and statistics.`,
 第4条 隐私：个人信息仅用于改进服务。`,
   },
   ko:{
-    navLogo:'세계 한 꼬집',heroTitle:'🌶 세계 조미료를 찾아보세요',heroSub:'게시·발견·공유',
+    navLogo:'세계 한 꼬집',heroTitle:'세계 조미료를 찾아보세요',heroSub:'게시·발견·공유',
     aiTitle:'AI에게 묻기',aiSub:'조미료 AI 어시스턴트',aiWelcome:'안녕하세요! 조미료에 대해 뭐든 물어보세요 🌶️',
-    aiSend:'보내기',trendTitle:'트렌드',trendSub:'이번 주',rankSub:'❤️ 좋아요 랭킹',
+    aiSend:'보내기',trendTitle:'트렌드',trendSub:'이번 주',rankSub:'♥ 좋아요 랭킹',
     recoTitle:'추천 조미료',catTitle:'카테고리',newTitle:'최신 게시물',postBtnTxt:'조미료 게시',
     navMy:'마이페이지',navReg:'등록',heroSearchBtn:'검색',backBtn:'돌아가기',
     flavorTitle:'오미 차트',intensityTitle:'농후함·향 지표',likeBtnTxt:'좋아요!',editBtnTxt:'게시',
@@ -631,9 +693,9 @@ Personal data used only for service improvement and statistics.`,
 제4조 개인정보: 서비스 개선 목적으로만 사용합니다.`,
   },
   fr:{
-    navLogo:'Une Pincée du Monde',heroTitle:"🌶 Découvrez les condiments du monde",heroSub:'Publiez · Découvrez · Partagez',
+    navLogo:'Une Pincée du Monde',heroTitle:"Découvrez les condiments du monde",heroSub:'Publiez · Découvrez · Partagez',
     aiTitle:"Demandez à l'IA",aiSub:'Assistant IA condiments',aiWelcome:'Bonjour! Posez-moi des questions sur les condiments 🌶️',
-    aiSend:'Envoyer',trendTitle:'Tendances',trendSub:'Cette semaine',rankSub:'❤️ Classement',
+    aiSend:'Envoyer',trendTitle:'Tendances',trendSub:'Cette semaine',rankSub:'♥ Classement',
     recoTitle:'Condiments recommandés',catTitle:'Catégories',newTitle:'Nouvelles publications',postBtnTxt:'Publier un condiment',
     navMy:'Mon profil',navReg:"S'inscrire",heroSearchBtn:'Chercher',backBtn:'Retour',
     flavorTitle:'Graphique des saveurs',intensityTitle:'Intensité & Arôme',likeBtnTxt:"J'aime!",editBtnTxt:'Publier',
@@ -753,7 +815,7 @@ function renderCarousel(){
         <p class="car-name">${p.name}</p>
         <p class="car-meta">${p.desc||''}</p>
       </div>
-      <span class="car-heart">❤️ ${p.likes}</span>
+      <span class="car-heart">♥ ${p.likes}</span>
     </div>`).join('');
   document.getElementById('carouselDots').innerHTML=items.map((_,i)=>
     `<span class="car-dot${i===0?' active':''}" onclick="event.stopPropagation();carouselGoTo(${i})"></span>`).join('');
@@ -792,7 +854,7 @@ function renderPosts(list){
         <span class="post-tag">${p.cat}</span>
         <div class="post-footer">
           <span class="post-user">${p.country}</span>
-          <span class="post-likes">❤️ ${p.likes}</span>
+          <span class="post-likes">♥ ${p.likes}</span>
         </div>
       </div>
     </div>`).join('');
@@ -843,7 +905,7 @@ function drawRadar(p,labels){
   }
 
   const data=p.flavor.slice(0,n);
-  ctx.fillStyle='rgba(194,112,61,.22)'; ctx.strokeStyle='#C2703D'; ctx.lineWidth=2;
+  ctx.fillStyle='rgba(125,46,59,.2)'; ctx.strokeStyle='#7D2E3B'; ctx.lineWidth=2;
   ctx.beginPath();
   for(let i=0;i<n;i++){
     const a=(i/n)*Math.PI*2-Math.PI/2,pr=(data[i]/MAX)*r;
@@ -856,7 +918,7 @@ function drawRadar(p,labels){
     const a=(i/n)*Math.PI*2-Math.PI/2,pr=(data[i]/MAX)*r;
     const x=cx+Math.cos(a)*pr,y=cy+Math.sin(a)*pr;
     ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2);
-    ctx.fillStyle='#C2703D'; ctx.fill();
+    ctx.fillStyle='#7D2E3B'; ctx.fill();
     ctx.strokeStyle='#fff'; ctx.lineWidth=1.5; ctx.stroke();
   }
 
