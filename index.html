@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>世界のひとさじ — 調味料投稿サイト</title>
+<title>荳也阜縺ｮ縺ｲ縺ｨ縺輔§ 窶・隱ｿ蜻ｳ譁呎兜遞ｿ繧ｵ繧､繝・/title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -82,10 +82,6 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .ai-box{background:var(--bg1);border:1px solid var(--bdr);border-radius:var(--r-lg);overflow:hidden;max-width:600px;box-shadow:var(--sh-md)}
 .ai-head{background:var(--ora-light);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--bdr)}
 .ai-head span{font-size:14px;font-weight:600;color:var(--ora-dark)}
-.ai-key-bar{display:flex;gap:8px;padding:8px 10px;background:var(--bg2);border-bottom:1px solid var(--bdr);align-items:center}
-.ai-key-bar input{flex:1;padding:5px 10px;border:1px solid var(--bdr);border-radius:8px;font-size:12px;outline:none;font-family:inherit}
-.ai-key-bar input:focus{border-color:var(--ora)}
-.ai-key-bar button{background:var(--ora);border:none;border-radius:8px;padding:5px 12px;color:#fff;font-size:12px;cursor:pointer;white-space:nowrap;font-family:inherit}
 .ai-msgs{padding:12px;min-height:140px;max-height:280px;overflow-y:auto}
 .ai-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 10px}
 .ai-chip{background:var(--ora-light);color:var(--ora-dark);border:none;border-radius:14px;padding:5px 12px;font-size:12px;cursor:pointer;white-space:nowrap}
@@ -190,7 +186,6 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .tab-btn{flex:1;padding:8px;font-size:13px;background:var(--bg1);border:none;cursor:pointer;color:var(--txt2);font-family:inherit}
 .tab-btn.active{background:var(--ora);color:#fff}
 
-  
 /* Modal */
 .modal-bg{position:fixed;inset:0;background:rgba(30,15,0,.5);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;animation:fadeIn .15s ease}
 .modal-box{background:var(--bg1);border-radius:var(--r-lg);padding:1.5rem;width:100%;max-width:460px;max-height:85vh;overflow-y:auto;box-shadow:var(--sh-lg);animation:popIn .18s ease}
@@ -213,38 +208,38 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo" id="navLogo">世界のひとさじ<small>condiment world</small></div>
+  <div class="nav-logo" id="navLogo">荳也阜縺ｮ縺ｲ縺ｨ縺輔§<small>condiment world</small></div>
   <div class="nav-actions">
     <select class="lang-sel" id="langSel">
-      <option value="ja">🇯🇵 日本語</option>
-      <option value="en">🇬🇧 English</option>
-      <option value="th">🇹🇭 ไทย</option>
-      <option value="zh">🇨🇳 中文</option>
-      <option value="ko">🇰🇷 한국어</option>
-      <option value="fr">🇫🇷 Français</option>
+      <option value="ja">・・ 譌･譛ｬ隱・/option>
+      <option value="en">・・ English</option>
+      <option value="th">・・ 犹・ｸ伶ｸ｢</option>
+      <option value="zh">・・ 荳ｭ譁・/option>
+      <option value="ko">・・ 﨑懋ｵｭ・ｴ</option>
+      <option value="fr">・・ Franﾃｧais</option>
     </select>
-    <button class="nav-btn" onclick="showPage('mypage')">👤 <span id="navMy">マイページ</span></button>
-    <button class="nav-btn" onclick="showModal('regModal')">➕ <span id="navReg">登録</span></button>
+    <button class="nav-btn" onclick="showPage('mypage')">側 <span id="navMy">繝槭う繝壹・繧ｸ</span></button>
+    <button class="nav-btn" onclick="showModal('regModal')">筐・<span id="navReg">逋ｻ骭ｲ</span></button>
   </div>
 </nav>
 
 <!-- HOME -->
 <div class="page active" id="page-home">
   <div class="hero">
-    <h1 id="heroTitle">🌶 世界中の調味料を探す</h1>
-    <p id="heroSub">投稿・発見・シェア — あなたの一さじから世界へ</p>
+    <h1 id="heroTitle">幻 荳也阜荳ｭ縺ｮ隱ｿ蜻ｳ譁吶ｒ謗｢縺・/h1>
+    <p id="heroSub">謚慕ｨｿ繝ｻ逋ｺ隕九・繧ｷ繧ｧ繧｢ 窶・縺ゅ↑縺溘・荳縺輔§縺九ｉ荳也阜縺ｸ</p>
     <div class="hero-search">
-      <input type="text" id="heroSearch" placeholder="調味料を検索…">
-      <button onclick="doSearch()" id="heroSearchBtn">検索</button>
+      <input type="text" id="heroSearch" placeholder="隱ｿ蜻ｳ譁吶ｒ讀懃ｴ｢窶ｦ">
+      <button onclick="doSearch()" id="heroSearchBtn">讀懃ｴ｢</button>
     </div>
   </div>
 
   <div class="section" style="padding-bottom:0">
-    <div class="section-title">🍽 <span id="recoTitle">おすすめの調味料</span></div>
+    <div class="section-title">鎖 <span id="recoTitle">縺翫☆縺吶ａ縺ｮ隱ｿ蜻ｳ譁・/span></div>
     <div class="carousel" id="carousel">
       <div class="carousel-track" id="carouselTrack"></div>
-      <button class="car-nav prev" onclick="carouselNav(-1)">‹</button>
-      <button class="car-nav next" onclick="carouselNav(1)">›</button>
+      <button class="car-nav prev" onclick="carouselNav(-1)">窶ｹ</button>
+      <button class="car-nav next" onclick="carouselNav(1)">窶ｺ</button>
       <div class="carousel-dots" id="carouselDots"></div>
     </div>
   </div>
@@ -252,64 +247,59 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <div class="section">
     <div class="home-grid">
       <div>
-        <div class="section-title">🤖 <span id="aiTitle">AIに聞く</span></div>
+        <div class="section-title">､・<span id="aiTitle">AI縺ｫ閨槭￥</span></div>
         <div class="ai-box">
           <div class="ai-head">
-            <span>✨</span><span id="aiSub">調味料AIアシスタント</span>
-            <button onclick="toggleKeyBar()" title="APIキー設定" style="margin-left:auto;background:none;border:none;cursor:pointer;font-size:17px;line-height:1;padding:0">🔑</button>
-          </div>
-          <div class="ai-key-bar hidden" id="aiKeyBar">
-            <input type="password" id="apiKeyInput" placeholder="Gemini APIキーを入力 (AIzaSy…)">
-            <button onclick="saveApiKey()">保存</button>
+            <span>笨ｨ</span><span id="aiSub">隱ｿ蜻ｳ譁僊I繧｢繧ｷ繧ｹ繧ｿ繝ｳ繝・/span>
           </div>
           <div class="ai-msgs" id="chatMsgs">
-            <div class="ai-msg" id="aiWelcome">こんにちは！調味料について何でも聞いてください🌶️</div>
+            <div class="ai-msg" id="aiWelcome">縺薙ｓ縺ｫ縺｡縺ｯ・∬ｪｿ蜻ｳ譁吶↓縺､縺・※菴輔〒繧り◇縺・※縺上□縺輔＞幻・・/div>
           </div>
           <div class="ai-chips" id="aiChips"></div>
           <div class="ai-inp">
-            <input type="text" id="aiInput" placeholder="例：辛い調味料を教えて" onkeydown="if(event.key==='Enter')sendChat()">
-            <button onclick="sendChat()" id="aiSend">送信</button>
+            <input type="text" id="aiInput" placeholder="萓具ｼ夊ｾ帙＞隱ｿ蜻ｳ譁吶ｒ謨吶∴縺ｦ" onkeydown="if(event.key==='Enter')sendChat()">
+            <button onclick="sendChat()" id="aiSend">騾∽ｿ｡</button>
           </div>
         </div>
       </div>
       <div>
-        <div class="section-title">🔥 <span id="trendTitle">トレンド</span></div>
-        <p style="font-size:12px;color:var(--txt2);margin-bottom:8px" id="trendSub">今週の話題</p>
+        <div class="section-title">櫨 <span id="trendTitle">繝医Ξ繝ｳ繝・/span></div>
+        <p style="font-size:12px;color:var(--txt2);margin-bottom:8px" id="trendSub">莉企ｱ縺ｮ隧ｱ鬘・/p>
         <div class="rank-list">
-          <div class="rank-item"><span class="rank-num">🥇</span><div class="rank-info"><p class="rank-name" id="t1n">ラー油</p><p class="rank-meta" id="t1m">中国・四川</p></div></div>
-          <div class="rank-item"><span class="rank-num">✨</span><div class="rank-info"><p class="rank-name" id="t2n">ハリッサ</p><p class="rank-meta" id="t2m">チュニジア</p></div></div>
-          <div class="rank-item"><span class="rank-num">🌿</span><div class="rank-info"><p class="rank-name" id="t3n">ドゥカ</p><p class="rank-meta" id="t3m">エジプト</p></div></div>
+          <div class="rank-item"><span class="rank-num">･・/span><div class="rank-info"><p class="rank-name" id="t1n">繝ｩ繝ｼ豐ｹ</p><p class="rank-meta" id="t1m">荳ｭ蝗ｽ繝ｻ蝗帛ｷ・/p></div></div>
+          <div class="rank-item"><span class="rank-num">笨ｨ</span><div class="rank-info"><p class="rank-name" id="t2n">繝上Μ繝・し</p><p class="rank-meta" id="t2m">繝√Η繝九ず繧｢</p></div></div>
+          <div class="rank-item"><span class="rank-num">諺</span><div class="rank-info"><p class="rank-name" id="t3n">繝峨ぇ繧ｫ</p><p class="rank-meta" id="t3m">繧ｨ繧ｸ繝励ヨ</p></div></div>
         </div>
-        <p style="font-size:12px;color:var(--txt2);margin:14px 0 8px" id="rankSub">❤️ いいねランキング</p>
+        <p style="font-size:12px;color:var(--txt2);margin:14px 0 8px" id="rankSub">笶､・・縺・＞縺ｭ繝ｩ繝ｳ繧ｭ繝ｳ繧ｰ</p>
         <div class="rank-list">
-          <div class="rank-item"><span class="rank-num">1</span><div class="rank-info"><p class="rank-name" id="r1n">醤油（たまり）</p><p class="rank-meta" id="r1m">日本</p></div><span class="rank-heart">❤️ 482</span></div>
-          <div class="rank-item"><span class="rank-num">2</span><div class="rank-info"><p class="rank-name" id="r2n">スリラチャ</p><p class="rank-meta" id="r2m">タイ</p></div><span class="rank-heart">❤️ 391</span></div>
-          <div class="rank-item"><span class="rank-num">3</span><div class="rank-info"><p class="rank-name" id="r3n">ナンプラー</p><p class="rank-meta" id="r3m">タイ</p></div><span class="rank-heart">❤️ 344</span></div>
+          <div class="rank-item"><span class="rank-num">1</span><div class="rank-info"><p class="rank-name" id="r1n">驢､豐ｹ・医◆縺ｾ繧奇ｼ・/p><p class="rank-meta" id="r1m">譌･譛ｬ</p></div><span class="rank-heart">笶､・・482</span></div>
+          <div class="rank-item"><span class="rank-num">2</span><div class="rank-info"><p class="rank-name" id="r2n">繧ｹ繝ｪ繝ｩ繝√Ε</p><p class="rank-meta" id="r2m">繧ｿ繧､</p></div><span class="rank-heart">笶､・・391</span></div>
+          <div class="rank-item"><span class="rank-num">3</span><div class="rank-info"><p class="rank-name" id="r3n">繝翫Φ繝励Λ繝ｼ</p><p class="rank-meta" id="r3m">繧ｿ繧､</p></div><span class="rank-heart">笶､・・344</span></div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">📂 <span id="catTitle">カテゴリ</span></div>
+    <div class="section-title">唐 <span id="catTitle">繧ｫ繝・ざ繝ｪ</span></div>
     <div class="cat-scroll">
-      <div class="cat-card" onclick="filterCat(0)"><span class="ci">🔥</span><span id="cat0">辛い</span></div>
-      <div class="cat-card" onclick="filterCat(1)"><span class="ci">🍬</span><span id="cat1">甘い</span></div>
-      <div class="cat-card" onclick="filterCat(2)"><span class="ci">🍋</span><span id="cat2">酸っぱい</span></div>
-      <div class="cat-card" onclick="filterCat(3)"><span class="ci">🐟</span><span id="cat3">塩辛い</span></div>
-      <div class="cat-card" onclick="filterCat(4)"><span class="ci">🍄</span><span id="cat4">うまみ</span></div>
-      <div class="cat-card" onclick="filterCat(5)"><span class="ci">⚗️</span><span id="cat5">発酵</span></div>
-      <div class="cat-card" onclick="filterCat(6)"><span class="ci">💨</span><span id="cat6">スモーク</span></div>
-      <div class="cat-card" onclick="filterCat(7)"><span class="ci">🌿</span><span id="cat7">ハーブ</span></div>
+      <div class="cat-card" onclick="filterCat(0)"><span class="ci">櫨</span><span id="cat0">霎帙＞</span></div>
+      <div class="cat-card" onclick="filterCat(1)"><span class="ci">混</span><span id="cat1">逕倥＞</span></div>
+      <div class="cat-card" onclick="filterCat(2)"><span class="ci">豪</span><span id="cat2">驟ｸ縺｣縺ｱ縺・/span></div>
+      <div class="cat-card" onclick="filterCat(3)"><span class="ci">澄</span><span id="cat3">蝪ｩ霎帙＞</span></div>
+      <div class="cat-card" onclick="filterCat(4)"><span class="ci">剛</span><span id="cat4">縺・∪縺ｿ</span></div>
+      <div class="cat-card" onclick="filterCat(5)"><span class="ci">笞暦ｸ・/span><span id="cat5">逋ｺ驟ｵ</span></div>
+      <div class="cat-card" onclick="filterCat(6)"><span class="ci">暢</span><span id="cat6">繧ｹ繝｢繝ｼ繧ｯ</span></div>
+      <div class="cat-card" onclick="filterCat(7)"><span class="ci">諺</span><span id="cat7">繝上・繝・/span></div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">🍶 <span id="newTitle">新着投稿</span></div>
+    <div class="section-title">左 <span id="newTitle">譁ｰ逹謚慕ｨｿ</span></div>
     <div class="post-grid" id="postGrid"></div>
     <div style="text-align:center;margin-top:1.25rem">
       <button onclick="showModal('postModal')" style="background:var(--ora);border:none;border-radius:24px;padding:11px 28px;color:#fff;font-size:14px;cursor:pointer;font-family:inherit">
-        ➕ <span id="postBtnTxt">調味料を投稿する</span>
+        筐・<span id="postBtnTxt">隱ｿ蜻ｳ譁吶ｒ謚慕ｨｿ縺吶ｋ</span>
       </button>
     </div>
   </div>
@@ -318,25 +308,25 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <!-- DETAIL -->
 <div class="page" id="page-detail">
   <div class="detail-wrap">
-    <button class="detail-back" onclick="showPage('home')">← <span id="backBtn">戻る</span></button>
+    <button class="detail-back" onclick="showPage('home')">竊・<span id="backBtn">謌ｻ繧・/span></button>
     <div class="detail-top">
-      <div class="detail-emoji" id="dEmoji">🧄</div>
-      <div class="detail-title" id="dTitle">醤油（たまり）</div>
-      <div class="detail-sub" id="dSub">日本 • うまみ</div>
+      <div class="detail-emoji" id="dEmoji">ｧ・/div>
+      <div class="detail-title" id="dTitle">驢､豐ｹ・医◆縺ｾ繧奇ｼ・/div>
+      <div class="detail-sub" id="dSub">譌･譛ｬ 窶｢ 縺・∪縺ｿ</div>
       <div class="detail-tags" id="dTags"></div>
       <div class="detail-desc" id="dDesc"></div>
     </div>
     <div class="chart-sec">
-      <div class="chart-ttl">📊 <span id="flavorTitle">五味チャート</span></div>
+      <div class="chart-ttl">投 <span id="flavorTitle">莠泌袖繝√Ε繝ｼ繝・/span></div>
       <div class="radar-wrap"><canvas id="radarChart" width="260" height="260"></canvas></div>
     </div>
     <div class="chart-sec">
-      <div class="chart-ttl">📈 <span id="intensityTitle">濃厚さ・香り指標</span></div>
+      <div class="chart-ttl">嶋 <span id="intensityTitle">豼・字縺輔・鬥吶ｊ謖・ｨ・/span></div>
       <div id="barArea"></div>
     </div>
     <div style="display:flex;gap:10px;margin-top:1rem">
-      <button class="form-btn" style="background:#e24b4a" onclick="likeItem()">❤️ <span id="likeBtnTxt">いいね！</span></button>
-      <button class="form-btn" onclick="showModal('postModal')">✏️ <span id="editBtnTxt">投稿する</span></button>
+      <button class="form-btn" style="background:#e24b4a" onclick="likeItem()">笶､・・<span id="likeBtnTxt">縺・＞縺ｭ・・/span></button>
+      <button class="form-btn" onclick="showModal('postModal')">笨擾ｸ・<span id="editBtnTxt">謚慕ｨｿ縺吶ｋ</span></button>
     </div>
   </div>
 </div>
@@ -344,75 +334,75 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <!-- MY PAGE -->
 <div class="page" id="page-mypage">
   <div class="mp-wrap">
-    <button class="detail-back" onclick="showPage('home')">← <span id="mpBack">ホームへ戻る</span></button>
+    <button class="detail-back" onclick="showPage('home')">竊・<span id="mpBack">繝帙・繝縺ｸ謌ｻ繧・/span></button>
     <div class="profile-card">
-      <div class="avatar">🤤</div>
-      <div class="profile-name" id="mpName">ゲストユーザー</div>
-      <div class="profile-loc" id="mpLoc">📍 未設定</div>
+      <div class="avatar">､､</div>
+      <div class="profile-name" id="mpName">繧ｲ繧ｹ繝医Θ繝ｼ繧ｶ繝ｼ</div>
+      <div class="profile-loc" id="mpLoc">桃 譛ｪ險ｭ螳・/div>
       <div class="badge-row" id="mpBadges">
-        <span class="badge-pill">辛党</span><span class="badge-pill">グルメ</span>
+        <span class="badge-pill">霎帛・</span><span class="badge-pill">繧ｰ繝ｫ繝｡</span>
       </div>
     </div>
     <div class="stat-grid">
-      <div class="stat-box"><div class="stat-num">12</div><div class="stat-lbl" id="statPosts">投稿</div></div>
-      <div class="stat-box"><div class="stat-num">87</div><div class="stat-lbl" id="statLikes">いいね</div></div>
-      <div class="stat-box"><div class="stat-num">5</div><div class="stat-lbl" id="statFollowers">フォロワー</div></div>
+      <div class="stat-box"><div class="stat-num">12</div><div class="stat-lbl" id="statPosts">謚慕ｨｿ</div></div>
+      <div class="stat-box"><div class="stat-num">87</div><div class="stat-lbl" id="statLikes">縺・＞縺ｭ</div></div>
+      <div class="stat-box"><div class="stat-num">5</div><div class="stat-lbl" id="statFollowers">繝輔か繝ｭ繝ｯ繝ｼ</div></div>
     </div>
     <div class="tab-row">
-      <button class="tab-btn active" onclick="mpTab(this,'posts')" id="tabPost">投稿</button>
-      <button class="tab-btn" onclick="mpTab(this,'liked')" id="tabLiked">いいね済</button>
-      <button class="tab-btn" onclick="mpTab(this,'settings')" id="tabSettings">設定</button>
+      <button class="tab-btn active" onclick="mpTab(this,'posts')" id="tabPost">謚慕ｨｿ</button>
+      <button class="tab-btn" onclick="mpTab(this,'liked')" id="tabLiked">縺・＞縺ｭ貂・/button>
+      <button class="tab-btn" onclick="mpTab(this,'settings')" id="tabSettings">險ｭ螳・/button>
     </div>
     <div id="mpContent"><div class="post-grid" id="myPostGrid"></div></div>
-    <button class="form-btn" style="margin-top:1rem" onclick="showModal('regModal')">✏️ <span id="editProfileBtn">プロフィールを編集</span></button>
+    <button class="form-btn" style="margin-top:1rem" onclick="showModal('regModal')">笨擾ｸ・<span id="editProfileBtn">繝励Ο繝輔ぅ繝ｼ繝ｫ繧堤ｷｨ髮・/span></button>
   </div>
 </div>
 
 <!-- REGISTER MODAL -->
 <div class="modal-bg hidden" id="regModal" onclick="closeBg(event,'regModal')">
   <div class="modal-box">
-    <div class="modal-ttl"><span id="regTitle">ユーザー登録</span><button class="modal-close" onclick="closeModal('regModal')">✕</button></div>
-    <div class="form-group"><label class="form-label" id="lbNick">ニックネーム</label><input class="form-input" type="text" id="regNick" placeholder="例：スパイス太郎"></div>
-    <div class="form-group"><label class="form-label" id="lbEmail">メールアドレス</label><input class="form-input" type="email" id="regEmail" placeholder="example@mail.com"></div>
+    <div class="modal-ttl"><span id="regTitle">繝ｦ繝ｼ繧ｶ繝ｼ逋ｻ骭ｲ</span><button class="modal-close" onclick="closeModal('regModal')">笨・/button></div>
+    <div class="form-group"><label class="form-label" id="lbNick">繝九ャ繧ｯ繝阪・繝</label><input class="form-input" type="text" id="regNick" placeholder="萓具ｼ壹せ繝代う繧ｹ螟ｪ驛・></div>
+    <div class="form-group"><label class="form-label" id="lbEmail">繝｡繝ｼ繝ｫ繧｢繝峨Ξ繧ｹ</label><input class="form-input" type="email" id="regEmail" placeholder="example@mail.com"></div>
     <div class="form-group">
-      <label class="form-label" id="lbGender">性別</label>
+      <label class="form-label" id="lbGender">諤ｧ蛻･</label>
       <select class="form-sel" id="regGender">
-        <option value="">選択してください</option>
-        <option id="gMale">男性</option><option id="gFemale">女性</option><option id="gOther">その他・答えない</option>
+        <option value="">驕ｸ謚槭＠縺ｦ縺上□縺輔＞</option>
+        <option id="gMale">逕ｷ諤ｧ</option><option id="gFemale">螂ｳ諤ｧ</option><option id="gOther">縺昴・莉悶・遲斐∴縺ｪ縺・/option>
       </select>
     </div>
     <div class="form-group">
-      <label class="form-label" id="lbPref">都道府県</label>
+      <label class="form-label" id="lbPref">驛ｽ驕灘ｺ懃恁</label>
       <select class="form-sel" id="regPref">
-        <option value="">選択</option>
-        <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option>
-        <option>東京都</option><option>神奈川県</option><option>埼玉県</option><option>千葉県</option>
-        <option>大阪府</option><option>京都府</option><option>兵庫県</option><option>愛知県</option>
-        <option>福岡県</option><option>沖縄県</option><option>その他・海外</option>
+        <option value="">驕ｸ謚・/option>
+        <option>蛹玲ｵｷ驕・/option><option>髱呈｣ｮ逵・/option><option>蟯ｩ謇狗恁</option><option>螳ｮ蝓守恁</option><option>遘狗伐逵・/option>
+        <option>譚ｱ莠ｬ驛ｽ</option><option>逾槫･亥ｷ晉恁</option><option>蝓ｼ邇臥恁</option><option>蜊・痩逵・/option>
+        <option>螟ｧ髦ｪ蠎・/option><option>莠ｬ驛ｽ蠎・/option><option>蜈ｵ蠎ｫ逵・/option><option>諢帷衍逵・/option>
+        <option>遖丞ｲ｡逵・/option><option>豐也ｸ・恁</option><option>縺昴・莉悶・豬ｷ螟・/option>
       </select>
     </div>
-    <div class="form-group"><label class="form-label" id="lbCity">市区町村</label><input class="form-input" type="text" id="regCity" placeholder="例：渋谷区"></div>
+    <div class="form-group"><label class="form-label" id="lbCity">蟶ょ玄逕ｺ譚・/label><input class="form-input" type="text" id="regCity" placeholder="萓具ｼ壽ｸ玖ｰｷ蛹ｺ"></div>
     <div class="form-group">
-      <label class="form-label" id="lbBadge">味覚バッジ（複数選択可）</label>
+      <label class="form-label" id="lbBadge">蜻ｳ隕壹ヰ繝・ず・郁､・焚驕ｸ謚槫庄・・/label>
       <div class="badge-grid" id="badgeGrid">
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🔥</span><span id="b0">辛党</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🍬</span><span id="b1">甘党</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🍃</span><span id="b2">オーガニック</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🌱</span><span id="b3">ベジタリアン</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🌿</span><span id="b4">ヴィーガン</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">⚗️</span><span id="b5">発酵好き</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">🐟</span><span id="b6">塩マニア</span></div>
-        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">⭐</span><span id="b7">グルメ</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">櫨</span><span id="b0">霎帛・</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">混</span><span id="b1">逕伜・</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">鴻</span><span id="b2">繧ｪ繝ｼ繧ｬ繝九ャ繧ｯ</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">験</span><span id="b3">繝吶ず繧ｿ繝ｪ繧｢繝ｳ</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">諺</span><span id="b4">繝ｴ繧｣繝ｼ繧ｬ繝ｳ</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">笞暦ｸ・/span><span id="b5">逋ｺ驟ｵ螂ｽ縺・/span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">澄</span><span id="b6">蝪ｩ繝槭ル繧｢</span></div>
+        <div class="badge-opt" onclick="this.classList.toggle('sel')"><span class="bi">箝・/span><span id="b7">繧ｰ繝ｫ繝｡</span></div>
       </div>
     </div>
     <div class="form-group">
-      <label class="form-label" id="lbTerms">利用規約</label>
+      <label class="form-label" id="lbTerms">蛻ｩ逕ｨ隕冗ｴ・/label>
       <div class="terms-box" id="termsBox"></div>
       <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--txt2);cursor:pointer;margin-top:.5rem">
-        <input type="checkbox" id="agreeCheck"> <span id="agreeLabel">利用規約に同意する</span>
+        <input type="checkbox" id="agreeCheck"> <span id="agreeLabel">蛻ｩ逕ｨ隕冗ｴ・↓蜷梧э縺吶ｋ</span>
       </label>
     </div>
-    <button class="form-btn" onclick="doRegister()" id="regBtn">登録する</button>
+    <button class="form-btn" onclick="doRegister()" id="regBtn">逋ｻ骭ｲ縺吶ｋ</button>
     <div id="regOk" class="success-msg hidden"></div>
   </div>
 </div>
@@ -420,32 +410,32 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <!-- POST MODAL -->
 <div class="modal-bg hidden" id="postModal" onclick="closeBg(event,'postModal')">
   <div class="modal-box">
-    <div class="modal-ttl"><span id="postModalTitle">調味料を投稿</span><button class="modal-close" onclick="closeModal('postModal')">✕</button></div>
-    <div class="form-group"><label class="form-label" id="lbPName">調味料名</label><input class="form-input" type="text" id="pName" placeholder="例：ハリッサ"></div>
-    <div class="form-group"><label class="form-label" id="lbPCountry">産地国・地域</label><input class="form-input" type="text" id="pCountry" placeholder="例：チュニジア"></div>
-    <div class="form-group"><label class="form-label" id="lbPCat">カテゴリ</label><select class="form-sel" id="pCat"></select></div>
-    <div class="form-group"><label class="form-label" id="lbPDesc">説明</label><textarea class="form-ta" id="pDesc" placeholder="特徴・使い方・おすすめ料理など…"></textarea></div>
-    <p style="font-size:13px;font-weight:600;margin-bottom:10px" id="lbFlavor">味の強さ（1〜10）</p>
+    <div class="modal-ttl"><span id="postModalTitle">隱ｿ蜻ｳ譁吶ｒ謚慕ｨｿ</span><button class="modal-close" onclick="closeModal('postModal')">笨・/button></div>
+    <div class="form-group"><label class="form-label" id="lbPName">隱ｿ蜻ｳ譁吝錐</label><input class="form-input" type="text" id="pName" placeholder="萓具ｼ壹ワ繝ｪ繝・し"></div>
+    <div class="form-group"><label class="form-label" id="lbPCountry">逕｣蝨ｰ蝗ｽ繝ｻ蝨ｰ蝓・/label><input class="form-input" type="text" id="pCountry" placeholder="萓具ｼ壹メ繝･繝九ず繧｢"></div>
+    <div class="form-group"><label class="form-label" id="lbPCat">繧ｫ繝・ざ繝ｪ</label><select class="form-sel" id="pCat"></select></div>
+    <div class="form-group"><label class="form-label" id="lbPDesc">隱ｬ譏・/label><textarea class="form-ta" id="pDesc" placeholder="迚ｹ蠕ｴ繝ｻ菴ｿ縺・婿繝ｻ縺翫☆縺吶ａ譁咏炊縺ｪ縺ｩ窶ｦ"></textarea></div>
+    <p style="font-size:13px;font-weight:600;margin-bottom:10px" id="lbFlavor">蜻ｳ縺ｮ蠑ｷ縺包ｼ・縲・0・・/p>
     <div>
-      <div class="bar-row"><span class="bar-lbl" id="fl0">甘味</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="3" oninput="sv(this,'v0')"><span class="sv" id="v0">3</span></div></div>
-      <div class="bar-row"><span class="bar-lbl" id="fl1">酸味</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="2" oninput="sv(this,'v1')"><span class="sv" id="v1">2</span></div></div>
-      <div class="bar-row"><span class="bar-lbl" id="fl2">塩味</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="5" oninput="sv(this,'v2')"><span class="sv" id="v2">5</span></div></div>
-      <div class="bar-row"><span class="bar-lbl" id="fl3">苦味</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="1" oninput="sv(this,'v3')"><span class="sv" id="v3">1</span></div></div>
-      <div class="bar-row"><span class="bar-lbl" id="fl4">うまみ</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="7" oninput="sv(this,'v4')"><span class="sv" id="v4">7</span></div></div>
-      <div class="bar-row"><span class="bar-lbl" id="fl5">辛味</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="4" oninput="sv(this,'v5')"><span class="sv" id="v5">4</span></div></div>
-      <div class="bar-row"><span class="bar-lbl" id="fl6">濃厚さ</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="6" oninput="sv(this,'v6')"><span class="sv" id="v6">6</span></div></div>
-      <div class="bar-row"><span class="bar-lbl" id="fl7">香り</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="8" oninput="sv(this,'v7')"><span class="sv" id="v7">8</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl0">逕伜袖</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="3" oninput="sv(this,'v0')"><span class="sv" id="v0">3</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl1">驟ｸ蜻ｳ</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="2" oninput="sv(this,'v1')"><span class="sv" id="v1">2</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl2">蝪ｩ蜻ｳ</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="5" oninput="sv(this,'v2')"><span class="sv" id="v2">5</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl3">闍ｦ蜻ｳ</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="1" oninput="sv(this,'v3')"><span class="sv" id="v3">1</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl4">縺・∪縺ｿ</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="7" oninput="sv(this,'v4')"><span class="sv" id="v4">7</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl5">霎帛袖</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="4" oninput="sv(this,'v5')"><span class="sv" id="v5">4</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl6">豼・字縺・/span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="6" oninput="sv(this,'v6')"><span class="sv" id="v6">6</span></div></div>
+      <div class="bar-row"><span class="bar-lbl" id="fl7">鬥吶ｊ</span><div class="slider-row" style="flex:1"><input type="range" min="1" max="10" value="8" oninput="sv(this,'v7')"><span class="sv" id="v7">8</span></div></div>
     </div>
     <div class="form-group" style="margin-top:1rem">
-      <label class="form-label" id="lbPPhoto">写真（絵文字で代用）</label>
+      <label class="form-label" id="lbPPhoto">蜀咏悄・育ｵｵ譁・ｭ励〒莉｣逕ｨ・・/label>
       <select class="form-sel" id="pEmoji">
-        <option>🌶️</option><option>🧄</option><option>🍯</option><option>🫙</option>
-        <option>🍅</option><option>🧅</option><option>🫒</option><option>🥫</option>
-        <option>🌿</option><option>🫧</option>
+        <option>幻・・/option><option>ｧ・/option><option>艮</option><option>ｫ・/option>
+        <option>劫</option><option>ｧ・/option><option>ｫ・/option><option>･ｫ</option>
+        <option>諺</option><option>ｫｧ</option>
       </select>
-      <input class="form-input" type="url" id="pImgUrl" placeholder="または画像URLを貼り付け（任意）" style="margin-top:8px">
+      <input class="form-input" type="url" id="pImgUrl" placeholder="縺ｾ縺溘・逕ｻ蜒酋RL繧定ｲｼ繧贋ｻ倥￠・井ｻｻ諢擾ｼ・ style="margin-top:8px">
     </div>
-    <button class="form-btn" onclick="submitPost()" id="submitPostBtn">投稿する</button>
+    <button class="form-btn" onclick="submitPost()" id="submitPostBtn">謚慕ｨｿ縺吶ｋ</button>
     <div id="postOk" class="success-msg hidden"></div>
   </div>
 </div>
@@ -453,53 +443,45 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <script>
 const T={
   ja:{
-    navLogo:'世界のひとさじ',heroTitle:'🌶 世界中の調味料を探す',heroSub:'投稿・発見・シェア — あなたの一さじから世界へ',
-    aiTitle:'AIに聞く',aiSub:'調味料AIアシスタント',aiWelcome:'こんにちは！調味料について何でも聞いてください🌶️',
-    aiSend:'送信',trendTitle:'トレンド',trendSub:'今週の話題',rankSub:'❤️ いいねランキング',
-    recoTitle:'おすすめの調味料',catTitle:'カテゴリ',newTitle:'新着投稿',postBtnTxt:'調味料を投稿する',
-    navMy:'マイページ',navReg:'登録',heroSearchBtn:'検索',backBtn:'戻る',
-    flavorTitle:'五味チャート',intensityTitle:'濃厚さ・香り指標',likeBtnTxt:'いいね！',editBtnTxt:'投稿する',
-    regTitle:'ユーザー登録',lbNick:'ニックネーム',lbEmail:'メールアドレス',lbGender:'性別',
-    lbPref:'都道府県',lbCity:'市区町村',lbBadge:'味覚バッジ（複数選択可）',lbTerms:'利用規約',agreeLabel:'利用規約に同意する',regBtn:'登録する',
-    gMale:'男性',gFemale:'女性',gOther:'その他・答えない',
-    postModalTitle:'調味料を投稿',lbPName:'調味料名',lbPCountry:'産地国・地域',lbPCat:'カテゴリ',lbPDesc:'説明',
-    lbFlavor:'味の強さ（1〜10）',lbPPhoto:'写真（絵文字で代用）',submitPostBtn:'投稿する',
-    fl0:'甘味',fl1:'酸味',fl2:'塩味',fl3:'苦味',fl4:'うまみ',fl5:'辛味',fl6:'濃厚さ',fl7:'香り',
-    cat0:'辛い',cat1:'甘い',cat2:'酸っぱい',cat3:'塩辛い',cat4:'うまみ',cat5:'発酵',cat6:'スモーク',cat7:'ハーブ',
-    catKeys:['辛い','甘い','酸っぱい','塩辛い','うまみ','発酵','スモーク','ハーブ'],
-    statPosts:'投稿',statLikes:'いいね',statFollowers:'フォロワー',tabPost:'投稿',tabLiked:'いいね済',tabSettings:'設定',editProfileBtn:'プロフィールを編集',mpBack:'ホームへ戻る',
-    flavorLabels:['甘味','酸味','塩味','苦味','うまみ','辛味'],
-    searchPh:'調味料を検索…',imgUrlPh:'または画像URLを貼り付け（任意）',aiPh:'例：辛い調味料を教えて',
-    aiChips:['辛い調味料のおすすめは？','醤油の種類を教えて','発酵調味料は体にいいの？','万能調味料はある？'],
-    badges:['辛党','甘党','オーガニック','ベジタリアン','ヴィーガン','発酵好き','塩マニア','グルメ'],
-    t1n:'ラー油',t1m:'中国・四川',t2n:'ハリッサ',t2m:'チュニジア',t3n:'ドゥカ',t3m:'エジプト',
-    r1n:'醤油（たまり）',r1m:'日本',r2n:'スリラチャ',r2m:'タイ',r3n:'ナンプラー',r3m:'タイ',
-    regOk:'✅ 登録完了！ようこそ世界のひとさじへ！',postOk:'✅ 投稿しました！ありがとうございます！',
-    tabLikedTxt:'いいねした投稿: 醤油（たまり）、スリラチャ',tabSettingsTxt:'設定・通知・プライバシー（準備中）',
-    unknownCountry:'未記入',
-    terms:`【世界のひとさじ 利用規約】
+    navLogo:'荳也阜縺ｮ縺ｲ縺ｨ縺輔§',heroTitle:'幻 荳也阜荳ｭ縺ｮ隱ｿ蜻ｳ譁吶ｒ謗｢縺・,heroSub:'謚慕ｨｿ繝ｻ逋ｺ隕九・繧ｷ繧ｧ繧｢ 窶・縺ゅ↑縺溘・荳縺輔§縺九ｉ荳也阜縺ｸ',
+    aiTitle:'AI縺ｫ閨槭￥',aiSub:'隱ｿ蜻ｳ譁僊I繧｢繧ｷ繧ｹ繧ｿ繝ｳ繝・,aiWelcome:'縺薙ｓ縺ｫ縺｡縺ｯ・∬ｪｿ蜻ｳ譁吶↓縺､縺・※菴輔〒繧り◇縺・※縺上□縺輔＞幻・・,
+    aiSend:'騾∽ｿ｡',trendTitle:'繝医Ξ繝ｳ繝・,trendSub:'莉企ｱ縺ｮ隧ｱ鬘・,rankSub:'笶､・・縺・＞縺ｭ繝ｩ繝ｳ繧ｭ繝ｳ繧ｰ',
+    recoTitle:'縺翫☆縺吶ａ縺ｮ隱ｿ蜻ｳ譁・,catTitle:'繧ｫ繝・ざ繝ｪ',newTitle:'譁ｰ逹謚慕ｨｿ',postBtnTxt:'隱ｿ蜻ｳ譁吶ｒ謚慕ｨｿ縺吶ｋ',
+    navMy:'繝槭う繝壹・繧ｸ',navReg:'逋ｻ骭ｲ',heroSearchBtn:'讀懃ｴ｢',backBtn:'謌ｻ繧・,
+    flavorTitle:'莠泌袖繝√Ε繝ｼ繝・,intensityTitle:'豼・字縺輔・鬥吶ｊ謖・ｨ・,likeBtnTxt:'縺・＞縺ｭ・・,editBtnTxt:'謚慕ｨｿ縺吶ｋ',
+    regTitle:'繝ｦ繝ｼ繧ｶ繝ｼ逋ｻ骭ｲ',lbNick:'繝九ャ繧ｯ繝阪・繝',lbEmail:'繝｡繝ｼ繝ｫ繧｢繝峨Ξ繧ｹ',lbGender:'諤ｧ蛻･',
+    lbPref:'驛ｽ驕灘ｺ懃恁',lbCity:'蟶ょ玄逕ｺ譚・,lbBadge:'蜻ｳ隕壹ヰ繝・ず・郁､・焚驕ｸ謚槫庄・・,lbTerms:'蛻ｩ逕ｨ隕冗ｴ・,agreeLabel:'蛻ｩ逕ｨ隕冗ｴ・↓蜷梧э縺吶ｋ',regBtn:'逋ｻ骭ｲ縺吶ｋ',
+    gMale:'逕ｷ諤ｧ',gFemale:'螂ｳ諤ｧ',gOther:'縺昴・莉悶・遲斐∴縺ｪ縺・,
+    postModalTitle:'隱ｿ蜻ｳ譁吶ｒ謚慕ｨｿ',lbPName:'隱ｿ蜻ｳ譁吝錐',lbPCountry:'逕｣蝨ｰ蝗ｽ繝ｻ蝨ｰ蝓・,lbPCat:'繧ｫ繝・ざ繝ｪ',lbPDesc:'隱ｬ譏・,
+    lbFlavor:'蜻ｳ縺ｮ蠑ｷ縺包ｼ・縲・0・・,lbPPhoto:'蜀咏悄・育ｵｵ譁・ｭ励〒莉｣逕ｨ・・,submitPostBtn:'謚慕ｨｿ縺吶ｋ',
+    fl0:'逕伜袖',fl1:'驟ｸ蜻ｳ',fl2:'蝪ｩ蜻ｳ',fl3:'闍ｦ蜻ｳ',fl4:'縺・∪縺ｿ',fl5:'霎帛袖',fl6:'豼・字縺・,fl7:'鬥吶ｊ',
+    cat0:'霎帙＞',cat1:'逕倥＞',cat2:'驟ｸ縺｣縺ｱ縺・,cat3:'蝪ｩ霎帙＞',cat4:'縺・∪縺ｿ',cat5:'逋ｺ驟ｵ',cat6:'繧ｹ繝｢繝ｼ繧ｯ',cat7:'繝上・繝・,
+    catKeys:['霎帙＞','逕倥＞','驟ｸ縺｣縺ｱ縺・,'蝪ｩ霎帙＞','縺・∪縺ｿ','逋ｺ驟ｵ','繧ｹ繝｢繝ｼ繧ｯ','繝上・繝・],
+    statPosts:'謚慕ｨｿ',statLikes:'縺・＞縺ｭ',statFollowers:'繝輔か繝ｭ繝ｯ繝ｼ',tabPost:'謚慕ｨｿ',tabLiked:'縺・＞縺ｭ貂・,tabSettings:'險ｭ螳・,editProfileBtn:'繝励Ο繝輔ぅ繝ｼ繝ｫ繧堤ｷｨ髮・,mpBack:'繝帙・繝縺ｸ謌ｻ繧・,
+    flavorLabels:['逕伜袖','驟ｸ蜻ｳ','蝪ｩ蜻ｳ','闍ｦ蜻ｳ','縺・∪縺ｿ','霎帛袖'],
+    searchPh:'隱ｿ蜻ｳ譁吶ｒ讀懃ｴ｢窶ｦ',imgUrlPh:'縺ｾ縺溘・逕ｻ蜒酋RL繧定ｲｼ繧贋ｻ倥￠・井ｻｻ諢擾ｼ・,aiPh:'萓具ｼ夊ｾ帙＞隱ｿ蜻ｳ譁吶ｒ謨吶∴縺ｦ',
+    aiChips:['霎帙＞隱ｿ蜻ｳ譁吶・縺翫☆縺吶ａ縺ｯ・・,'驢､豐ｹ縺ｮ遞ｮ鬘槭ｒ謨吶∴縺ｦ','逋ｺ驟ｵ隱ｿ蜻ｳ譁吶・菴薙↓縺・＞縺ｮ・・,'荳・・隱ｿ蜻ｳ譁吶・縺ゅｋ・・],
+    badges:['霎帛・','逕伜・','繧ｪ繝ｼ繧ｬ繝九ャ繧ｯ','繝吶ず繧ｿ繝ｪ繧｢繝ｳ','繝ｴ繧｣繝ｼ繧ｬ繝ｳ','逋ｺ驟ｵ螂ｽ縺・,'蝪ｩ繝槭ル繧｢','繧ｰ繝ｫ繝｡'],
+    t1n:'繝ｩ繝ｼ豐ｹ',t1m:'荳ｭ蝗ｽ繝ｻ蝗帛ｷ・,t2n:'繝上Μ繝・し',t2m:'繝√Η繝九ず繧｢',t3n:'繝峨ぇ繧ｫ',t3m:'繧ｨ繧ｸ繝励ヨ',
+    r1n:'驢､豐ｹ・医◆縺ｾ繧奇ｼ・,r1m:'譌･譛ｬ',r2n:'繧ｹ繝ｪ繝ｩ繝√Ε',r2m:'繧ｿ繧､',r3n:'繝翫Φ繝励Λ繝ｼ',r3m:'繧ｿ繧､',
+    regOk:'笨・逋ｻ骭ｲ螳御ｺ・ｼ√ｈ縺・％縺昜ｸ也阜縺ｮ縺ｲ縺ｨ縺輔§縺ｸ・・,postOk:'笨・謚慕ｨｿ縺励∪縺励◆・√≠繧翫′縺ｨ縺・＃縺悶＞縺ｾ縺呻ｼ・,
+    tabLikedTxt:'縺・＞縺ｭ縺励◆謚慕ｨｿ: 驢､豐ｹ・医◆縺ｾ繧奇ｼ峨√せ繝ｪ繝ｩ繝√Ε',tabSettingsTxt:'險ｭ螳壹・騾夂衍繝ｻ繝励Λ繧､繝舌す繝ｼ・域ｺ門ｙ荳ｭ・・,
+    unknownCountry:'譛ｪ險伜・',
+    terms:`縲蝉ｸ也阜縺ｮ縺ｲ縺ｨ縺輔§ 蛻ｩ逕ｨ隕冗ｴ・・
+隨ｬ1譚｡・育岼逧・ｼ・譛ｬ繧ｵ繝ｼ繝薙せ縺ｯ縲∽ｸ也阜荳ｭ縺ｮ隱ｿ蜻ｳ譁吶↓髢｢縺吶ｋ諠・ｱ繧貞・譛峨・逋ｺ隕九☆繧九◆繧√・繝励Λ繝・ヨ繝輔か繝ｼ繝縺ｧ縺吶・
+隨ｬ2譚｡・育ｦ∵ｭ｢莠矩・ｼ・繝ｻ莉冶・ｒ隱ｹ隰嶺ｸｭ蛯ｷ縺吶ｋ繧ｳ繝ｳ繝・Φ繝・・謚慕ｨｿ
+繝ｻ陌壼⊃縺ｮ諠・ｱ縺ｮ謚慕ｨｿ
+繝ｻ闡嶺ｽ懈ｨｩ繧剃ｾｵ螳ｳ縺吶ｋ繧ｳ繝ｳ繝・Φ繝・・謚慕ｨｿ
+繝ｻ繧ｹ繝代Β繝ｻ蠎・相逶ｮ逧・・謚慕ｨｿ
 
-第1条（目的）
-本サービスは、世界中の調味料に関する情報を共有・発見するためのプラットフォームです。
-
-第2条（禁止事項）
-・他者を誹謗中傷するコンテンツの投稿
-・虚偽の情報の投稿
-・著作権を侵害するコンテンツの投稿
-・スパム・広告目的の投稿
-
-第3条（投稿コンテンツ）
-ユーザーが投稿したコンテンツの著作権はユーザーに帰属します。
-
-第4条（個人情報）
-収集した個人情報はサービス改善・統計目的にのみ使用します。
-
-以上`,
+隨ｬ3譚｡・域兜遞ｿ繧ｳ繝ｳ繝・Φ繝・ｼ・繝ｦ繝ｼ繧ｶ繝ｼ縺梧兜遞ｿ縺励◆繧ｳ繝ｳ繝・Φ繝・・闡嶺ｽ懈ｨｩ縺ｯ繝ｦ繝ｼ繧ｶ繝ｼ縺ｫ蟶ｰ螻槭＠縺ｾ縺吶・
+隨ｬ4譚｡・亥倶ｺｺ諠・ｱ・・蜿朱寔縺励◆蛟倶ｺｺ諠・ｱ縺ｯ繧ｵ繝ｼ繝薙せ謾ｹ蝟・・邨ｱ險育岼逧・↓縺ｮ縺ｿ菴ｿ逕ｨ縺励∪縺吶・
+莉･荳柿,
   },
   en:{
-    navLogo:'A Pinch of the World',heroTitle:'🌶 Discover Condiments Worldwide',heroSub:'Post · Discover · Share — your pinch to the world',
-    aiTitle:'Ask AI',aiSub:'Condiment AI Assistant',aiWelcome:'Hello! Ask me anything about condiments 🌶️',
-    aiSend:'Send',trendTitle:'Trends',trendSub:'This week',rankSub:'❤️ Like Rankings',
+    navLogo:'A Pinch of the World',heroTitle:'幻 Discover Condiments Worldwide',heroSub:'Post ﾂｷ Discover ﾂｷ Share 窶・your pinch to the world',
+    aiTitle:'Ask AI',aiSub:'Condiment AI Assistant',aiWelcome:'Hello! Ask me anything about condiments 幻・・,
+    aiSend:'Send',trendTitle:'Trends',trendSub:'This week',rankSub:'笶､・・Like Rankings',
     recoTitle:'Recommended Condiments',catTitle:'Categories',newTitle:'New Posts',postBtnTxt:'Post a Condiment',
     navMy:'My Page',navReg:'Sign Up',heroSearchBtn:'Search',backBtn:'Back',
     flavorTitle:'Flavor Radar',intensityTitle:'Richness & Aroma Index',likeBtnTxt:'Like!',editBtnTxt:'Post',
@@ -513,12 +495,12 @@ const T={
     catKeys:['Spicy','Sweet','Sour','Salty','Umami','Fermented','Smoky','Herbal'],
     statPosts:'Posts',statLikes:'Likes',statFollowers:'Followers',tabPost:'Posts',tabLiked:'Liked',tabSettings:'Settings',editProfileBtn:'Edit Profile',mpBack:'Back to Home',
     flavorLabels:['Sweet','Sour','Salty','Bitter','Umami','Spicy'],
-    searchPh:'Search condiments…',imgUrlPh:'Or paste an image URL (optional)',aiPh:'e.g. Tell me spicy condiments',
+    searchPh:'Search condiments窶ｦ',imgUrlPh:'Or paste an image URL (optional)',aiPh:'e.g. Tell me spicy condiments',
     aiChips:['Recommend spicy condiments','What types of soy sauce exist?','Are fermented condiments healthy?','Any all-purpose condiment?'],
     badges:['Spice Lover','Sweet Tooth','Organic','Vegetarian','Vegan','Fermentation Fan','Salt Maniac','Foodie'],
-    t1n:'Chili Oil',t1m:'China · Sichuan',t2n:'Harissa',t2m:'Tunisia',t3n:'Dukkah',t3m:'Egypt',
+    t1n:'Chili Oil',t1m:'China ﾂｷ Sichuan',t2n:'Harissa',t2m:'Tunisia',t3n:'Dukkah',t3m:'Egypt',
     r1n:'Tamari Soy Sauce',r1m:'Japan',r2n:'Sriracha',r2m:'Thailand',r3n:'Fish Sauce',r3m:'Thailand',
-    regOk:'✅ Registered! Welcome to A Pinch of the World!',postOk:'✅ Posted! Thank you!',
+    regOk:'笨・Registered! Welcome to A Pinch of the World!',postOk:'笨・Posted! Thank you!',
     tabLikedTxt:'Liked posts: Tamari Soy Sauce, Sriracha',tabSettingsTxt:'Settings / Notifications / Privacy (coming soon)',
     unknownCountry:'Unknown',
     terms:`[Terms of Service]
@@ -536,134 +518,129 @@ Article 4 (Privacy)
 Personal data used only for service improvement and statistics.`,
   },
   th:{
-    navLogo:'หยิบมือจากโลก',heroTitle:'🌶 ค้นพบเครื่องปรุงทั่วโลก',heroSub:'เผยแพร่ · ค้นพบ · แบ่งปัน',
-    aiTitle:'ถาม AI',aiSub:'AI ผู้ช่วยเครื่องปรุง',aiWelcome:'สวัสดี! ถามอะไรเกี่ยวกับเครื่องปรุงได้เลย 🌶️',
-    aiSend:'ส่ง',trendTitle:'เทรนด์',trendSub:'สัปดาห์นี้',rankSub:'❤️ อันดับที่ชอบ',
-    recoTitle:'เครื่องปรุงแนะนำ',catTitle:'หมวดหมู่',newTitle:'โพสต์ใหม่',postBtnTxt:'โพสต์เครื่องปรุง',
-    navMy:'หน้าของฉัน',navReg:'สมัคร',heroSearchBtn:'ค้นหา',backBtn:'กลับ',
-    flavorTitle:'กราฟรสชาติ',intensityTitle:'ความเข้มข้น & กลิ่น',likeBtnTxt:'ถูกใจ!',editBtnTxt:'โพสต์',
-    regTitle:'สมัครสมาชิก',lbNick:'ชื่อเล่น',lbEmail:'อีเมล',lbGender:'เพศ',
-    lbPref:'จังหวัด',lbCity:'เมือง',lbBadge:'ป้ายรสชาติ',lbTerms:'ข้อกำหนด',agreeLabel:'ยอมรับข้อกำหนด',regBtn:'สมัคร',
-    gMale:'ชาย',gFemale:'หญิง',gOther:'อื่นๆ',
-    postModalTitle:'โพสต์เครื่องปรุง',lbPName:'ชื่อ',lbPCountry:'แหล่งกำเนิด',lbPCat:'หมวด',lbPDesc:'รายละเอียด',
-    lbFlavor:'ความเข้มรสชาติ',lbPPhoto:'รูป (emoji)',submitPostBtn:'โพสต์',
-    fl0:'หวาน',fl1:'เปรี้ยว',fl2:'เค็ม',fl3:'ขม',fl4:'อูมามิ',fl5:'เผ็ด',fl6:'เข้มข้น',fl7:'กลิ่น',
-    cat0:'เผ็ด',cat1:'หวาน',cat2:'เปรี้ยว',cat3:'เค็ม',cat4:'อูมามิ',cat5:'หมักดอง',cat6:'รมควัน',cat7:'สมุนไพร',
-    catKeys:['เผ็ด','หวาน','เปรี้ยว','เค็ม','อูมามิ','หมักดอง','รมควัน','สมุนไพร'],
-    statPosts:'โพสต์',statLikes:'ถูกใจ',statFollowers:'ผู้ติดตาม',tabPost:'โพสต์',tabLiked:'ถูกใจแล้ว',tabSettings:'ตั้งค่า',editProfileBtn:'แก้ไขโปรไฟล์',mpBack:'กลับหน้าหลัก',
-    flavorLabels:['หวาน','เปรี้ยว','เค็ม','ขม','อูมามิ','เผ็ด'],
-    searchPh:'ค้นหาเครื่องปรุง…',imgUrlPh:'หรือวางลิงก์รูปภาพ (ไม่บังคับ)',aiPh:'เช่น: แนะนำเครื่องปรุงรสเผ็ด',
-    aiChips:['แนะนำเครื่องปรุงรสเผ็ด','ซีอิ๊วมีกี่ชนิด','เครื่องปรุงหมักดีต่อสุขภาพไหม','มีเครื่องปรุงอเนกประสงค์ไหม'],
-    badges:['ชอบเผ็ด','ชอบหวาน','ออร์แกนิค','มังสวิรัติ','วีแกน','ชอบหมักดอง','คลั่งเกลือ','นักชิม'],
-    t1n:'น้ำมันพริก',t1m:'จีน · เสฉวน',t2n:'ฮาริสสา',t2m:'ตูนิเซีย',t3n:'ดุกกะ',t3m:'อียิปต์',
-    r1n:'ซอสถั่วเหลืองทามาริ',r1m:'ญี่ปุ่น',r2n:'ซอสศรีราชา',r2m:'ไทย',r3n:'น้ำปลา',r3m:'ไทย',
-    regOk:'✅ สมัครสำเร็จ! ยินดีต้อนรับ!',postOk:'✅ โพสต์แล้ว! ขอบคุณ!',
-    tabLikedTxt:'โพสต์ที่ถูกใจ: ซอสถั่วเหลือง, ซอสศรีราชา',tabSettingsTxt:'การตั้งค่า (เร็วๆ นี้)',
-    unknownCountry:'ไม่ระบุ',
-    terms:`[ข้อกำหนดการใช้]
+    navLogo:'犧ｫ犧｢犧ｴ犧壟ｸ｡犧ｷ犧ｭ犧謂ｸｲ犧≒ｹもｸ･犧・,heroTitle:'幻 犧・ｹ霞ｸ吭ｸ樅ｸ壟ｹ犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｸ伶ｸｱ犹謂ｸｧ犹もｸ･犧・,heroSub:'犹犧憫ｸ｢犹≒ｸ樅ｸ｣犹・ﾂｷ 犧・ｹ霞ｸ吭ｸ樅ｸ・ﾂｷ 犹≒ｸ壟ｹ謂ｸ・ｸ巵ｸｱ犧・,
+    aiTitle:'犧籾ｸｲ犧｡ AI',aiSub:'AI 犧憫ｸｹ犹霞ｸ癌ｹ謂ｸｧ犧｢犹犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・,aiWelcome:'犧ｪ犧ｧ犧ｱ犧ｪ犧扉ｸｵ! 犧籾ｸｲ犧｡犧ｭ犧ｰ犹・ｸ｣犹犧≒ｸｵ犹謂ｸ｢犧ｧ犧≒ｸｱ犧壟ｹ犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｹ・ｸ扉ｹ霞ｹ犧･犧｢ 幻・・,
+    aiSend:'犧ｪ犹謂ｸ・,trendTitle:'犹犧伶ｸ｣犧吭ｸ扉ｹ・,trendSub:'犧ｪ犧ｱ犧巵ｸ扉ｸｲ犧ｫ犹呉ｸ吭ｸｵ犹・,rankSub:'笶､・・犧ｭ犧ｱ犧吭ｸ扉ｸｱ犧壟ｸ伶ｸｵ犹謂ｸ癌ｸｭ犧・,
+    recoTitle:'犹犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｹ≒ｸ吭ｸｰ犧吭ｸｳ',catTitle:'犧ｫ犧｡犧ｧ犧扉ｸｫ犧｡犧ｹ犹・,newTitle:'犹もｸ樅ｸｪ犧歩ｹ呉ｹ・ｸｫ犧｡犹・,postBtnTxt:'犹もｸ樅ｸｪ犧歩ｹ呉ｹ犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・,
+    navMy:'犧ｫ犧吭ｹ霞ｸｲ犧もｸｭ犧・ｸ霞ｸｱ犧・,navReg:'犧ｪ犧｡犧ｱ犧・ｸ｣',heroSearchBtn:'犧・ｹ霞ｸ吭ｸｫ犧ｲ',backBtn:'犧≒ｸ･犧ｱ犧・,
+    flavorTitle:'犧≒ｸ｣犧ｲ犧游ｸ｣犧ｪ犧癌ｸｲ犧歩ｸｴ',intensityTitle:'犧・ｸｧ犧ｲ犧｡犹犧もｹ霞ｸ｡犧もｹ霞ｸ・& 犧≒ｸ･犧ｴ犹謂ｸ・,likeBtnTxt:'犧籾ｸｹ犧≒ｹ・ｸ・',editBtnTxt:'犹もｸ樅ｸｪ犧歩ｹ・,
+    regTitle:'犧ｪ犧｡犧ｱ犧・ｸ｣犧ｪ犧｡犧ｲ犧癌ｸｴ犧・,lbNick:'犧癌ｸｷ犹謂ｸｭ犹犧･犹謂ｸ・,lbEmail:'犧ｭ犧ｵ犹犧｡犧･',lbGender:'犹犧樅ｸｨ',
+    lbPref:'犧謂ｸｱ犧・ｸｫ犧ｧ犧ｱ犧・,lbCity:'犹犧｡犧ｷ犧ｭ犧・,lbBadge:'犧巵ｹ霞ｸｲ犧｢犧｣犧ｪ犧癌ｸｲ犧歩ｸｴ',lbTerms:'犧もｹ霞ｸｭ犧≒ｸｳ犧ｫ犧吭ｸ・,agreeLabel:'犧｢犧ｭ犧｡犧｣犧ｱ犧壟ｸもｹ霞ｸｭ犧≒ｸｳ犧ｫ犧吭ｸ・,regBtn:'犧ｪ犧｡犧ｱ犧・ｸ｣',
+    gMale:'犧癌ｸｲ犧｢',gFemale:'犧ｫ犧財ｸｴ犧・,gOther:'犧ｭ犧ｷ犹謂ｸ吭ｹ・,
+    postModalTitle:'犹もｸ樅ｸｪ犧歩ｹ呉ｹ犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・,lbPName:'犧癌ｸｷ犹謂ｸｭ',lbPCountry:'犹≒ｸｫ犧･犹謂ｸ・ｸ≒ｸｳ犹犧吭ｸｴ犧・,lbPCat:'犧ｫ犧｡犧ｧ犧・,lbPDesc:'犧｣犧ｲ犧｢犧･犧ｰ犹犧ｭ犧ｵ犧｢犧・,
+    lbFlavor:'犧・ｸｧ犧ｲ犧｡犹犧もｹ霞ｸ｡犧｣犧ｪ犧癌ｸｲ犧歩ｸｴ',lbPPhoto:'犧｣犧ｹ犧・(emoji)',submitPostBtn:'犹もｸ樅ｸｪ犧歩ｹ・,
+    fl0:'犧ｫ犧ｧ犧ｲ犧・,fl1:'犹犧巵ｸ｣犧ｵ犹霞ｸ｢犧ｧ',fl2:'犹犧・ｹ・ｸ｡',fl3:'犧もｸ｡',fl4:'犧ｭ犧ｹ犧｡犧ｲ犧｡犧ｴ',fl5:'犹犧憫ｹ・ｸ・,fl6:'犹犧もｹ霞ｸ｡犧もｹ霞ｸ・,fl7:'犧≒ｸ･犧ｴ犹謂ｸ・,
+    cat0:'犹犧憫ｹ・ｸ・,cat1:'犧ｫ犧ｧ犧ｲ犧・,cat2:'犹犧巵ｸ｣犧ｵ犹霞ｸ｢犧ｧ',cat3:'犹犧・ｹ・ｸ｡',cat4:'犧ｭ犧ｹ犧｡犧ｲ犧｡犧ｴ',cat5:'犧ｫ犧｡犧ｱ犧≒ｸ扉ｸｭ犧・,cat6:'犧｣犧｡犧・ｸｧ犧ｱ犧・,cat7:'犧ｪ犧｡犧ｸ犧吭ｹ・ｸ樅ｸ｣',
+    catKeys:['犹犧憫ｹ・ｸ・,'犧ｫ犧ｧ犧ｲ犧・,'犹犧巵ｸ｣犧ｵ犹霞ｸ｢犧ｧ','犹犧・ｹ・ｸ｡','犧ｭ犧ｹ犧｡犧ｲ犧｡犧ｴ','犧ｫ犧｡犧ｱ犧≒ｸ扉ｸｭ犧・,'犧｣犧｡犧・ｸｧ犧ｱ犧・,'犧ｪ犧｡犧ｸ犧吭ｹ・ｸ樅ｸ｣'],
+    statPosts:'犹もｸ樅ｸｪ犧歩ｹ・,statLikes:'犧籾ｸｹ犧≒ｹ・ｸ・,statFollowers:'犧憫ｸｹ犹霞ｸ歩ｸｴ犧扉ｸ歩ｸｲ犧｡',tabPost:'犹もｸ樅ｸｪ犧歩ｹ・,tabLiked:'犧籾ｸｹ犧≒ｹ・ｸ謂ｹ≒ｸ･犹霞ｸｧ',tabSettings:'犧歩ｸｱ犹霞ｸ・ｸ・ｹ謂ｸｲ',editProfileBtn:'犹≒ｸ≒ｹ霞ｹ・ｸもｹもｸ巵ｸ｣犹・ｸ游ｸ･犹・,mpBack:'犧≒ｸ･犧ｱ犧壟ｸｫ犧吭ｹ霞ｸｲ犧ｫ犧･犧ｱ犧・,
+    flavorLabels:['犧ｫ犧ｧ犧ｲ犧・,'犹犧巵ｸ｣犧ｵ犹霞ｸ｢犧ｧ','犹犧・ｹ・ｸ｡','犧もｸ｡','犧ｭ犧ｹ犧｡犧ｲ犧｡犧ｴ','犹犧憫ｹ・ｸ・],
+    searchPh:'犧・ｹ霞ｸ吭ｸｫ犧ｲ犹犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｦ',imgUrlPh:'犧ｫ犧｣犧ｷ犧ｭ犧ｧ犧ｲ犧・ｸ･犧ｴ犧・ｸ≒ｹ呉ｸ｣犧ｹ犧巵ｸ犧ｲ犧・(犹・ｸ｡犹謂ｸ壟ｸｱ犧・ｸ・ｸｱ犧・',aiPh:'犹犧癌ｹ謂ｸ・ 犹≒ｸ吭ｸｰ犧吭ｸｳ犹犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｸ｣犧ｪ犹犧憫ｹ・ｸ・,
+    aiChips:['犹≒ｸ吭ｸｰ犧吭ｸｳ犹犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｸ｣犧ｪ犹犧憫ｹ・ｸ・,'犧金ｸｵ犧ｭ犧ｴ犹癌ｸｧ犧｡犧ｵ犧≒ｸｵ犹謂ｸ癌ｸ吭ｸｴ犧・,'犹犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｸｫ犧｡犧ｱ犧≒ｸ扉ｸｵ犧歩ｹ謂ｸｭ犧ｪ犧ｸ犧もｸ犧ｲ犧樅ｹ・ｸｫ犧｡','犧｡犧ｵ犹犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｸｭ犹犧吭ｸ≒ｸ巵ｸ｣犧ｰ犧ｪ犧・ｸ・ｹ呉ｹ・ｸｫ犧｡'],
+    badges:['犧癌ｸｭ犧壟ｹ犧憫ｹ・ｸ・,'犧癌ｸｭ犧壟ｸｫ犧ｧ犧ｲ犧・,'犧ｭ犧ｭ犧｣犹呉ｹ≒ｸ≒ｸ吭ｸｴ犧・,'犧｡犧ｱ犧・ｸｪ犧ｧ犧ｴ犧｣犧ｱ犧歩ｸｴ','犧ｧ犧ｵ犹≒ｸ≒ｸ・,'犧癌ｸｭ犧壟ｸｫ犧｡犧ｱ犧≒ｸ扉ｸｭ犧・,'犧・ｸ･犧ｱ犹謂ｸ・ｹ犧≒ｸ･犧ｷ犧ｭ','犧吭ｸｱ犧≒ｸ癌ｸｴ犧｡'],
+    t1n:'犧吭ｹ霞ｸｳ犧｡犧ｱ犧吭ｸ樅ｸ｣犧ｴ犧・,t1m:'犧謂ｸｵ犧・ﾂｷ 犹犧ｪ犧霞ｸｧ犧・,t2n:'犧ｮ犧ｲ犧｣犧ｴ犧ｪ犧ｪ犧ｲ',t2m:'犧歩ｸｹ犧吭ｸｴ犹犧金ｸｵ犧｢',t3n:'犧扉ｸｸ犧≒ｸ≒ｸｰ',t3m:'犧ｭ犧ｵ犧｢犧ｴ犧巵ｸ歩ｹ・,
+    r1n:'犧金ｸｭ犧ｪ犧籾ｸｱ犹謂ｸｧ犹犧ｫ犧･犧ｷ犧ｭ犧・ｸ伶ｸｲ犧｡犧ｲ犧｣犧ｴ',r1m:'犧財ｸｵ犹謂ｸ巵ｸｸ犹謂ｸ・,r2n:'犧金ｸｭ犧ｪ犧ｨ犧｣犧ｵ犧｣犧ｲ犧癌ｸｲ',r2m:'犹・ｸ伶ｸ｢',r3n:'犧吭ｹ霞ｸｳ犧巵ｸ･犧ｲ',r3m:'犹・ｸ伶ｸ｢',
+    regOk:'笨・犧ｪ犧｡犧ｱ犧・ｸ｣犧ｪ犧ｳ犹犧｣犹・ｸ・ 犧｢犧ｴ犧吭ｸ扉ｸｵ犧歩ｹ霞ｸｭ犧吭ｸ｣犧ｱ犧・',postOk:'笨・犹もｸ樅ｸｪ犧歩ｹ呉ｹ≒ｸ･犹霞ｸｧ! 犧もｸｭ犧壟ｸ・ｸｸ犧・',
+    tabLikedTxt:'犹もｸ樅ｸｪ犧歩ｹ呉ｸ伶ｸｵ犹謂ｸ籾ｸｹ犧≒ｹ・ｸ・ 犧金ｸｭ犧ｪ犧籾ｸｱ犹謂ｸｧ犹犧ｫ犧･犧ｷ犧ｭ犧・ 犧金ｸｭ犧ｪ犧ｨ犧｣犧ｵ犧｣犧ｲ犧癌ｸｲ',tabSettingsTxt:'犧≒ｸｲ犧｣犧歩ｸｱ犹霞ｸ・ｸ・ｹ謂ｸｲ (犹犧｣犹・ｸｧ犹・犧吭ｸｵ犹・',
+    unknownCountry:'犹・ｸ｡犹謂ｸ｣犧ｰ犧壟ｸｸ',
+    terms:`[犧もｹ霞ｸｭ犧≒ｸｳ犧ｫ犧吭ｸ扉ｸ≒ｸｲ犧｣犹・ｸ癌ｹ云
 
-ข้อ 1: บริการนี้เป็นแพลตฟอร์มสำหรับแบ่งปันข้อมูลเครื่องปรุงทั่วโลก
+犧もｹ霞ｸｭ 1: 犧壟ｸ｣犧ｴ犧≒ｸｲ犧｣犧吭ｸｵ犹霞ｹ犧巵ｹ・ｸ吭ｹ≒ｸ樅ｸ･犧歩ｸ游ｸｭ犧｣犹呉ｸ｡犧ｪ犧ｳ犧ｫ犧｣犧ｱ犧壟ｹ≒ｸ壟ｹ謂ｸ・ｸ巵ｸｱ犧吭ｸもｹ霞ｸｭ犧｡犧ｹ犧･犹犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｸ伶ｸｱ犹謂ｸｧ犹もｸ･犧・
+犧もｹ霞ｸｭ 2: 犧ｫ犹霞ｸｲ犧｡犹もｸ樅ｸｪ犧歩ｹ呉ｹ犧吭ｸｷ犹霞ｸｭ犧ｫ犧ｲ犧伶ｸｵ犹謂ｸｫ犧｡犧ｴ犹謂ｸ吭ｸ巵ｸ｣犧ｰ犧｡犧ｲ犧・犧もｹ霞ｸｭ犧｡犧ｹ犧･犹犧伶ｹ・ｸ・犧ｫ犧｣犧ｷ犧ｭ犧ｪ犹≒ｸ巵ｸ｡
 
-ข้อ 2: ห้ามโพสต์เนื้อหาที่หมิ่นประมาท ข้อมูลเท็จ หรือสแปม
-
-ข้อ 3: ผู้ใช้ยังคงเป็นเจ้าของลิขสิทธิ์
-
-ข้อ 4: ข้อมูลส่วนตัวใช้เพื่อปรับปรุงบริการเท่านั้น`,
+犧もｹ霞ｸｭ 3: 犧憫ｸｹ犹霞ｹ・ｸ癌ｹ霞ｸ｢犧ｱ犧・ｸ・ｸ・ｹ犧巵ｹ・ｸ吭ｹ犧謂ｹ霞ｸｲ犧もｸｭ犧・ｸ･犧ｴ犧もｸｪ犧ｴ犧伶ｸ倨ｸｴ犹・
+犧もｹ霞ｸｭ 4: 犧もｹ霞ｸｭ犧｡犧ｹ犧･犧ｪ犹謂ｸｧ犧吭ｸ歩ｸｱ犧ｧ犹・ｸ癌ｹ霞ｹ犧樅ｸｷ犹謂ｸｭ犧巵ｸ｣犧ｱ犧壟ｸ巵ｸ｣犧ｸ犧・ｸ壟ｸ｣犧ｴ犧≒ｸｲ犧｣犹犧伶ｹ謂ｸｲ犧吭ｸｱ犹霞ｸ兪,
   },
   zh:{
-    navLogo:'世界一撮',heroTitle:'🌶 发现世界调味料',heroSub:'发布·发现·分享',
-    aiTitle:'问AI',aiSub:'调味料AI助手',aiWelcome:'你好！请随时问关于调味料的问题 🌶️',
-    aiSend:'发送',trendTitle:'趋势',trendSub:'本周话题',rankSub:'❤️ 点赞排行',
-    recoTitle:'推荐调味料',catTitle:'分类',newTitle:'最新发布',postBtnTxt:'发布调味料',
-    navMy:'我的主页',navReg:'注册',heroSearchBtn:'搜索',backBtn:'返回',
-    flavorTitle:'五味雷达图',intensityTitle:'浓度和香气指标',likeBtnTxt:'点赞！',editBtnTxt:'发布',
-    regTitle:'用户注册',lbNick:'昵称',lbEmail:'邮箱',lbGender:'性别',
-    lbPref:'省份',lbCity:'城市',lbBadge:'口味徽章',lbTerms:'使用条款',agreeLabel:'同意使用条款',regBtn:'注册',
-    gMale:'男',gFemale:'女',gOther:'其他',
-    postModalTitle:'发布调味料',lbPName:'名称',lbPCountry:'产地',lbPCat:'分类',lbPDesc:'描述',
-    lbFlavor:'风味强度（1-10）',lbPPhoto:'图片（emoji）',submitPostBtn:'发布',
-    fl0:'甜',fl1:'酸',fl2:'咸',fl3:'苦',fl4:'鲜',fl5:'辣',fl6:'浓度',fl7:'香气',
-    cat0:'辣',cat1:'甜',cat2:'酸',cat3:'咸',cat4:'鲜',cat5:'发酵',cat6:'烟熏',cat7:'草本',
-    catKeys:['辣','甜','酸','咸','鲜','发酵','烟熏','草本'],
-    statPosts:'发布',statLikes:'点赞',statFollowers:'关注者',tabPost:'发布',tabLiked:'已点赞',tabSettings:'设置',editProfileBtn:'编辑资料',mpBack:'返回首页',
-    flavorLabels:['甜','酸','咸','苦','鲜','辣'],
-    searchPh:'搜索调味料…',imgUrlPh:'或粘贴图片链接（可选）',aiPh:'例如：推荐辣味调味料',
-    aiChips:['推荐辣味调味料','酱油有哪些种类？','发酵调味料对身体好吗？','有万能调味料吗？'],
-    badges:['辣党','甜党','有机','素食者','纯素','发酵爱好者','盐迷','美食家'],
-    t1n:'辣椒油',t1m:'中国·四川',t2n:'哈里萨',t2m:'突尼斯',t3n:'杜卡',t3m:'埃及',
-    r1n:'淡口酱油',r1m:'日本',r2n:'是拉差',r2m:'泰国',r3n:'鱼露',r3m:'泰国',
-    regOk:'✅ 注册成功！欢迎！',postOk:'✅ 发布成功！谢谢！',
-    tabLikedTxt:'已点赞：淡口酱油、是拉差',tabSettingsTxt:'设置 / 通知（即将推出）',
-    unknownCountry:'未填写',
-    terms:`[使用条款]
+    navLogo:'荳也阜荳謦ｮ',heroTitle:'幻 蜿醍鴫荳也阜隹・袖譁・,heroSub:'蜿大ｸδｷ蜿醍鴫ﾂｷ蛻・ｺｫ',
+    aiTitle:'髣ｮAI',aiSub:'隹・袖譁僊I蜉ｩ謇・,aiWelcome:'菴螂ｽ・∬ｯｷ髫乗慮髣ｮ蜈ｳ莠手ｰ・袖譁咏噪髣ｮ鬚・幻・・,
+    aiSend:'蜿鷹・,trendTitle:'雜句漢',trendSub:'譛ｬ蜻ｨ隸晞｢・,rankSub:'笶､・・轤ｹ襍樊賜陦・,
+    recoTitle:'謗ｨ闕占ｰ・袖譁・,catTitle:'蛻・ｱｻ',newTitle:'譛譁ｰ蜿大ｸ・,postBtnTxt:'蜿大ｸ・ｰ・袖譁・,
+    navMy:'謌醍噪荳ｻ鬘ｵ',navReg:'豕ｨ蜀・,heroSearchBtn:'謳懃ｴ｢',backBtn:'霑泌屓',
+    flavorTitle:'莠泌袖髮ｷ霎ｾ蝗ｾ',intensityTitle:'豬灘ｺｦ蜥碁ｦ呎ｰ疲欠譬・,likeBtnTxt:'轤ｹ襍橸ｼ・,editBtnTxt:'蜿大ｸ・,
+    regTitle:'逕ｨ謌ｷ豕ｨ蜀・,lbNick:'譏ｵ遘ｰ',lbEmail:'驍ｮ邂ｱ',lbGender:'諤ｧ蛻ｫ',
+    lbPref:'逵∽ｻｽ',lbCity:'蝓主ｸ・,lbBadge:'蜿｣蜻ｳ蠕ｽ遶',lbTerms:'菴ｿ逕ｨ譚｡谺ｾ',agreeLabel:'蜷梧э菴ｿ逕ｨ譚｡谺ｾ',regBtn:'豕ｨ蜀・,
+    gMale:'逕ｷ',gFemale:'螂ｳ',gOther:'蜈ｶ莉・,
+    postModalTitle:'蜿大ｸ・ｰ・袖譁・,lbPName:'蜷咲ｧｰ',lbPCountry:'莠ｧ蝨ｰ',lbPCat:'蛻・ｱｻ',lbPDesc:'謠剰ｿｰ',
+    lbFlavor:'鬟主袖蠑ｺ蠎ｦ・・-10・・,lbPPhoto:'蝗ｾ迚・ｼ・moji・・,submitPostBtn:'蜿大ｸ・,
+    fl0:'逕・,fl1:'驟ｸ',fl2:'蜥ｸ',fl3:'闍ｦ',fl4:'魎・,fl5:'霎｣',fl6:'豬灘ｺｦ',fl7:'鬥呎ｰ・,
+    cat0:'霎｣',cat1:'逕・,cat2:'驟ｸ',cat3:'蜥ｸ',cat4:'魎・,cat5:'蜿鷹・',cat6:'辜溽・',cat7:'闕画悽',
+    catKeys:['霎｣','逕・,'驟ｸ','蜥ｸ','魎・,'蜿鷹・','辜溽・','闕画悽'],
+    statPosts:'蜿大ｸ・,statLikes:'轤ｹ襍・,statFollowers:'蜈ｳ豕ｨ閠・,tabPost:'蜿大ｸ・,tabLiked:'蟾ｲ轤ｹ襍・,tabSettings:'隶ｾ鄂ｮ',editProfileBtn:'郛冶ｾ題ｵ・侭',mpBack:'霑泌屓鬥夜｡ｵ',
+    flavorLabels:['逕・,'驟ｸ','蜥ｸ','闍ｦ','魎・,'霎｣'],
+    searchPh:'謳懃ｴ｢隹・袖譁吮ｦ',imgUrlPh:'謌也ｲ倩ｴｴ蝗ｾ迚・得謗･・亥庄騾会ｼ・,aiPh:'萓句ｦゑｼ壽耳闕占ｾ｣蜻ｳ隹・袖譁・,
+    aiChips:['謗ｨ闕占ｾ｣蜻ｳ隹・袖譁・,'驟ｱ豐ｹ譛牙頭莠帷ｧ咲ｱｻ・・,'蜿鷹・隹・袖譁吝ｯｹ霄ｫ菴灘･ｽ蜷暦ｼ・,'譛我ｸ・・隹・袖譁吝雛・・],
+    badges:['霎｣蜈・,'逕懷・','譛画惻','邏鬟溯・,'郤ｯ邏','蜿鷹・辷ｱ螂ｽ閠・,'逶占ｿｷ','鄒朱｣溷ｮｶ'],
+    t1n:'霎｣讀呈ｲｹ',t1m:'荳ｭ蝗ｽﾂｷ蝗帛ｷ・,t2n:'蜩磯㈹關ｨ',t2m:'遯∝ｰｼ譁ｯ',t3n:'譚懷今',t3m:'蝓・所',
+    r1n:'豺｡蜿｣驟ｱ豐ｹ',r1m:'譌･譛ｬ',r2n:'譏ｯ諡牙ｷｮ',r2m:'豕ｰ蝗ｽ',r3n:'魍ｼ髴ｲ',r3m:'豕ｰ蝗ｽ',
+    regOk:'笨・豕ｨ蜀梧・蜉滂ｼ∵ｬ｢霑趣ｼ・,postOk:'笨・蜿大ｸ・・蜉滂ｼ∬ｰ｢隹｢・・,
+    tabLikedTxt:'蟾ｲ轤ｹ襍橸ｼ壽ｷ｡蜿｣驟ｱ豐ｹ縲∵弍諡牙ｷｮ',tabSettingsTxt:'隶ｾ鄂ｮ / 騾夂衍・亥叉蟆・耳蜃ｺ・・,
+    unknownCountry:'譛ｪ蝪ｫ蜀・,
+    terms:`[菴ｿ逕ｨ譚｡谺ｾ]
 
-第1条 目的：分享和发现全球调味料信息的平台。
-
-第2条 禁止：诽谤、虚假信息、垃圾内容。
-
-第3条 内容：用户保留版权，但授权服务展示。
-
-第4条 隐私：个人信息仅用于改进服务。`,
+隨ｬ1譚｡ 逶ｮ逧・ｼ壼・莠ｫ蜥悟書邇ｰ蜈ｨ逅・ｰ・袖譁吩ｿ｡諱ｯ逧・ｹｳ蜿ｰ縲・
+隨ｬ2譚｡ 遖∵ｭ｢・夊ｯｽ隹､縲∬劒蛛・ｿ｡諱ｯ縲∝档蝨ｾ蜀・ｮｹ縲・
+隨ｬ3譚｡ 蜀・ｮｹ・夂畑謌ｷ菫晉蕗迚域揀・御ｽ・肢譚・恪蜉｡螻慕､ｺ縲・
+隨ｬ4譚｡ 髫千ｧ・ｼ壻ｸｪ莠ｺ菫｡諱ｯ莉・畑莠取隼霑帶恪蜉｡縲Ａ,
   },
   ko:{
-    navLogo:'세계 한 꼬집',heroTitle:'🌶 세계 조미료를 찾아보세요',heroSub:'게시·발견·공유',
-    aiTitle:'AI에게 묻기',aiSub:'조미료 AI 어시스턴트',aiWelcome:'안녕하세요! 조미료에 대해 뭐든 물어보세요 🌶️',
-    aiSend:'보내기',trendTitle:'트렌드',trendSub:'이번 주',rankSub:'❤️ 좋아요 랭킹',
-    recoTitle:'추천 조미료',catTitle:'카테고리',newTitle:'최신 게시물',postBtnTxt:'조미료 게시',
-    navMy:'마이페이지',navReg:'등록',heroSearchBtn:'검색',backBtn:'돌아가기',
-    flavorTitle:'오미 차트',intensityTitle:'농후함·향 지표',likeBtnTxt:'좋아요!',editBtnTxt:'게시',
-    regTitle:'회원가입',lbNick:'닉네임',lbEmail:'이메일',lbGender:'성별',
-    lbPref:'지역',lbCity:'도시',lbBadge:'미각 배지',lbTerms:'이용약관',agreeLabel:'이용약관에 동의합니다',regBtn:'등록',
-    gMale:'남성',gFemale:'여성',gOther:'기타',
-    postModalTitle:'조미료 게시',lbPName:'이름',lbPCountry:'원산지',lbPCat:'카테고리',lbPDesc:'설명',
-    lbFlavor:'풍미 강도（1-10）',lbPPhoto:'사진（이모지）',submitPostBtn:'게시',
-    fl0:'단맛',fl1:'신맛',fl2:'짠맛',fl3:'쓴맛',fl4:'감칠맛',fl5:'매운맛',fl6:'농후함',fl7:'향기',
-    cat0:'매운',cat1:'달콤한',cat2:'신',cat3:'짠',cat4:'감칠맛',cat5:'발효',cat6:'훈제',cat7:'허브',
-    catKeys:['매운','달콤한','신','짠','감칠맛','발효','훈제','허브'],
-    statPosts:'게시물',statLikes:'좋아요',statFollowers:'팔로워',tabPost:'게시물',tabLiked:'좋아요',tabSettings:'설정',editProfileBtn:'프로필 편집',mpBack:'홈으로 돌아가기',
-    flavorLabels:['단맛','신맛','짠맛','쓴맛','감칠맛','매운맛'],
-    searchPh:'조미료 검색…',imgUrlPh:'또는 이미지 URL 붙여넣기 (선택)',aiPh:'예: 매운 조미료 추천해줘',
-    aiChips:['매운 조미료 추천해줘','간장 종류가 궁금해','발효 조미료가 몸에 좋아?','만능 조미료 있어?'],
-    badges:['매운맛파','단맛파','유기농','채식주의자','비건','발효 마니아','소금 마니아','미식가'],
-    t1n:'라유',t1m:'중국·사천',t2n:'하리사',t2m:'튀니지',t3n:'두카',t3m:'이집트',
-    r1n:'타마리 간장',r1m:'일본',r2n:'스리라차',r2m:'태국',r3n:'피쉬소스',r3m:'태국',
-    regOk:'✅ 등록 완료! 환영합니다!',postOk:'✅ 게시했습니다! 감사합니다!',
-    tabLikedTxt:'좋아요한 게시물: 타마리 간장, 스리라차',tabSettingsTxt:'설정 / 알림 (준비 중)',
-    unknownCountry:'미입력',
-    terms:`[이용약관]
+    navLogo:'・ｸ・・﨑・・ｬ・・,heroTitle:'幻 ・ｸ・・・ｰ・ｸ・誤･ｼ ・ｾ・・ｳｴ・ｸ・・,heroSub:'・護亨ﾂｷ・懋ｲｬﾂｷ・ｵ・',
+    aiTitle:'AI・専ｲ・・ｻ・ｰ',aiSub:'・ｰ・ｸ・・AI ・ｴ・懍侃奓ｴ孖ｸ',aiWelcome:'・壱・﨑們┷・・ ・ｰ・ｸ・護乱 ・﨑ｴ ・尖蕩 ・ｼ・ｴ・ｴ・ｸ・・幻・・,
+    aiSend:'・ｴ・ｴ・ｰ',trendTitle:'孖ｸ・誤糖',trendSub:'・ｴ・・・ｼ',rankSub:'笶､・・・駆符・・・ｭ墲ｹ',
+    recoTitle:'・肥ｲ・・ｰ・ｸ・・,catTitle:'・ｴ奛語ｳ・ｬ',newTitle:'・懍侠 ・護亨・ｼ',postBtnTxt:'・ｰ・ｸ・・・護亨',
+    navMy:'・溢擽寬們擽・',navReg:'・ｱ・・,heroSearchBtn:'・・・,backBtn:'・護符・・ｰ',
+    flavorTitle:'・､・ｸ ・ｨ孖ｸ',intensityTitle:'・削寇﨑ｨﾂｷ嵂･ ・岺・,likeBtnTxt:'・駆符・・',editBtnTxt:'・護亨',
+    regTitle:'巐護寳・・・,lbNick:'・雅└・・,lbEmail:'・ｴ・肥攵',lbGender:'・ｱ・・,
+    lbPref:'・・ｭ',lbCity:'・・亨',lbBadge:'・ｸ・・・ｰ・',lbTerms:'・ｴ・ｩ・ｽ・',agreeLabel:'・ｴ・ｩ・ｽ・・・・呷攪﨑ｩ・壱共',regBtn:'・ｱ・・,
+    gMale:'・ｨ・ｱ',gFemale:'・ｬ・ｱ',gOther:'・ｰ夋',
+    postModalTitle:'・ｰ・ｸ・・・護亨',lbPName:'・ｴ・・,lbPCountry:'・川げ・',lbPCat:'・ｴ奛語ｳ・ｬ',lbPDesc:'・､・・,
+    lbFlavor:'峵鷺ｯｸ ・簿巡・・-10・・,lbPPhoto:'・ｬ・・ｼ溢擽・ｨ・・・,submitPostBtn:'・護亨',
+    fl0:'・ｨ・・,fl1:'・・・,fl2:'・・・,fl3:'・ｴ・・,fl4:'・川ｹ・・,fl5:'・､・ｴ・・,fl6:'・削寇﨑ｨ',fl7:'嵂･・ｰ',
+    cat0:'・､・ｴ',cat1:'・ｬ・､﨑・,cat2:'・',cat3:'・',cat4:'・川ｹ・・,cat5:'・懦圷',cat6:'弡溢・,cat7:'嵭壱ｸ・,
+    catKeys:['・､・ｴ','・ｬ・､﨑・,'・','・','・川ｹ・・,'・懦圷','弡溢・,'嵭壱ｸ・],
+    statPosts:'・護亨・ｼ',statLikes:'・駆符・・,statFollowers:'甯罷｡懍寥',tabPost:'・護亨・ｼ',tabLiked:'・駆符・・,tabSettings:'・､・・,editProfileBtn:'嵓・｡懦符 寬ｸ・・,mpBack:'嶹溢愍・・・護符・・ｰ',
+    flavorLabels:['・ｨ・・,'・・・,'・・・,'・ｴ・・,'・川ｹ・・,'・､・ｴ・・],
+    searchPh:'・ｰ・ｸ・・・・俄ｦ',imgUrlPh:'・尖株 ・ｴ・ｸ・ URL ・呷流・｣・ｰ (・夋・',aiPh:'・・ ・､・ｴ ・ｰ・ｸ・・・肥ｲ懦紛・・,
+    aiChips:['・､・ｴ ・ｰ・ｸ・・・肥ｲ懦紛・・,'・・棗 ・・･俾ｰ ・・ｸ逸紛','・懦圷 ・ｰ・ｸ・語ｰ ・ｸ・・・駆符?','・誤冠 ・ｰ・ｸ・・・溢牟?'],
+    badges:['・､・ｴ・幔血','・ｨ・幔血','・・ｰ・・,'・・享・ｼ・們梵','・・ｱｴ','・懦圷 ・壱笈・・,'・語ｸ・・壱笈・・,'・ｸ・晝ｰ'],
+    t1n:'・ｼ・',t1m:'・滝ｵｭﾂｷ・ｬ・・,t2n:'﨑俯ｦｬ・ｬ',t2m:'孖・溢ｧ',t3n:'・川ｹｴ',t3m:'・ｴ・啄敢',
+    r1n:'夋・壱ｦｬ ・・棗',r1m:'・ｼ・ｸ',r2n:'・､・ｬ・ｼ・ｨ',r2m:'夋懋ｵｭ',r3n:'嵓ｼ・ｬ・護侃',r3m:'夋懋ｵｭ',
+    regOk:'笨・・ｱ・・・・｣・ 嶹們・﨑ｩ・壱共!',postOk:'笨・・護亨嵂溢慣・壱共! ・川ぎ﨑ｩ・壱共!',
+    tabLikedTxt:'・駆符・被復 ・護亨・ｼ: 夋・壱ｦｬ ・・棗, ・､・ｬ・ｼ・ｨ',tabSettingsTxt:'・､・・/ ・誤ｦｼ (・・・・・',
+    unknownCountry:'・ｸ・・･',
+    terms:`[・ｴ・ｩ・ｽ・]
 
-제1조 목적: 전 세계 조미료 정보를 공유·발견하는 플랫폼입니다.
+・・・ｰ ・ｩ・・ ・・・ｸ・・・ｰ・ｸ・・・簿ｳｴ・ｼ ・ｵ・ﾂｷ・懋ｲｬ﨑俯株 嵓誤椨尞ｼ・・笈・､.
 
-제2조 금지사항: 비방, 허위정보, 스팸 게시물 금지.
+・・・ｰ ・溢ｧ・ｬ﨑ｭ: ・・ｰｩ, 嵭溢怱・簿ｳｴ, ・､甯ｸ ・護亨・ｼ ・溢ｧ.
 
-제3조 게시물: 저작권은 사용자에게 있습니다.
+・・・ｰ ・護亨・ｼ: ・・滝ｶ護捩 ・ｬ・ｩ・川乱・・・溢慣・壱共.
 
-제4조 개인정보: 서비스 개선 목적으로만 사용합니다.`,
+・・・ｰ ・懍攤・簿ｳｴ: ・罹ｹ・侃 ・懍│ ・ｩ・・愍・罹ｧ・・ｬ・ｩ﨑ｩ・壱共.`,
   },
   fr:{
-    navLogo:'Une Pincée du Monde',heroTitle:"🌶 Découvrez les condiments du monde",heroSub:'Publiez · Découvrez · Partagez',
-    aiTitle:"Demandez à l'IA",aiSub:'Assistant IA condiments',aiWelcome:'Bonjour! Posez-moi des questions sur les condiments 🌶️',
-    aiSend:'Envoyer',trendTitle:'Tendances',trendSub:'Cette semaine',rankSub:'❤️ Classement',
-    recoTitle:'Condiments recommandés',catTitle:'Catégories',newTitle:'Nouvelles publications',postBtnTxt:'Publier un condiment',
+    navLogo:'Une Pincﾃｩe du Monde',heroTitle:"幻 Dﾃｩcouvrez les condiments du monde",heroSub:'Publiez ﾂｷ Dﾃｩcouvrez ﾂｷ Partagez',
+    aiTitle:"Demandez ﾃ l'IA",aiSub:'Assistant IA condiments',aiWelcome:'Bonjour! Posez-moi des questions sur les condiments 幻・・,
+    aiSend:'Envoyer',trendTitle:'Tendances',trendSub:'Cette semaine',rankSub:'笶､・・Classement',
+    recoTitle:'Condiments recommandﾃｩs',catTitle:'Catﾃｩgories',newTitle:'Nouvelles publications',postBtnTxt:'Publier un condiment',
     navMy:'Mon profil',navReg:"S'inscrire",heroSearchBtn:'Chercher',backBtn:'Retour',
-    flavorTitle:'Graphique des saveurs',intensityTitle:'Intensité & Arôme',likeBtnTxt:"J'aime!",editBtnTxt:'Publier',
+    flavorTitle:'Graphique des saveurs',intensityTitle:'Intensitﾃｩ & Arﾃｴme',likeBtnTxt:"J'aime!",editBtnTxt:'Publier',
     regTitle:'Inscription',lbNick:'Pseudo',lbEmail:'Email',lbGender:'Genre',
-    lbPref:'Région',lbCity:'Ville',lbBadge:'Badges gustatifs',lbTerms:'Conditions',agreeLabel:"J'accepte les conditions",regBtn:"S'inscrire",
+    lbPref:'Rﾃｩgion',lbCity:'Ville',lbBadge:'Badges gustatifs',lbTerms:'Conditions',agreeLabel:"J'accepte les conditions",regBtn:"S'inscrire",
     gMale:'Homme',gFemale:'Femme',gOther:'Autre',
-    postModalTitle:'Publier un condiment',lbPName:'Nom',lbPCountry:'Origine',lbPCat:'Catégorie',lbPDesc:'Description',
-    lbFlavor:'Intensité des saveurs（1-10）',lbPPhoto:'Photo（emoji）',submitPostBtn:'Publier',
-    fl0:'Sucré',fl1:'Acide',fl2:'Salé',fl3:'Amer',fl4:'Umami',fl5:'Piquant',fl6:'Richesse',fl7:'Arôme',
-    cat0:'Piquant',cat1:'Sucré',cat2:'Acide',cat3:'Salé',cat4:'Umami',cat5:'Fermenté',cat6:'Fumé',cat7:'Herbes',
-    catKeys:['Piquant','Sucré','Acide','Salé','Umami','Fermenté','Fumé','Herbes'],
-    statPosts:'Publications',statLikes:"J'aime",statFollowers:'Abonnés',tabPost:'Publications',tabLiked:'Aimés',tabSettings:'Paramètres',editProfileBtn:'Modifier le profil',mpBack:'Retour à l\'accueil',
-    flavorLabels:['Sucré','Acide','Salé','Amer','Umami','Piquant'],
-    searchPh:'Rechercher un condiment…',imgUrlPh:"Ou collez une URL d'image (facultatif)",aiPh:'ex: Recommandez des condiments épicés',
-    aiChips:['Recommandez des condiments épicés','Quels types de sauce soja existent?','Les condiments fermentés sont-ils sains?','Un condiment polyvalent?'],
-    badges:['Amateur de piquant','Bec sucré','Bio','Végétarien','Vegan','Fan de fermenté','Maniaque du sel','Gourmet'],
-    t1n:'Huile pimentée',t1m:'Chine · Sichuan',t2n:'Harissa',t2m:'Tunisie',t3n:'Dukkah',t3m:'Égypte',
-    r1n:'Sauce soja tamari',r1m:'Japon',r2n:'Sriracha',r2m:'Thaïlande',r3n:'Nuoc-mâm',r3m:'Thaïlande',
-    regOk:'✅ Inscrit(e)! Bienvenue!',postOk:'✅ Publié! Merci!',
-    tabLikedTxt:'Publications aimées: Sauce soja tamari, Sriracha',tabSettingsTxt:'Paramètres / Notifications (bientôt)',
+    postModalTitle:'Publier un condiment',lbPName:'Nom',lbPCountry:'Origine',lbPCat:'Catﾃｩgorie',lbPDesc:'Description',
+    lbFlavor:'Intensitﾃｩ des saveurs・・-10・・,lbPPhoto:'Photo・・moji・・,submitPostBtn:'Publier',
+    fl0:'Sucrﾃｩ',fl1:'Acide',fl2:'Salﾃｩ',fl3:'Amer',fl4:'Umami',fl5:'Piquant',fl6:'Richesse',fl7:'Arﾃｴme',
+    cat0:'Piquant',cat1:'Sucrﾃｩ',cat2:'Acide',cat3:'Salﾃｩ',cat4:'Umami',cat5:'Fermentﾃｩ',cat6:'Fumﾃｩ',cat7:'Herbes',
+    catKeys:['Piquant','Sucrﾃｩ','Acide','Salﾃｩ','Umami','Fermentﾃｩ','Fumﾃｩ','Herbes'],
+    statPosts:'Publications',statLikes:"J'aime",statFollowers:'Abonnﾃｩs',tabPost:'Publications',tabLiked:'Aimﾃｩs',tabSettings:'Paramﾃｨtres',editProfileBtn:'Modifier le profil',mpBack:'Retour ﾃ l\'accueil',
+    flavorLabels:['Sucrﾃｩ','Acide','Salﾃｩ','Amer','Umami','Piquant'],
+    searchPh:'Rechercher un condiment窶ｦ',imgUrlPh:"Ou collez une URL d'image (facultatif)",aiPh:'ex: Recommandez des condiments ﾃｩpicﾃｩs',
+    aiChips:['Recommandez des condiments ﾃｩpicﾃｩs','Quels types de sauce soja existent?','Les condiments fermentﾃｩs sont-ils sains?','Un condiment polyvalent?'],
+    badges:['Amateur de piquant','Bec sucrﾃｩ','Bio','Vﾃｩgﾃｩtarien','Vegan','Fan de fermentﾃｩ','Maniaque du sel','Gourmet'],
+    t1n:'Huile pimentﾃｩe',t1m:'Chine ﾂｷ Sichuan',t2n:'Harissa',t2m:'Tunisie',t3n:'Dukkah',t3m:'ﾃ曳ypte',
+    r1n:'Sauce soja tamari',r1m:'Japon',r2n:'Sriracha',r2m:'Thaﾃｯlande',r3n:'Nuoc-mﾃ｢m',r3m:'Thaﾃｯlande',
+    regOk:'笨・Inscrit(e)! Bienvenue!',postOk:'笨・Publiﾃｩ! Merci!',
+    tabLikedTxt:'Publications aimﾃｩes: Sauce soja tamari, Sriracha',tabSettingsTxt:'Paramﾃｨtres / Notifications (bientﾃｴt)',
     unknownCountry:'Inconnu',
     terms:`[Conditions d'utilisation]
 
@@ -673,39 +650,39 @@ Article 2 Interdictions: Contenus diffamatoires, faux ou spam.
 
 Article 3 Contenu: L'utilisateur conserve ses droits mais autorise l'affichage.
 
-Article 4 Vie privée: Données utilisées uniquement pour améliorer le service.`,
+Article 4 Vie privﾃｩe: Donnﾃｩes utilisﾃｩes uniquement pour amﾃｩliorer le service.`,
   },
 };
 
 const sampleBase=[
-  {id:1,emoji:'🧄',img:'https://images.unsplash.com/photo-1631325026013-16eb55059579?auto=format&fit=crop&w=600&q=60',catIdx:4,ck:'japan',likes:482,flavor:[2,3,8,2,10,1],rich:9,aroma:8},
-  {id:2,emoji:'🌶️',img:'https://images.unsplash.com/photo-1757800499190-9927c5806d36?auto=format&fit=crop&w=600&q=60',catIdx:0,ck:'thailand',likes:391,flavor:[5,6,5,1,3,9],rich:6,aroma:7},
-  {id:3,emoji:'🫙',img:'https://images.unsplash.com/photo-1764312899300-e680811f58fb?auto=format&fit=crop&w=600&q=60',catIdx:0,ck:'tunisia',likes:287,flavor:[2,4,6,3,4,8],rich:8,aroma:9},
-  {id:4,emoji:'🫧',img:'https://images.unsplash.com/photo-1617908484839-c93c37c49ae3?auto=format&fit=crop&w=600&q=60',catIdx:3,ck:'thailand',likes:344,flavor:[1,4,9,2,8,1],rich:7,aroma:9},
-  {id:5,emoji:'🍯',img:'https://images.unsplash.com/photo-1480911620066-b6ccd99c48f3?auto=format&fit=crop&w=600&q=60',catIdx:1,ck:'japan',likes:201,flavor:[9,2,3,1,5,1],rich:6,aroma:7},
-  {id:6,emoji:'🍅',img:'https://images.unsplash.com/photo-1781460805187-51f03c7a2c61?auto=format&fit=crop&w=600&q=60',catIdx:2,ck:'italy',likes:178,flavor:[7,8,2,3,4,1],rich:9,aroma:8},
+  {id:1,emoji:'ｧ・,img:'https://images.unsplash.com/photo-1631325026013-16eb55059579?auto=format&fit=crop&w=600&q=60',catIdx:4,ck:'japan',likes:482,flavor:[2,3,8,2,10,1],rich:9,aroma:8},
+  {id:2,emoji:'幻・・,img:'https://images.unsplash.com/photo-1757800499190-9927c5806d36?auto=format&fit=crop&w=600&q=60',catIdx:0,ck:'thailand',likes:391,flavor:[5,6,5,1,3,9],rich:6,aroma:7},
+  {id:3,emoji:'ｫ・,img:'https://images.unsplash.com/photo-1764312899300-e680811f58fb?auto=format&fit=crop&w=600&q=60',catIdx:0,ck:'tunisia',likes:287,flavor:[2,4,6,3,4,8],rich:8,aroma:9},
+  {id:4,emoji:'ｫｧ',img:'https://images.unsplash.com/photo-1617908484839-c93c37c49ae3?auto=format&fit=crop&w=600&q=60',catIdx:3,ck:'thailand',likes:344,flavor:[1,4,9,2,8,1],rich:7,aroma:9},
+  {id:5,emoji:'艮',img:'https://images.unsplash.com/photo-1480911620066-b6ccd99c48f3?auto=format&fit=crop&w=600&q=60',catIdx:1,ck:'japan',likes:201,flavor:[9,2,3,1,5,1],rich:6,aroma:7},
+  {id:6,emoji:'劫',img:'https://images.unsplash.com/photo-1781460805187-51f03c7a2c61?auto=format&fit=crop&w=600&q=60',catIdx:2,ck:'italy',likes:178,flavor:[7,8,2,3,4,1],rich:9,aroma:8},
 ];
 const pNames={
-  ja:['醤油（たまり）','スリラチャ','ハリッサ','ナンプラー','みりん','バルサミコ酢'],
+  ja:['驢､豐ｹ・医◆縺ｾ繧奇ｼ・,'繧ｹ繝ｪ繝ｩ繝√Ε','繝上Μ繝・し','繝翫Φ繝励Λ繝ｼ','縺ｿ繧翫ｓ','繝舌Ν繧ｵ繝溘さ驟｢'],
   en:['Tamari Soy Sauce','Sriracha','Harissa','Fish Sauce','Mirin','Balsamic Vinegar'],
-  th:['ซอสถั่วเหลืองทามาริ','ซอสศรีราชา','ฮาริสสา','น้ำปลา','มิริน','น้ำส้มสายชูบัลซามิก'],
-  zh:['淡口酱油','是拉差','哈里萨','鱼露','味醂','意大利香醋'],
-  ko:['타마리 간장','스리라차','하리사','피쉬소스','미린','발사믹 식초'],
-  fr:['Sauce soja tamari','Sriracha','Harissa','Nuoc-mâm','Mirin','Vinaigre balsamique'],
+  th:['犧金ｸｭ犧ｪ犧籾ｸｱ犹謂ｸｧ犹犧ｫ犧･犧ｷ犧ｭ犧・ｸ伶ｸｲ犧｡犧ｲ犧｣犧ｴ','犧金ｸｭ犧ｪ犧ｨ犧｣犧ｵ犧｣犧ｲ犧癌ｸｲ','犧ｮ犧ｲ犧｣犧ｴ犧ｪ犧ｪ犧ｲ','犧吭ｹ霞ｸｳ犧巵ｸ･犧ｲ','犧｡犧ｴ犧｣犧ｴ犧・,'犧吭ｹ霞ｸｳ犧ｪ犹霞ｸ｡犧ｪ犧ｲ犧｢犧癌ｸｹ犧壟ｸｱ犧･犧金ｸｲ犧｡犧ｴ犧・],
+  zh:['豺｡蜿｣驟ｱ豐ｹ','譏ｯ諡牙ｷｮ','蜩磯㈹關ｨ','魍ｼ髴ｲ','蜻ｳ驢・,'諢丞､ｧ蛻ｩ鬥咎・'],
+  ko:['夋・壱ｦｬ ・・棗','・､・ｬ・ｼ・ｨ','﨑俯ｦｬ・ｬ','嵓ｼ・ｬ・護侃','・ｸ・ｰ','・懍ぎ・ｹ ・晧ｴ・],
+  fr:['Sauce soja tamari','Sriracha','Harissa','Nuoc-mﾃ｢m','Mirin','Vinaigre balsamique'],
 };
 const pDescs={
-  ja:['濃厚なうまみと深いコクが特徴の日本の伝統調味料。刺身・照り焼き・煮物に最適。','赤唐辛子と酢から作られたホットソース。甘みと酸味が辛さを際立たせる。','乾燥唐辛子・クミン・コリアンダーなどを合わせた北アフリカのペースト。','魚を発酵させた液体調味料。独特の香りとうまみが料理に深みを加える。','もち米を発酵させた甘い調味料。料理に艶と甘みを与える。','長期熟成されたワインビネガー。甘酸っぱく複雑な風味。'],
+  ja:['豼・字縺ｪ縺・∪縺ｿ縺ｨ豺ｱ縺・さ繧ｯ縺檎音蠕ｴ縺ｮ譌･譛ｬ縺ｮ莨晉ｵｱ隱ｿ蜻ｳ譁吶ょ絢霄ｫ繝ｻ辣ｧ繧顔┥縺阪・辣ｮ迚ｩ縺ｫ譛驕ｩ縲・,'襍､蜚占ｾ帛ｭ舌→驟｢縺九ｉ菴懊ｉ繧後◆繝帙ャ繝医た繝ｼ繧ｹ縲ら曝縺ｿ縺ｨ驟ｸ蜻ｳ縺瑚ｾ帙＆繧帝圀遶九◆縺帙ｋ縲・,'荵ｾ辯･蜚占ｾ帛ｭ舌・繧ｯ繝溘Φ繝ｻ繧ｳ繝ｪ繧｢繝ｳ繝繝ｼ縺ｪ縺ｩ繧貞粋繧上○縺溷圏繧｢繝輔Μ繧ｫ縺ｮ繝壹・繧ｹ繝医・,'鬲壹ｒ逋ｺ驟ｵ縺輔○縺滓ｶｲ菴楢ｪｿ蜻ｳ譁吶ら峡迚ｹ縺ｮ鬥吶ｊ縺ｨ縺・∪縺ｿ縺梧侭逅・↓豺ｱ縺ｿ繧貞刈縺医ｋ縲・,'繧ゅ■邀ｳ繧堤匱驟ｵ縺輔○縺溽曝縺・ｪｿ蜻ｳ譁吶よ侭逅・↓濶ｶ縺ｨ逕倥∩繧剃ｸ弱∴繧九・,'髟ｷ譛溽・謌舌＆繧後◆繝ｯ繧､繝ｳ繝薙ロ繧ｬ繝ｼ縲ら曝驟ｸ縺｣縺ｱ縺剰､・尅縺ｪ鬚ｨ蜻ｳ縲・],
   en:['Traditional Japanese condiment with rich umami. Perfect for sashimi, teriyaki, and simmered dishes.','Hot sauce made from red chili and vinegar. Sweetness amplifies the heat.','North African paste with dried chilies, cumin, and coriander.','Fermented fish liquid condiment. Unique aroma adds depth.','Sweet condiment from fermented glutinous rice. Adds glaze and sweetness.','Long-aged wine vinegar. Sweet, sour, and complex.'],
-  th:['เครื่องปรุงที่มีรสอูมามิเข้มข้น เหมาะสำหรับซาชิมิ เทริยากิ','ซอสร้อนทำจากพริกแดงและน้ำส้มสายชู มีความหวานและเปรี้ยวเล็กน้อย','เพสต์แอฟริกาเหนือทำจากพริกแห้ง ยี่หร่า และผักชี','เครื่องปรุงหมักจากปลา รสอูมามิเพิ่มความลึกให้อาหาร','เครื่องปรุงหวานจากข้าวเหนียวหมัก เพิ่มความวาวและหวาน','น้ำส้มสายชูบัลซามิกบ่มนาน รสหวานเปรี้ยวซับซ้อน'],
-  zh:['日本传统调味料，具有浓郁的鲜味。适合生鱼片、照烧和炖菜。','用红辣椒和醋制成的辣酱。微甜微酸突显辣味。','北非风味酱料，由干辣椒、孜然和香菜制成。','鱼发酵制成的液体调味料，鲜味为菜肴增添深度。','用糯米发酵制成的甜调味料，增添光泽和甜味。','长期陈酿的葡萄酒醋，甜酸复杂的风味。'],
-  ko:['풍부한 우마미가 특징인 일본 전통 조미료. 사시미, 데리야키, 조림에 최적.','빨간 고추와 식초로 만든 핫소스. 단맛이 매운맛을 높인다.','건조 고추, 쿠민, 고수로 만든 북아프리카 페이스트.','생선을 발효한 액체 조미료. 독특한 향과 우마미.','찹쌀을 발효한 달콤한 조미료. 요리에 윤기와 단맛을 더한다.','장기 숙성된 와인 식초. 달콤하고 복잡한 풍미.'],
-  fr:['Condiment japonais traditionnel au umami riche. Parfait pour sashimi et teriyaki.','Sauce piquante à base de piment rouge et vinaigre.','Pâte nord-africaine à base de piments séchés, cumin et coriandre.','Condiment liquide de poisson fermenté. Arôme unique et umami.','Condiment sucré à base de riz gluant fermenté.','Vinaigre de vin vieilli. Saveur douce-acide et complexe.'],
+  th:['犹犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｸ伶ｸｵ犹謂ｸ｡犧ｵ犧｣犧ｪ犧ｭ犧ｹ犧｡犧ｲ犧｡犧ｴ犹犧もｹ霞ｸ｡犧もｹ霞ｸ・犹犧ｫ犧｡犧ｲ犧ｰ犧ｪ犧ｳ犧ｫ犧｣犧ｱ犧壟ｸ金ｸｲ犧癌ｸｴ犧｡犧ｴ 犹犧伶ｸ｣犧ｴ犧｢犧ｲ犧≒ｸｴ','犧金ｸｭ犧ｪ犧｣犹霞ｸｭ犧吭ｸ伶ｸｳ犧謂ｸｲ犧≒ｸ樅ｸ｣犧ｴ犧≒ｹ≒ｸ扉ｸ・ｹ≒ｸ･犧ｰ犧吭ｹ霞ｸｳ犧ｪ犹霞ｸ｡犧ｪ犧ｲ犧｢犧癌ｸｹ 犧｡犧ｵ犧・ｸｧ犧ｲ犧｡犧ｫ犧ｧ犧ｲ犧吭ｹ≒ｸ･犧ｰ犹犧巵ｸ｣犧ｵ犹霞ｸ｢犧ｧ犹犧･犹・ｸ≒ｸ吭ｹ霞ｸｭ犧｢','犹犧樅ｸｪ犧歩ｹ呉ｹ≒ｸｭ犧游ｸ｣犧ｴ犧≒ｸｲ犹犧ｫ犧吭ｸｷ犧ｭ犧伶ｸｳ犧謂ｸｲ犧≒ｸ樅ｸ｣犧ｴ犧≒ｹ≒ｸｫ犹霞ｸ・犧｢犧ｵ犹謂ｸｫ犧｣犹謂ｸｲ 犹≒ｸ･犧ｰ犧憫ｸｱ犧≒ｸ癌ｸｵ','犹犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｸｫ犧｡犧ｱ犧≒ｸ謂ｸｲ犧≒ｸ巵ｸ･犧ｲ 犧｣犧ｪ犧ｭ犧ｹ犧｡犧ｲ犧｡犧ｴ犹犧樅ｸｴ犹謂ｸ｡犧・ｸｧ犧ｲ犧｡犧･犧ｶ犧≒ｹ・ｸｫ犹霞ｸｭ犧ｲ犧ｫ犧ｲ犧｣','犹犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｸｫ犧ｧ犧ｲ犧吭ｸ謂ｸｲ犧≒ｸもｹ霞ｸｲ犧ｧ犹犧ｫ犧吭ｸｵ犧｢犧ｧ犧ｫ犧｡犧ｱ犧・犹犧樅ｸｴ犹謂ｸ｡犧・ｸｧ犧ｲ犧｡犧ｧ犧ｲ犧ｧ犹≒ｸ･犧ｰ犧ｫ犧ｧ犧ｲ犧・,'犧吭ｹ霞ｸｳ犧ｪ犹霞ｸ｡犧ｪ犧ｲ犧｢犧癌ｸｹ犧壟ｸｱ犧･犧金ｸｲ犧｡犧ｴ犧≒ｸ壟ｹ謂ｸ｡犧吭ｸｲ犧・犧｣犧ｪ犧ｫ犧ｧ犧ｲ犧吭ｹ犧巵ｸ｣犧ｵ犹霞ｸ｢犧ｧ犧金ｸｱ犧壟ｸ金ｹ霞ｸｭ犧・],
+  zh:['譌･譛ｬ莨扈溯ｰ・袖譁呻ｼ悟・譛画ｵ馴メ逧・ｲ懷袖縲るょ粋逕滄ｱｼ迚・∫・辜ｧ蜥檎ｖ闖懊・,'逕ｨ郤｢霎｣讀貞柱驢句宛謌千噪霎｣驟ｱ縲ょｾｮ逕懷ｾｮ驟ｸ遯∵仞霎｣蜻ｳ縲・,'蛹鈴撼鬟主袖驟ｱ譁呻ｼ檎罰蟷ｲ霎｣讀偵∝ｭ懃┯蜥碁ｦ呵除蛻ｶ謌舌・,'魍ｼ蜿鷹・蛻ｶ謌千噪豸ｲ菴楢ｰ・袖譁呻ｼ碁ｲ懷袖荳ｺ闖懆ざ蠅樊ｷｻ豺ｱ蠎ｦ縲・,'逕ｨ邉ｯ邀ｳ蜿鷹・蛻ｶ謌千噪逕懆ｰ・袖譁呻ｼ悟｢樊ｷｻ蜈画ｳｽ蜥檎莫蜻ｳ縲・,'髟ｿ譛滄刪驟ｿ逧・贈關・・驢具ｼ檎莫驟ｸ螟肴揩逧・｣主袖縲・],
+  ko:['峵鷺ｶ﨑・・ｰ・壱ｯｸ・ 孖ｹ・菩攤 ・ｼ・ｸ ・・・ ・ｰ・ｸ・・ ・ｬ・罹ｯｸ, ・ｰ・ｬ・ｼ墲､, ・ｰ・ｼ・・・懍・','・ｨ・・・・肥凰 ・晧ｴ壱｡・・誤蕩 﨑ｫ・護侃. ・ｨ・幗擽 ・､・ｴ・幗揆 ・廷攤・､.','・ｴ・ｰ ・・・ ・・ｼ, ・・俯｡・・誤蕩 ・・符嵓・ｦｬ・ｴ 寬們擽・､孖ｸ.','・晧│・・・懦圷﨑・・｡・ｴ ・ｰ・ｸ・・ ・・柑﨑・嵂･・ｼ ・ｰ・壱ｯｸ.','・ｹ・・・・懦圷﨑・・ｬ・､﨑・・ｰ・ｸ・・ ・罷ｦｬ・・・､・ｰ・ ・ｨ・幗揆 ・被復・､.','・･・ｰ ・呷┳・・・・ｸ ・晧ｴ・ ・ｬ・､﨑俾ｳ ・ｵ・｡﨑・峵鷺ｯｸ.'],
+  fr:['Condiment japonais traditionnel au umami riche. Parfait pour sashimi et teriyaki.','Sauce piquante ﾃ base de piment rouge et vinaigre.','Pﾃ｢te nord-africaine ﾃ base de piments sﾃｩchﾃｩs, cumin et coriandre.','Condiment liquide de poisson fermentﾃｩ. Arﾃｴme unique et umami.','Condiment sucrﾃｩ ﾃ base de riz gluant fermentﾃｩ.','Vinaigre de vin vieilli. Saveur douce-acide et complexe.'],
 };
 const cnames={
-  japan:{ja:'日本',en:'Japan',th:'ญี่ปุ่น',zh:'日本',ko:'일본',fr:'Japon'},
-  thailand:{ja:'タイ',en:'Thailand',th:'ไทย',zh:'泰国',ko:'태국',fr:'Thaïlande'},
-  tunisia:{ja:'チュニジア',en:'Tunisia',th:'ตูนิเซีย',zh:'突尼斯',ko:'튀니지',fr:'Tunisie'},
-  italy:{ja:'イタリア',en:'Italy',th:'อิตาลี',zh:'意大利',ko:'이탈리아',fr:'Italie'},
+  japan:{ja:'譌･譛ｬ',en:'Japan',th:'犧財ｸｵ犹謂ｸ巵ｸｸ犹謂ｸ・,zh:'譌･譛ｬ',ko:'・ｼ・ｸ',fr:'Japon'},
+  thailand:{ja:'繧ｿ繧､',en:'Thailand',th:'犹・ｸ伶ｸ｢',zh:'豕ｰ蝗ｽ',ko:'夋懋ｵｭ',fr:'Thaﾃｯlande'},
+  tunisia:{ja:'繝√Η繝九ず繧｢',en:'Tunisia',th:'犧歩ｸｹ犧吭ｸｴ犹犧金ｸｵ犧｢',zh:'遯∝ｰｼ譁ｯ',ko:'孖・溢ｧ',fr:'Tunisie'},
+  italy:{ja:'繧､繧ｿ繝ｪ繧｢',en:'Italy',th:'犧ｭ犧ｴ犧歩ｸｲ犧･犧ｵ',zh:'諢丞､ｧ蛻ｩ',ko:'・ｴ夋壱ｦｬ・・,fr:'Italie'},
 };
 
 let lang='ja', posts=[], curPost=null;
@@ -750,7 +727,7 @@ function photoHtml(p){
   return p.img?`<img src="${p.img}" alt="${esc(p.name||'')}" loading="lazy">`:p.emoji;
 }
 
-// Carousel — top-liked condiments, auto-rotating
+// Carousel 窶・top-liked condiments, auto-rotating
 let carIdx=0, carTimer=null;
 function renderCarousel(){
   const items=[...posts].sort((a,b)=>b.likes-a.likes).slice(0,5);
@@ -759,11 +736,11 @@ function renderCarousel(){
     <div class="car-slide" onclick="openDetail(${p.id})">
       <span class="car-emoji">${photoHtml(p)}</span>
       <div class="car-info">
-        <p class="car-eyebrow">${p.country} • ${p.cat}</p>
+        <p class="car-eyebrow">${p.country} 窶｢ ${p.cat}</p>
         <p class="car-name">${p.name}</p>
         <p class="car-meta">${p.desc||''}</p>
       </div>
-      <span class="car-heart">❤️ ${p.likes}</span>
+      <span class="car-heart">笶､・・${p.likes}</span>
     </div>`).join('');
   document.getElementById('carouselDots').innerHTML=items.map((_,i)=>
     `<span class="car-dot${i===0?' active':''}" onclick="event.stopPropagation();carouselGoTo(${i})"></span>`).join('');
@@ -802,7 +779,7 @@ function renderPosts(list){
         <span class="post-tag">${p.cat}</span>
         <div class="post-footer">
           <span class="post-user">${p.country}</span>
-          <span class="post-likes">❤️ ${p.likes}</span>
+          <span class="post-likes">笶､・・${p.likes}</span>
         </div>
       </div>
     </div>`).join('');
@@ -818,7 +795,7 @@ function openDetail(id){
   const t=T[lang];
   document.getElementById('dEmoji').innerHTML=photoHtml(p);
   document.getElementById('dTitle').textContent=p.name;
-  document.getElementById('dSub').textContent=p.country+' • '+p.cat;
+  document.getElementById('dSub').textContent=p.country+' 窶｢ '+p.cat;
   document.getElementById('dTags').innerHTML=
     `<span class="detail-tag">${p.cat}</span><span class="detail-tag">${p.country}</span>`;
   document.getElementById('dDesc').textContent=p.desc;
@@ -904,12 +881,12 @@ function doRegister(){
   const email=document.getElementById('regEmail').value.trim();
   const agree=document.getElementById('agreeCheck').checked;
   const t=T[lang];
-  if(!nick||!email){ alert(lang==='ja'?'ニックネームとメールアドレスは必須です':'Nickname and email are required'); return; }
-  if(!agree){ alert(lang==='ja'?'利用規約に同意してください':'Please agree to the terms'); return; }
+  if(!nick||!email){ alert(lang==='ja'?'繝九ャ繧ｯ繝阪・繝縺ｨ繝｡繝ｼ繝ｫ繧｢繝峨Ξ繧ｹ縺ｯ蠢・医〒縺・:'Nickname and email are required'); return; }
+  if(!agree){ alert(lang==='ja'?'蛻ｩ逕ｨ隕冗ｴ・↓蜷梧э縺励※縺上□縺輔＞':'Please agree to the terms'); return; }
   document.getElementById('mpName').textContent=nick;
   const pref=document.getElementById('regPref').value;
   const city=document.getElementById('regCity').value;
-  if(pref) document.getElementById('mpLoc').textContent='📍 '+pref+(city?' '+city:'');
+  if(pref) document.getElementById('mpLoc').textContent='桃 '+pref+(city?' '+city:'');
   const badges=[...document.querySelectorAll('#badgeGrid .badge-opt.sel')].map(b=>b.querySelector('span:last-child').textContent);
   if(badges.length) document.getElementById('mpBadges').innerHTML=badges.map(b=>`<span class="badge-pill">${b}</span>`).join('');
   const ok=document.getElementById('regOk');
@@ -924,7 +901,7 @@ function sv(el,id){ document.getElementById(id).textContent=el.value; }
 function submitPost(){
   const name=document.getElementById('pName').value.trim();
   const t=T[lang];
-  if(!name){ alert(lang==='ja'?'調味料名を入力してください':'Please enter a name'); return; }
+  if(!name){ alert(lang==='ja'?'隱ｿ蜻ｳ譁吝錐繧貞・蜉帙＠縺ｦ縺上□縺輔＞':'Please enter a name'); return; }
   const sliders=[...document.querySelectorAll('#postModal input[type=range]')].map(r=>parseInt(r.value));
   userPosts.unshift({
     id:Date.now(),
@@ -987,27 +964,9 @@ function mpTab(btn,tab){
   else c.innerHTML=`<p style="font-size:13px;color:var(--txt2);padding:1rem">${t.tabSettingsTxt}</p>`;
 }
 
-// AI chat — Gemini API
+// AI chat 窶・calls a proxy server that holds the Gemini API key, so visitors need no key of their own
+const WORKER_URL='https://sekai-ai-proxy.bv22048.workers.dev/';
 let chatHistory=[];
-
-function toggleKeyBar(){
-  const bar=document.getElementById('aiKeyBar');
-  bar.classList.toggle('hidden');
-  if(!bar.classList.contains('hidden')){
-    const saved=localStorage.getItem('gemini_key');
-    if(saved) document.getElementById('apiKeyInput').value=saved;
-    document.getElementById('apiKeyInput').focus();
-  }
-}
-
-function saveApiKey(){
-  const k=document.getElementById('apiKeyInput').value.trim();
-  if(k){
-    localStorage.setItem('gemini_key',k);
-    appendMsg('ai','✅ APIキーを保存しました。会話をどうぞ！');
-  }
-  document.getElementById('aiKeyBar').classList.add('hidden');
-}
 
 function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
@@ -1019,42 +978,13 @@ function appendMsg(role,text){
 }
 
 const sysPrompts={
-  ja:'あなたは世界中の調味料の専門家AIです。「世界のひとさじ」という調味料共有サービスのアシスタントとして、日本語で簡潔に（2〜4文）回答してください。',
+  ja:'縺ゅ↑縺溘・荳也阜荳ｭ縺ｮ隱ｿ蜻ｳ譁吶・蟆る摩螳ｶAI縺ｧ縺吶ゅ御ｸ也阜縺ｮ縺ｲ縺ｨ縺輔§縲阪→縺・≧隱ｿ蜻ｳ譁吝・譛峨し繝ｼ繝薙せ縺ｮ繧｢繧ｷ繧ｹ繧ｿ繝ｳ繝医→縺励※縲∵律譛ｬ隱槭〒邁｡貎斐↓・・縲・譁・ｼ牙屓遲斐＠縺ｦ縺上□縺輔＞縲・,
   en:'You are an expert AI on condiments worldwide. Answer concisely in English (2-4 sentences) as an assistant for "A Pinch of the World" condiment sharing service.',
-  th:'คุณเป็น AI ผู้เชี่ยวชาญด้านเครื่องปรุงทั่วโลก ตอบเป็นภาษาไทย (2-4 ประโยค)',
-  zh:'你是一位世界调味料专家AI，用中文简洁回答（2-4句）。',
-  ko:'당신은 세계 조미료 전문가 AI입니다. 한국어로 간결하게(2-4문장) 답해주세요.',
-  fr:"Vous êtes un expert IA en condiments du monde entier. Répondez en français (2-4 phrases).",
+  th:'犧・ｸｸ犧内ｹ犧巵ｹ・ｸ・AI 犧憫ｸｹ犹霞ｹ犧癌ｸｵ犹謂ｸ｢犧ｧ犧癌ｸｲ犧財ｸ扉ｹ霞ｸｲ犧吭ｹ犧・ｸ｣犧ｷ犹謂ｸｭ犧・ｸ巵ｸ｣犧ｸ犧・ｸ伶ｸｱ犹謂ｸｧ犹もｸ･犧・犧歩ｸｭ犧壟ｹ犧巵ｹ・ｸ吭ｸ犧ｲ犧ｩ犧ｲ犹・ｸ伶ｸ｢ (2-4 犧巵ｸ｣犧ｰ犹もｸ｢犧・',
+  zh:'菴譏ｯ荳菴堺ｸ也阜隹・袖譁吩ｸ灘ｮｶAI・檎畑荳ｭ譁・ｮ豢∝屓遲費ｼ・-4蜿･・峨・,
+  ko:'・ｹ・・ ・ｸ・・・ｰ・ｸ・・・・ｬｸ・ AI・・笈・､. 﨑懋ｵｭ・ｴ・・・・ｲｰ﨑俾ｲ・2-4・ｸ・･) ・ｵ﨑ｴ・ｼ・ｸ・・',
+  fr:"Vous ﾃｪtes un expert IA en condiments du monde entier. Rﾃｩpondez en franﾃｧais (2-4 phrases).",
 };
-
-// 利用可能なモデルを自動検出してキャッシュ（安定した flash 系を優先、混雑時は自動フォールバック）
-let modelCandidates=null;
-let modelIdx=0;
-
-function modelScore(name){
-  let s=0;
-  if(/flash/i.test(name)) s+=3;
-  if(/latest/i.test(name)) s+=2;
-  if(/pro/i.test(name)) s+=1;
-  if(/exp|preview|thinking/i.test(name)) s-=5;
-  return s;
-}
-
-async function loadModelCandidates(key){
-  const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${key}`);
-  const data=await res.json();
-  if(!res.ok) throw new Error(data?.error?.message||'モデル一覧の取得に失敗しました');
-  const list=(data.models||[])
-    .filter(m=>m.supportedGenerationMethods?.includes('generateContent')&&/gemini/i.test(m.name))
-    .map(m=>m.name.replace('models/',''));
-  if(!list.length) throw new Error('generateContent 対応モデルが見つかりませんでした');
-  list.sort((a,b)=>modelScore(b)-modelScore(a));
-  return list;
-}
-
-function isOverloaded(status,data){
-  return status===503||data?.error?.status==='UNAVAILABLE';
-}
 
 // Suggested-question chips
 function renderAiChips(){
@@ -1075,13 +1005,6 @@ async function sendChat(){
   inp.disabled=true;
   document.getElementById('aiSend').disabled=true;
 
-  const key=localStorage.getItem('gemini_key');
-  if(!key){
-    appendMsg('ai','🔑 APIキーが未設定です。右上の🔑ボタンから Gemini APIキーを入力してください。');
-    inp.disabled=false; document.getElementById('aiSend').disabled=false;
-    return;
-  }
-
   const msgs=document.getElementById('chatMsgs');
   const tid='t'+Date.now();
   msgs.innerHTML+=`<div class="ai-typing" id="${tid}"><span></span><span></span><span></span></div>`;
@@ -1092,51 +1015,30 @@ async function sendChat(){
   const sys=sysPrompts[lang]||sysPrompts.en;
   const contents=[
     {role:'user',  parts:[{text:sys}]},
-    {role:'model', parts:[{text:'はい、承知しました。調味料の専門家として回答します。'}]},
+    {role:'model', parts:[{text:'縺ｯ縺・∵価遏･縺励∪縺励◆縲りｪｿ蜻ｳ譁吶・蟆る摩螳ｶ縺ｨ縺励※蝗樒ｭ斐＠縺ｾ縺吶・}]},
     ...chatHistory,
   ];
 
   try{
-    if(!modelCandidates){ modelCandidates=await loadModelCandidates(key); modelIdx=0; }
-
-    let data,ok,lastErr;
-    for(let attempt=0;attempt<4;attempt++){
-      const model=modelCandidates[modelIdx];
-      const res=await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
-        {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body:JSON.stringify({contents})
-        }
-      );
-      data=await res.json();
-      ok=res.ok;
-      if(ok) break;
-      lastErr=data?.error?.message||'APIエラー';
-      if(!isOverloaded(res.status,data)) break;
-      if(modelIdx<modelCandidates.length-1){
-        modelIdx++;
-        appendMsg('ai',`⏳ ${model} が混雑しているため ${modelCandidates[modelIdx]} に切り替えて再試行します…`);
-      } else {
-        await new Promise(r=>setTimeout(r,1000*2**attempt));
-      }
-    }
-
+    const res=await fetch(WORKER_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({contents})
+    });
+    const data=await res.json();
     document.getElementById(tid)?.remove();
-    if(!ok){
-      appendMsg('ai','⚠️ '+lastErr);
+    if(!res.ok){
+      appendMsg('ai','笞・・'+(data?.error?.message||'API繧ｨ繝ｩ繝ｼ'));
       chatHistory.pop();
     } else {
-      const reply=data.candidates?.[0]?.content?.parts?.[0]?.text||'（回答なし）';
+      const reply=data.candidates?.[0]?.content?.parts?.[0]?.text||'・亥屓遲斐↑縺暦ｼ・;
       chatHistory.push({role:'model',parts:[{text:reply}]});
       appendMsg('ai',reply);
     }
   } catch(e){
     document.getElementById(tid)?.remove();
-    appendMsg('ai','⚠️ '+e.message);
+    appendMsg('ai','笞・・'+e.message);
     chatHistory.pop();
-    modelCandidates=null;
   }
 
   inp.disabled=false; document.getElementById('aiSend').disabled=false;
